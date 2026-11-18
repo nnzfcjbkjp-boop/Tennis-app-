@@ -1,37 +1,46 @@
-<!DOCTYPE html>
-<html lang="nl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🎾 Tennis Omzet Calculator</title>
+let privelessen = 0;
+let groepslessen = 0;
 
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+function voegPriveToe() {
+    privelessen++;
+    updateDashboard();
+}
 
-    <div class="container">
+function voegGroepToe() {
+    groepslessen++;
+    updateDashboard();
+}
 
-        <h1>🎾 Tennis Omzet Calculator</h1>
+function resetVandaag() {
+    privelessen = 0;
+    groepslessen = 0;
 
-        <input
-            type="number"
-            id="Priveles"
-            placeholder="Aantal privélessen">
+    updateDashboard();
+}
 
-        <input
-            type="number"
-            id="Groepsles"
-            placeholder="Aantal groepslessen">
+function updateDashboard() {
 
-        <button onclick="berekenTotaal()">
-            Bereken omzet
-        </button>
+    const TARIEF_PRIVE = 63;
+    const TARIEF_GROEP = 67;
 
-        <div id="resultaatTotaal"></div>
+    let omzetIncl =
+        (privelessen * TARIEF_PRIVE) +
+        (groepslessen * TARIEF_GROEP);
 
-    </div>
+    let omzetExcl = omzetIncl / 1.21;
+    let btw = omzetIncl - omzetExcl;
 
-    <script src="script.js"></script>
+    document.getElementById("dashboard").innerHTML =
+    `
+    <h3>Vandaag</h3>
 
-</body>
-</html>
+    Privélessen: ${privelessen}<br>
+    Groepslessen: ${groepslessen}<br><br>
+
+    Omzet incl. BTW: €${omzetIncl.toFixed(2)}<br>
+    Omzet excl. BTW: €${omzetExcl.toFixed(2)}<br>
+    BTW: €${btw.toFixed(2)}
+    `;
+}
+
+updateDashboard();
