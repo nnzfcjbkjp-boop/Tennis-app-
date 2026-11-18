@@ -1,50 +1,98 @@
+/* Algemene pagina */
+
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f6f8;
+    background-color: #eeeeee;
+    margin: 0;
     padding: 20px;
 }
 
+/* Hoofdcontainer */
+
 .container {
     max-width: 500px;
-    margin: auto;
+    margin: 30px auto;
     background: white;
-    padding: 25px;
-    border-radius: 15px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-
-.reset-button {
-    background: #d9534f;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
+
+/* Titel */
 
 h1 {
     text-align: center;
     color: #2e8b57;
+    margin-bottom: 30px;
 }
 
-input {
-    width: 100%;
-    padding: 12px;
-    margin-bottom: 10px;
-    box-sizing: border-box;
-}
+/* Alle knoppen */
 
 button {
     width: 100%;
-    padding: 12px;
-    background: #2e8b57;
+    padding: 16px;
+    margin-bottom: 12px;
+
+    background-color: #2e8b57;
     color: white;
+
     border: none;
-    border-radius: 8px;
-    margin-bottom: 10px;
+    border-radius: 10px;
+
+    font-size: 16px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.2s;
 }
 
+/* Hover-effect */
 
-}
 button:hover {
-    background: #246e45;
+    background-color: #246e45;
 }
 
-#resultaatTotaal {
-    margin-top: 20px;
+/* Reset knop */
+
+.reset-button {
+    background-color: #d9534f;
+}
+
+.reset-button:hover {
+    background-color: #c9302c;
+}
+
+/* Dashboard */
+
+#dashboard {
+    margin-top: 25px;
+    padding: 20px;
+
+    background-color: #f8f8f8;
+
+    border-radius: 12px;
+
     line-height: 1.8;
+}
+
+/* Dashboard titel */
+
+#dashboard h2 {
+    margin-top: 0;
+    color: #2e8b57;
+}
+
+/* Mobiele telefoons */
+
+@media (max-width: 600px) {
+
+    .container {
+        padding: 20px;
+    }
+
+    button {
+        font-size: 18px;
+        padding: 18px;
+    }
 }
