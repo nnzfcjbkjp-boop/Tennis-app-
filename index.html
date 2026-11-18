@@ -1,46 +1,51 @@
-let privelessen = 0;
-let groepslessen = 0;
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎾 Tennis Omzet Calculator</title>
 
-function voegPriveToe() {
-    privelessen++;
-    updateDashboard();
-}
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
-function voegGroepToe() {
-    groepslessen++;
-    updateDashboard();
-}
+    <div class="container">
 
-function resetVandaag() {
-    privelessen = 0;
-    groepslessen = 0;
+        <h1>🎾 Tennis Omzet Calculator</h1>
 
-    updateDashboard();
-}
+        <input
+            type="number"
+            id="Priveles"
+            placeholder="Aantal privélessen">
 
-function updateDashboard() {
+        <input
+            type="number"
+            id="Groepsles"
+            placeholder="Aantal groepslessen">
 
-    const TARIEF_PRIVE = 63;
-    const TARIEF_GROEP = 67;
+        <button onclick="berekenTotaal()">
+            Bereken omzet
+        </button>
+        
+<button onclick="voegPriveToe()">
+    + Privéles
+</button>
 
-    let omzetIncl =
-        (privelessen * TARIEF_PRIVE) +
-        (groepslessen * TARIEF_GROEP);
+<button onclick="voegGroepToe()">
+    + Groepsles
+</button>
 
-    let omzetExcl = omzetIncl / 1.21;
-    let btw = omzetIncl - omzetExcl;
+<button onclick="resetVandaag()">
+    Reset
+</button>
 
-    document.getElementById("dashboard").innerHTML =
-    `
-    <h3>Vandaag</h3>
+<div id="dashboard"></div>
+        
+        <div id="resultaatTotaal"></div>
 
-    Privélessen: ${privelessen}<br>
-    Groepslessen: ${groepslessen}<br><br>
+    </div>
 
-    Omzet incl. BTW: €${omzetIncl.toFixed(2)}<br>
-    Omzet excl. BTW: €${omzetExcl.toFixed(2)}<br>
-    BTW: €${btw.toFixed(2)}
-    `;
-}
+    <script src="script.js"></script>
 
-updateDashboard();
+</body>
+</html>
