@@ -45,6 +45,17 @@ button {
     cursor: pointer;
 
     transition: 0.2s;
+    
+}
+
+/* Add button*/
+.add-button {
+    background: #2e8b57;
+}
+
+/* Minus button*/
+.minus-button {
+    background: #f0ad4e;
 }
 
 /* Hover-effect */
