@@ -24,8 +24,36 @@ function voegPriveToe() {
     updateDashboard();
 }
 
+function verwijderPrive() {
+
+    if (privelessen > 0) {
+        privelessen--;
+    }
+
+    localStorage.setItem(
+        "privelessen",
+        privelessen
+    );
+
+    updateDashboard();
+}
+
 function voegGroepToe() {
     groepslessen++;
+
+    localStorage.setItem(
+        "groepslessen",
+        groepslessen
+    );
+
+    updateDashboard();
+}
+
+function verwijderGroep() {
+
+    if (groepslessen > 0) {
+        groepslessen--;
+    }
 
     localStorage.setItem(
         "groepslessen",
