@@ -48,16 +48,6 @@ button {
     
 }
 
-/* Add-button*/
-.add-button {
-    background: #2e8b57;
-}
-
-/* Minus-button*/
-.minus-button {
-    background: #f0ad4e;
-}
-
 /* Hover-effect */
 
 button:hover {
@@ -106,4 +96,12 @@ button:hover {
         font-size: 18px;
         padding: 18px;
     }
+    
+ .minus-button {
+    background-color: #f0ad4e;
 }
+
+.minus-button:hover {
+    background-color: #ec971f;
+}   
+
