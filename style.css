@@ -1,16 +1,12 @@
-/* Algemene pagina */
-
 body {
     font-family: Arial, sans-serif;
-    background-color: #eeeeee;
+    background-color: #ececec;
     margin: 0;
     padding: 20px;
 }
 
-/* Hoofdcontainer */
-
 .container {
-    max-width: 500px;
+    max-width: 550px;
     margin: 30px auto;
     background: white;
     padding: 30px;
@@ -18,20 +14,26 @@ body {
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
-/* Titel */
-
 h1 {
     text-align: center;
     color: #2e8b57;
     margin-bottom: 30px;
 }
 
-/* Alle knoppen */
+/* Rij met knoppen */
+
+.button-row {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 12px;
+}
+
+/* Algemene knop */
 
 button {
-    width: 100%;
+    flex: 1;
+
     padding: 16px;
-    margin-bottom: 12px;
 
     background-color: #2e8b57;
     color: white;
@@ -44,20 +46,29 @@ button {
 
     cursor: pointer;
 
-    transition: 0.2s;
-    
+    transition: 0.2s ease;
 }
-
-/* Hover-effect */
 
 button:hover {
     background-color: #246e45;
 }
 
+/* Min-knoppen */
+
+.minus-button {
+    background-color: #f0ad4e;
+}
+
+.minus-button:hover {
+    background-color: #ec971f;
+}
+
 /* Reset knop */
 
 .reset-button {
+    width: 100%;
     background-color: #d9534f;
+    margin-top: 10px;
 }
 
 .reset-button:hover {
@@ -70,7 +81,7 @@ button:hover {
     margin-top: 25px;
     padding: 20px;
 
-    background-color: #f8f8f8;
+    background-color: #f7f7f7;
 
     border-radius: 12px;
 
@@ -80,28 +91,20 @@ button:hover {
 /* Dashboard titel */
 
 #dashboard h2 {
-    margin-top: 0;
     color: #2e8b57;
+    margin-top: 0;
 }
 
-/* Mobiele telefoons */
+/* Mobiel */
 
 @media (max-width: 600px) {
 
-    .container {
-        padding: 20px;
+    .button-row {
+        flex-direction: column;
     }
 
     button {
-        font-size: 18px;
-        padding: 18px;
+        width: 100%;
     }
-    
- .minus-button {
-    background-color: #f0ad4e;
 }
-
-.minus-button:hover {
-    background-color: #ec971f;
-}   
 
