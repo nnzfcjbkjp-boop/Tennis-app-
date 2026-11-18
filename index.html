@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="nl">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,40 +8,43 @@
 
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
     <div class="container">
 
         <h1>🎾 Tennis Omzet Calculator</h1>
 
-        
-<button onclick="voegPriveToe()">
-    + Privéles
-</button>
+        <div class="button-row">
+            <button onclick="voegPriveToe()">
+                + Privéles
+            </button>
 
-<button class="minus-button" onclick="verwijderPrive()">
-    - Privéles
-</button>
+            <button class="minus-button" onclick="verwijderPrive()">
+                - Privéles
+            </button>
+        </div>
 
-<button onclick="voegGroepToe()">
-    + Groepsles
-</button>
-        
-<button class="minus-button" onclick="verwijderGroep()">
-    - Groepsles
-</button>
-        
-<button class="reset-button" onclick="resetVandaag()">
-    Reset
-</button>
+        <div class="button-row">
+            <button onclick="voegGroepToe()">
+                + Groepsles
+            </button>
 
-<div id="dashboard"></div>
-        
-        <div id="resultaatTotaal"></div>
+            <button class="minus-button" onclick="verwijderGroep()">
+                - Groepsles
+            </button>
+        </div>
+
+        <button class="reset-button" onclick="resetVandaag()">
+            Reset
+        </button>
+
+        <div id="dashboard"></div>
 
     </div>
 
     <script src="script.js"></script>
 
 </body>
+
 </html>
