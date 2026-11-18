@@ -40,6 +40,9 @@ button {
     font-weight: bold;
 }
 
+.reset-button {
+    background: #d9534f;
+}
 button:hover {
     background: #246e45;
 }
