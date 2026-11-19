@@ -2,82 +2,90 @@ body {
     margin: 0;
     padding: 20px;
 
-    background: #f4f4f4;
+    background: #f3f3f3;
 
     font-family: Arial, sans-serif;
 }
 
-.app {
+.container {
     max-width: 600px;
     margin: auto;
 }
 
 h1 {
     color: #2f8f57;
-    font-size: 42px;
+    font-size: 48px;
     margin-bottom: 10px;
 }
 
 .datum {
-    font-size: 20px;
+    font-size: 22px;
+    color: #697171;
     font-weight: bold;
-    color: #707878;
     margin-bottom: 20px;
 }
 
 .card {
     background: white;
-    border-radius: 25px;
+
     padding: 25px;
+
+    border-radius: 25px;
+
     margin-bottom: 25px;
 }
 
-.groteOmzet {
-    font-size: 60px;
+.grote-omzet {
+    font-size: 64px;
     font-weight: bold;
+
     color: #2f8f57;
-    margin-top: 15px;
 }
 
 .subtekst {
-    font-size: 20px;
-    color: #707878;
     margin-top: 10px;
+
+    color: #697171;
+
+    font-size: 22px;
 }
 
-.statistieken {
+.stats {
     display: flex;
-    justify-content: space-between;
+
+    justify-content: space-around;
+
     margin-top: 25px;
 }
 
-.statGetal {
+.stat-getal {
     font-size: 50px;
     color: #2f8f57;
     font-weight: bold;
 }
 
-.sectieTitel {
-    margin-bottom: 20px;
-}
-
 .knoppen {
     display: flex;
+
     gap: 15px;
+
+    margin-bottom: 15px;
 }
 
 .knoppen button {
     flex: 1;
 
-    border: none;
-    border-radius: 20px;
-
     background: #2f8f57;
+
     color: white;
 
-    padding: 30px 10px;
+    border: none;
 
-    font-size: 22px;
+    border-radius: 20px;
+
+    padding: 30px;
+
+    font-size: 24px;
     font-weight: bold;
 
     cursor: pointer;
@@ -85,29 +93,65 @@ h1 {
 
 .knoppen button span {
     display: block;
+
+    margin-top: 15px;
+
     font-size: 18px;
     font-weight: normal;
-    margin-top: 15px;
 }
 
 .reset-button {
+
     width: 100%;
-    margin-top: 15px;
-
-    border: none;
-    border-radius: 15px;
-
-    background: #d9534f;
-    color: white;
 
     padding: 16px;
 
+    border: none;
+
+    border-radius: 15px;
+
+    background: #d9534f;
+
+    color: white;
+
     font-size: 18px;
+
+    margin-bottom: 25px;
+}
+
+.regel {
+    display: flex;
+
+    justify-content: space-between;
+
+    margin: 20px 0;
+
+    font-size: 22px;
+}
+
+.regel span {
+    color: #697171;
+}
+
+.totaal-regel {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    font-size: 30px;
+
+    font-weight: bold;
+}
+
+.totaal-regel strong {
+    color: #2f8f57;
 }
 
 @media(max-width:600px){
 
-    .knoppen {
+    .knoppen{
         flex-direction: column;
     }
 
