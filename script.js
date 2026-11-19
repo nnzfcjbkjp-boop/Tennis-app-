@@ -30,6 +30,44 @@ function resetVandaag() {
     updateDashboard();
 }
 
+function maakOngedaan() {
+
+    if (lessen.length === 0) {
+        return;
+    }
+
+    lessen.pop();
+
+    opslaan();
+
+    updateDashboard();
+}
+
+function verwijderLes(index) {
+
+    let vandaagLessen =
+        lessen.filter(
+            les => les.datum === vandaag()
+        );
+
+    let lesOmTeVerwijderen =
+        vandaagLessen[index];
+
+    let origineelIndex =
+        lessen.indexOf(
+            lesOmTeVerwijderen
+        );
+
+    lessen.splice(
+        origineelIndex,
+        1
+    );
+
+    opslaan();
+
+    updateDashboard();
+}
+
 function opslaan() {
 
     localStorage.setItem(
@@ -92,6 +130,32 @@ function updateDashboard() {
 
     document.getElementById("kaartIncl").innerText =
         euro(omzetIncl);
+    let html = "";
+
+lessenVandaag.forEach((les, index) => {
+
+    let naam =
+        les.type === "prive"
+        ? "🎾 Privéles"
+        : "🎾 Groepsles";
+
+    html += `
+        <div class="les-item">
+
+            <span>${naam}</span>
+
+            <button
+                class="verwijder-knop"
+                onclick="verwijderLes(${index})">
+                Verwijder
+            </button>
+
+        </div>
+    `;
+});
+
+document.getElementById("lessenLijst").innerHTML =
+    html;
 }
 
 function euro(bedrag) {
