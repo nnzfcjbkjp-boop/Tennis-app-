@@ -7,7 +7,7 @@ let lessen =
 toonDatum();
 updateDashboard();
 
-function voegLesToe(type){
+function voegLesToe(type) {
 
     lessen.push({
         datum: vandaag(),
@@ -19,7 +19,7 @@ function voegLesToe(type){
     updateDashboard();
 }
 
-function resetVandaag(){
+function resetVandaag() {
 
     lessen = lessen.filter(
         les => les.datum !== vandaag()
@@ -30,7 +30,7 @@ function resetVandaag(){
     updateDashboard();
 }
 
-function opslaan(){
+function opslaan() {
 
     localStorage.setItem(
         "lessen",
@@ -38,25 +38,27 @@ function opslaan(){
     );
 }
 
-function vandaag(){
+function vandaag() {
 
-    return new Date().toISOString().split("T")[0];
+    return new Date()
+        .toISOString()
+        .split("T")[0];
 }
 
-function updateDashboard(){
+function updateDashboard() {
 
-    let vandaagLessen =
+    let lessenVandaag =
         lessen.filter(
             les => les.datum === vandaag()
         );
 
     let priveAantal =
-        vandaagLessen.filter(
+        lessenVandaag.filter(
             les => les.type === "prive"
         ).length;
 
     let groepAantal =
-        vandaagLessen.filter(
+        lessenVandaag.filter(
             les => les.type === "groep"
         ).length;
 
@@ -67,6 +69,9 @@ function updateDashboard(){
     let omzetExcl =
         omzetIncl / 1.21;
 
+    let btw =
+        omzetIncl - omzetExcl;
+
     document.getElementById("priveAantal").innerText =
         priveAantal;
 
@@ -74,28 +79,33 @@ function updateDashboard(){
         groepAantal;
 
     document.getElementById("omzetVandaag").innerText =
-        "€ " +
-        omzetIncl.toLocaleString(
-            "nl-NL",
-            {
-                minimumFractionDigits: 2
-            }
-        );
+        euro(omzetIncl);
 
     document.getElementById("omzetExcl").innerText =
-        "€ " +
-        omzetExcl.toLocaleString(
-            "nl-NL",
-            {
-                minimumFractionDigits: 2
-            }
-        ) +
-        " excl. btw";
+        euro(omzetExcl) + " excl. btw";
+
+    document.getElementById("kaartExcl").innerText =
+        euro(omzetExcl);
+
+    document.getElementById("kaartBTW").innerText =
+        euro(btw);
+
+    document.getElementById("kaartIncl").innerText =
+        euro(omzetIncl);
 }
 
-function toonDatum(){
+function euro(bedrag) {
 
-    const vandaagDatum = new Date();
+    return bedrag.toLocaleString(
+        "nl-NL",
+        {
+            style: "currency",
+            currency: "EUR"
+        }
+    );
+}
+
+function toonDatum() {
 
     const opties = {
         weekday: "long",
@@ -103,9 +113,8 @@ function toonDatum(){
         month: "long"
     };
 
-    document.getElementById("datumVandaag")
-        .innerText =
-        vandaagDatum
+    document.getElementById("datum").innerText =
+        new Date()
         .toLocaleDateString(
             "nl-NL",
             opties
