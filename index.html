@@ -1,55 +1,78 @@
-<div class="container">
+<!DOCTYPE html>
+<html lang="nl">
 
-    <h1>Tennis Omzet</h1>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tennis Omzet</title>
 
-    <p class="datum">DINSDAG 18 NOVEMBER</p>
+    <link rel="stylesheet" href="style.css">
+</head>
 
-    <div class="card omzet-card">
+<body>
 
-        <h2>Totale omzet vandaag</h2>
+    <div class="app">
 
-        <div class="grote-omzet">
-            €130,00
-        </div>
+        <h1>Tennis Omzet</h1>
 
-        <div class="kleine-tekst">
-            €107,44 excl. btw
-        </div>
+        <div class="datum" id="datumVandaag"></div>
 
-        <hr>
+        <div class="card">
 
-        <div class="stats">
+            <h2>Totale omzet vandaag</h2>
 
-            <div>
-                <div class="stat-getal">1</div>
-                <div>Privélessen</div>
+            <div class="groteOmzet" id="omzetVandaag">
+                € 0,00
             </div>
 
-            <div>
-                <div class="stat-getal">1</div>
-                <div>Groepslessen</div>
+            <div class="subtekst" id="omzetExcl">
+                € 0,00 excl. btw
+            </div>
+
+            <hr>
+
+            <div class="statistieken">
+
+                <div>
+                    <div class="statGetal" id="priveAantal">0</div>
+                    <div>Privélessen</div>
+                </div>
+
+                <div>
+                    <div class="statGetal" id="groepAantal">0</div>
+                    <div>Groepslessen</div>
+                </div>
+
             </div>
 
         </div>
+
+        <h2 class="sectieTitel">
+            Lessen registreren
+        </h2>
+
+        <div class="knoppen">
+
+            <button onclick="voegLesToe('prive')">
+                + Privéles
+                <span>€63,00</span>
+            </button>
+
+            <button onclick="voegLesToe('groep')">
+                + Groepsles
+                <span>€67,00</span>
+            </button>
+
+        </div>
+
+        <button class="reset-button" onclick="resetVandaag()">
+            Reset vandaag
+        </button>
 
     </div>
 
-    <h2 class="section-title">
-        Lessen registreren
-    </h2>
+    <script src="script.js"></script>
 
-    <div class="button-row">
+</body>
 
-        <button class="lesson-button">
-            + Privéles
-            <span>€63,00</span>
-        </button>
-
-        <button class="lesson-button">
-            + Groepsles
-            <span>€67,00</span>
-        </button>
-
-    </div>
-
-</div>
+</html>
