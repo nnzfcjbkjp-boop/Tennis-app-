@@ -11,35 +11,35 @@
 
 <body>
 
-    <div class="app">
+    <div class="container">
 
         <h1>Tennis Omzet</h1>
 
-        <div class="datum" id="datumVandaag"></div>
+        <div id="datum" class="datum"></div>
 
         <div class="card">
 
             <h2>Totale omzet vandaag</h2>
 
-            <div class="groteOmzet" id="omzetVandaag">
+            <div id="omzetVandaag" class="grote-omzet">
                 € 0,00
             </div>
 
-            <div class="subtekst" id="omzetExcl">
+            <div id="omzetExcl" class="subtekst">
                 € 0,00 excl. btw
             </div>
 
             <hr>
 
-            <div class="statistieken">
+            <div class="stats">
 
                 <div>
-                    <div class="statGetal" id="priveAantal">0</div>
+                    <div id="priveAantal" class="stat-getal">0</div>
                     <div>Privélessen</div>
                 </div>
 
                 <div>
-                    <div class="statGetal" id="groepAantal">0</div>
+                    <div id="groepAantal" class="stat-getal">0</div>
                     <div>Groepslessen</div>
                 </div>
 
@@ -47,9 +47,7 @@
 
         </div>
 
-        <h2 class="sectieTitel">
-            Lessen registreren
-        </h2>
+        <h2>Lessen registreren</h2>
 
         <div class="knoppen">
 
@@ -68,6 +66,29 @@
         <button class="reset-button" onclick="resetVandaag()">
             Reset vandaag
         </button>
+
+        <div class="card omzet-verdeling">
+
+            <h2>Omzetverdeling</h2>
+
+            <div class="regel">
+                <span>Omzet excl. btw</span>
+                <strong id="kaartExcl">€ 0,00</strong>
+            </div>
+
+            <div class="regel">
+                <span>BTW</span>
+                <strong id="kaartBTW">€ 0,00</strong>
+            </div>
+
+            <hr>
+
+            <div class="totaal-regel">
+                <span>Totaal incl. btw</span>
+                <strong id="kaartIncl">€ 0,00</strong>
+            </div>
+
+        </div>
 
     </div>
 
