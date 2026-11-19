@@ -30,19 +30,6 @@ function resetVandaag() {
     updateDashboard();
 }
 
-function maakOngedaan() {
-
-    if (lessen.length === 0) {
-        return;
-    }
-
-    lessen.pop();
-
-    opslaan();
-
-    updateDashboard();
-}
-
 function verwijderLes(index) {
 
     let vandaagLessen =
