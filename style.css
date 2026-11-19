@@ -1,110 +1,100 @@
 body {
-    font-family: Arial, sans-serif;
-    background-color: #ececec;
     margin: 0;
     padding: 20px;
+
+    font-family: Arial, sans-serif;
+
+    background: #f2f2f2;
 }
 
 .container {
-    max-width: 550px;
-    margin: 30px auto;
-    background: white;
-    padding: 30px;
-    border-radius: 20px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    margin: auto;
 }
 
 h1 {
-    text-align: center;
-    color: #2e8b57;
+    color: #2f8f57;
+    font-size: 50px;
+    margin-bottom: 20px;
+}
+
+.datum {
+    font-size: 24px;
+    font-weight: bold;
+    color: #7b8585;
+    margin-bottom: 25px;
+}
+
+.card {
+    background: white;
+    border-radius: 25px;
+    padding: 25px;
     margin-bottom: 30px;
 }
 
-/* Rij met knoppen */
-
-.button-row {
-    display: flex;
-    gap: 12px;
-    margin-bottom: 12px;
-}
-
-/* Algemene knop */
-
-button {
-    flex: 1;
-
-    padding: 16px;
-
-    background-color: #2e8b57;
-    color: white;
-
-    border: none;
-    border-radius: 10px;
-
-    font-size: 16px;
-    font-weight: bold;
-
-    cursor: pointer;
-
-    transition: 0.2s ease;
-}
-
-button:hover {
-    background-color: #246e45;
-}
-
-/* Min-knoppen */
-
-.minus-button {
-    background-color: #f0ad4e;
-}
-
-.minus-button:hover {
-    background-color: #ec971f;
-}
-
-/* Reset knop */
-
-.reset-button {
-    width: 100%;
-    background-color: #d9534f;
-    margin-top: 10px;
-}
-
-.reset-button:hover {
-    background-color: #c9302c;
-}
-
-/* Dashboard */
-
-#dashboard {
-    margin-top: 25px;
-    padding: 20px;
-
-    background-color: #f7f7f7;
-
-    border-radius: 12px;
-
-    line-height: 1.8;
-}
-
-/* Dashboard titel */
-
-#dashboard h2 {
-    color: #2e8b57;
+.omzet-card h2 {
+    color: #707878;
     margin-top: 0;
 }
 
-/* Mobiel */
-
-@media (max-width: 600px) {
-
-    .button-row {
-        flex-direction: column;
-    }
-
-    button {
-        width: 100%;
-    }
+.grote-omzet {
+    font-size: 70px;
+    font-weight: bold;
+    color: #2f8f57;
+    margin-top: 15px;
 }
 
+.kleine-tekst {
+    color: #7d8787;
+    font-size: 22px;
+    margin-top: 15px;
+}
+
+.stats {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 25px;
+}
+
+.stat-getal {
+    font-size: 50px;
+    font-weight: bold;
+    color: #2f8f57;
+}
+
+.section-title {
+    font-size: 42px;
+    margin-bottom: 20px;
+}
+
+.button-row {
+    display: flex;
+    gap: 15px;
+}
+
+.lesson-button {
+    flex: 1;
+
+    background: #2f8f57;
+
+    color: white;
+
+    border: none;
+
+    border-radius: 25px;
+
+    padding: 40px 15px;
+
+    font-size: 34px;
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+.lesson-button span {
+    display: block;
+    margin-top: 25px;
+
+    font-size: 24px;
+    font-weight: normal;
+}
