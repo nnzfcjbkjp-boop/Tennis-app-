@@ -17,32 +17,20 @@ body {
     max-width: 650px;
 
     margin: 0 auto;
+    
+    padding-top: 5px;
 }
 
 h1 {
-
-    text-align: center;
-
-    color: #38a35d;
-
-    font-size: 42px;
-
-    margin-bottom: 5px;
+    margin-bottom: 2px;
 }
 
 .datum {
+    margin-bottom: 8px;
+}
 
-    text-align: center;
-
-    color: #6b7280;
-
-    font-size: 15px;
-
-    font-weight: 600;
-
-    letter-spacing: 1px;
-
-    margin-bottom: 18px;
+.card:first-of-type {
+    margin-top: 0;
 }
 
 .card {
