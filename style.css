@@ -130,6 +130,10 @@ input {
 
     width: 100%;
 
+    max-width: 100%;
+
+    box-sizing: border-box;
+
     height: 72px;
 
     border-radius: 22px;
@@ -140,7 +144,7 @@ input {
 
     text-align: center;
 
-    font-size: 24px;
+    font-size: 18px;
 
     font-weight: 700;
 
