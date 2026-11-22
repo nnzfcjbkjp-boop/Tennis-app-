@@ -446,6 +446,8 @@ font-weight: 700;
 
 .dashboard-header::before {
 
+     text-align: right;
+
     content: "🎾";
 
     display: block;
