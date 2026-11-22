@@ -468,9 +468,11 @@ function formatteerDatum(datum) {
         .toLocaleDateString(
             "nl-NL",
             {
+                weekday: "short",
                 day: "numeric",
-                month: "long",
+                month: "short",
                 year: "numeric"
             }
         );
+
 }
