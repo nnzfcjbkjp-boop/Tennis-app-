@@ -1,11 +1,10 @@
-<<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="nl">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tennis Omzet</title>
-
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -13,31 +12,15 @@
 
     <div class="container">
 
-        <h1>Tennis Omzet</h1>
+        <h1>🎾 Tennis Omzet</h1>
 
         <div id="datum" class="datum"></div>
 
-<div class="card">
+        <!-- Omzetkaart -->
 
-    <h2>💶 Actieve tarieven</h2>
+        <div class="card">
 
-    <div class="regel">
-        <span>🎾 Privéles</span>
-        <strong id="priveTariefWeergave"></strong>
-    </div>
-
-    <div class="regel">
-        <span>👥 Groepsles</span>
-        <strong id="groepTariefWeergave"></strong>
-    </div>
-
-    <div class="regel">
-        <span>BTW</span>
-        <strong id="btwWeergave"></strong>
-    </div>
-
-</div>
-            <h2>Totale omzet vandaag</h2>
+            <h2>💰 Omzet vandaag</h2>
 
             <div id="omzetVandaag" class="grote-omzet">
                 € 0,00
@@ -52,90 +35,160 @@
             <div class="stats">
 
                 <div>
-                    <div id="priveAantal" class="stat-getal">0</div>
+                    <div id="priveAantal" class="stat-getal">
+                        0
+                    </div>
+
                     <div>Privélessen</div>
                 </div>
 
                 <div>
-                    <div id="groepAantal" class="stat-getal">0</div>
+                    <div id="groepAantal" class="stat-getal">
+                        0
+                    </div>
+
                     <div>Groepslessen</div>
                 </div>
 
             </div>
 
         </div>
-    
-<div class="card">
 
-    <h2>Lesgegevens</h2>
+        <!-- Tarieven -->
 
-    <label for="lesDatum">Datum</label>
-    <input type="date" id="lesDatum">
+        <div class="card">
 
-    <label for="lesTijd">Tijdstip</label>
-    <input type="time" id="lesTijd">
+            <h2>💶 Tarieven</h2>
 
-</div>
-    
+            <label>Privé tarief (€)</label>
+            <input id="priveTarief" type="number">
+
+            <label>Groep tarief (€)</label>
+            <input id="groepTarief" type="number">
+
+            <label>BTW (%)</label>
+            <input id="btwPercentage" type="number">
+
+            <button
+                class="opslaan-button"
+                onclick="slaInstellingenOp()">
+
+                Instellingen opslaan
+
+            </button>
+
+        </div>
+
+        <!-- Lesgegevens -->
+
+        <div class="card">
+
+            <h2>📅 Lesgegevens</h2>
+
+            <label>Datum</label>
+            <input type="date" id="lesDatum">
+
+            <label>Tijdstip</label>
+            <input type="time" id="lesTijd">
+
+        </div>
+
+        <!-- Lessen registreren -->
+
         <h2>Lessen registreren</h2>
 
         <div class="knoppen">
 
-<button onclick="voegLesToe('prive')">
-    + Privéles
-    <span id="priveTariefKnop"></span>
-</button>
+            <button onclick="voegLesToe('prive')">
 
-<button onclick="voegLesToe('groep')">
-    + Groepsles
-    <span id="groepTariefKnop"></span>
-</button>
+                + Privéles
+
+                <span id="priveTariefKnop"></span>
+
+            </button>
+
+            <button onclick="voegLesToe('groep')">
+
+                + Groepsles
+
+                <span id="groepTariefKnop"></span>
+
+            </button>
 
         </div>
 
-        <button class="reset-button" onclick="resetVandaag()">
+        <button
+            class="reset-button"
+            onclick="resetVandaag()">
+
             Reset vandaag
+
         </button>
-    
-    <button class="alles-reset-button" onclick="resetAlleLessen()">
-    Wis alle lessen
-</button>
+
+        <button
+            class="alles-reset-button"
+            onclick="resetAlleLessen()">
+
+            Wis alle lessen
+
+        </button>
+
+        <!-- Vandaag geregistreerd -->
 
         <div class="card">
 
-    <h2>Vandaag geregistreerd</h2>
+            <h2>🕒 Vandaag geregistreerd</h2>
 
-    <div id="lessenLijst"></div>
+            <div id="lessenLijst"></div>
 
-</div>
+        </div>
 
-    <div class="card">
+        <!-- Alle lessen -->
 
-    <h2>Alle lessen</h2>
+        <div class="card">
 
-    <div id="alleLessenLijst"></div>
+            <h2>📚 Alle lessen</h2>
 
-</div>
-    
-        <div class="card omzet-verdeling">
+            <div id="alleLessenLijst"></div>
 
-            <h2>Omzetverdeling</h2>
+        </div>
+
+        <!-- Omzetverdeling -->
+
+        <div class="card">
+
+            <h2>📊 Omzetverdeling</h2>
 
             <div class="regel">
+
                 <span>Omzet excl. btw</span>
-                <strong id="kaartExcl">€ 0,00</strong>
+
+                <strong id="kaartExcl">
+                    € 0,00
+                </strong>
+
             </div>
 
             <div class="regel">
+
                 <span>BTW</span>
-                <strong id="kaartBTW">€ 0,00</strong>
+
+                <strong id="kaartBTW">
+                    € 0,00
+                </strong>
+
             </div>
 
             <hr>
 
             <div class="totaal-regel">
+
                 <span>Totaal incl. btw</span>
-                <strong id="kaartIncl">€ 0,00</strong>
+
+                <strong id="kaartIncl">
+                    € 0,00
+                </strong>
+
             </div>
 
         </div>
