@@ -221,23 +221,23 @@ function updateDashboard() {
 
     const btw =
         omzetIncl - omzetExcl;
+
     let totaalOmzet = 0;
 
-lessen.forEach(les => {
+    lessen.forEach(les => {
 
-    totaalOmzet += Number(
-        les.tarief || 0
-    );
+        totaalOmzet += Number(
+            les.tarief || 0
+        );
 
-});
-    let totaalOmzetExcl =
-    totaalOmzet /
-    (1 + btwPercentage / 100);
+    });
 
-let totaalBTW =
-    totaalOmzet -
-    totaalOmzetExcl;
+    const totaalOmzetExcl =
+        totaalOmzet /
+        (1 + btwPercentage / 100);
 
+    const totaalBTW =
+        totaalOmzet - totaalOmzetExcl;
 
     document.getElementById("priveAantal").innerText =
         priveAantal;
@@ -249,24 +249,10 @@ let totaalBTW =
         euro(omzetIncl);
 
     document.getElementById("omzetExcl").innerText =
-        euro(omzetExcl) +
-        " excl. btw";
+        euro(omzetExcl) + " excl. btw";
 
     document.getElementById("kaartExcl").innerText =
         euro(omzetExcl);
-    
-console.log("totale omzet", totaalOmzet);
-console.log("totale btw", totaalBTW);
-console.log("totale lessen", lessen.length);
-    
-document.getElementById("kaartTotaalOmzet").innerText =
-    euro(totaalOmzet);
-
-document.getElementById("kaartTotaalBTW").innerText =
-    euro(totaalBTW);
-
-document.getElementById("kaartTotaalLessen").innerText =
-    lessen.length;
 
     document.getElementById("kaartBTW").innerText =
         euro(btw);
@@ -274,11 +260,90 @@ document.getElementById("kaartTotaalLessen").innerText =
     document.getElementById("kaartIncl").innerText =
         euro(omzetIncl);
 
+    document.getElementById("kaartTotaalOmzet").innerText =
+        euro(totaalOmzet);
+
+    document.getElementById("kaartTotaalBTW").innerText =
+        euro(totaalBTW);
+
+    document.getElementById("kaartTotaalLessen").innerText =
+        lessen.length;
+
     document.getElementById("priveTariefKnop").innerText =
         euro(priveTarief);
 
     document.getElementById("groepTariefKnop").innerText =
         euro(groepTarief);
+
+    let html = "";
+
+    lessenVandaag.forEach((les, index) => {
+
+        const naam =
+            les.type === "prive"
+                ? "🎾 Privéles"
+                : "🎾 Groepsles";
+
+        html += `
+            <div class="les-item">
+
+                <span>
+                    🕒 ${les.tijdstip}
+                    |
+                    ${naam}
+                    |
+                    ${euro(les.tarief)}
+                </span>
+
+                <button
+                    class="verwijder-knop"
+                    onclick="verwijderLes(${index})">
+
+                    Verwijder
+
+                </button>
+
+            </div>
+        `;
+
+    });
+
+    document.getElementById("lessenLijst").innerHTML =
+        html;
+
+    let alleLessenHtml = "";
+
+    [...lessen]
+        .reverse()
+        .forEach(les => {
+
+            const naam =
+                les.type === "prive"
+                    ? "🎾 Privéles"
+                    : "🎾 Groepsles";
+
+            alleLessenHtml += `
+                <div class="les-item">
+
+                    <span>
+                        📅 ${formatteerDatum(les.datum)}
+                        |
+                        🕒 ${les.tijdstip}
+                        |
+                        ${naam}
+                        |
+                        ${euro(les.tarief)}
+                    </span>
+
+                </div>
+            `;
+
+        });
+
+    document.getElementById(
+        "alleLessenLijst"
+    ).innerHTML =
+        alleLessenHtml;
 }
 
     // Vandaag geregistreerd
