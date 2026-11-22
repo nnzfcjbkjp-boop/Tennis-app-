@@ -13,6 +13,15 @@ let lessen =
 toonDatum();
 updateDashboard();
 
+document.getElementById("priveTarief").value =
+    priveTarief;
+
+document.getElementById("groepTarief").value =
+    groepTarief;
+
+document.getElementById("btwPercentage").value =
+    btwPercentage;
+
 function voegLesToe(type) {
 
     lessen.push({
