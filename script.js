@@ -421,16 +421,16 @@ let seizoenHtml = "";
 Object.entries(weekdagen)
     .forEach(([dag, tijden]) => {
 
+        if (Object.keys(tijden).length === 0) {
+
+            return;
+        }
+
         seizoenHtml += `
             <div class="dag-kop">
                 📅 ${dag.charAt(0).toUpperCase() + dag.slice(1)}
             </div>
         `;
-
-       if (Object.keys(tijden).length === 0) {
-
-    return;
-}
         Object.entries(tijden)
             .sort()
             .forEach(([tijd, aantal]) => {
