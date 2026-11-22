@@ -259,25 +259,23 @@ input {
 
     width: 100%;
 
-    border: none;
+    border: 1px solid #d1d5db;
 
-    border-radius: 16px;
+    border-radius: 12px;
 
-    padding: 12px;
+    padding: 8px;
 
-    background: #6b7280;
+    background: transparent;
 
-    color: white;
+    color: #6b7280;
 
-    font-size: 18px;
+    font-size: 13px;
 
-    opacity: 0.8;
+    font-weight: 500;
 
-    font-weight: bold;
+    margin-top: 8px;
 
-    margin-top: 14px;
-
-    margin-bottom: 30px;
+    margin-bottom: 20px;
 }
 
 .regel,
