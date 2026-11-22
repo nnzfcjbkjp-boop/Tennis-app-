@@ -11,12 +11,28 @@ let lessen =
     JSON.parse(localStorage.getItem("lessen")) || [];
 
 toonDatum();
+
 updateDashboard();
+document.getElementById("kaartIncl").innerText =
+    euro(omzetIncl);
 
-document.getElementById("priveTarief").value =
-    priveTarief;
+let html = "";
 
-document.getElementById("groepTarief").value =
+lessenVandaag.forEach((les, index) => {
+
+    ...
+});
+
+document.getElementById("lessenLijst").innerHTML =
+    html;
+
+document.getElementById("priveTariefKnop").innerText =
+    euro(priveTarief);
+
+document.getElementById("groepTariefKnop").innerText =
+    euro(groepTarief);
+
+}
     groepTarief;
 
 document.getElementById("btwPercentage").value =
@@ -220,11 +236,4 @@ function slaInstellingenOp() {
         "btwPercentage",
         btwPercentage
     );
-
-    updateDashboard();
-    document.getElementById("priveTariefKnop").innerText =
-    euro(priveTarief);
-
-document.getElementById("groepTariefKnop").innerText =
-    euro(groepTarief);
 }
