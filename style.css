@@ -435,9 +435,9 @@ font-weight: 700;
 
 .dashboard-header {
 
-    text-align: center;
+    text-align: left;
 
-    margin-bottom: 20px;
+    margin-bottom: 16px;
 
     padding-bottom: 12px;
 
@@ -451,8 +451,6 @@ font-weight: 700;
     font-weight: 800;
 
     color: #1f2937;
-
-    letter-spacing: -0.5px;
 }
 
 .dashboard-date {
@@ -462,6 +460,4 @@ font-weight: 700;
     color: #6b7280;
 
     font-size: 14px;
-
-    font-weight: 500;
 }
