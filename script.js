@@ -62,9 +62,6 @@ function voegLesToe(type) {
     tijdstip:
         document.getElementById("lesTijd").value,
 
-    groep:
-        document.getElementById("groepNaam").value,
-
     type: type,
 
     tarief: tarief
