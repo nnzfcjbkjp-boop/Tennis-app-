@@ -48,6 +48,8 @@ h1 {
 .card {
 
     transition: .2s;
+
+    overflow: hidden;
     
     background: white;
 
@@ -114,11 +116,13 @@ input {
 
 .les-row {
 
-    display: flex;
+    display: grid;
 
-    gap: 10px;
+    grid-template-columns: 2fr 1fr;
 
-    align-items: flex-start;
+    gap: 12px;
+
+    width: 100%;
 }
 
 .veld.groot {
@@ -146,8 +150,6 @@ input {
 
     font-weight: 700;
 
-    margin-bottom: 8px;
-
     color: #4b5563;
 }
 
@@ -155,9 +157,13 @@ input {
 
     width: 100%;
 
+    max-width: 100%;
+
     box-sizing: border-box;
 
-    height: 58px;
+    height: 56px;
+
+    padding: 0 10px;
 
     border-radius: 18px;
 
@@ -165,7 +171,7 @@ input {
 
     background: #f8fafc;
 
-    font-size: 18px;
+    font-size: 16px;
 
     font-weight: 600;
 
