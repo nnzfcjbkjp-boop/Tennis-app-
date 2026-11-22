@@ -140,7 +140,9 @@ let omzetIncl = 0;
 
 lessenVandaag.forEach(les => {
 
-    omzetIncl += les.tarief;
+    if (les.tarief) {
+        omzetIncl += les.tarief;
+    }
 
 });
 
@@ -178,8 +180,8 @@ lessenVandaag.forEach((les, index) => {
 
 let naam =
     les.type === "prive"
-    ? `🎾 Privéles - ${euro(les.tarief)}`
-    : `🎾 Groepsles - ${euro(les.tarief)}`;
+    ? `🕒 ${les.tijdstip} | 🎾 Privéles - ${euro(les.tarief)}`
+    : `🕒 ${les.tijdstip} | 🎾 Groepsles - ${euro(les.tarief)}`;
 
     html += `
         <div class="les-item">
@@ -259,4 +261,5 @@ function slaInstellingenOp() {
         "btwPercentage",
         btwPercentage
     );
+    updateDashboard();
 }
