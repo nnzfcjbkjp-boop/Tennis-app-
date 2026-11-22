@@ -101,6 +101,20 @@ function verwijderLes(index) {
 
         updateDashboard();
     }
+    
+    function verwijderHistorischeLes(index) {
+
+    const bevestiging = confirm(
+        "Deze les verwijderen?"
+    );
+
+    if (!bevestiging) return;
+
+    lessen.splice(index, 1);
+
+    opslaan();
+
+    updateDashboard();
 }
 
 
@@ -337,22 +351,29 @@ function updateDashboard() {
                     ? "🎾 Privéles"
                     : "🎾 Groepsles";
 
-            alleLessenHtml += `
-                <div class="les-item">
+           alleLessenHtml += `
+    <div class="les-item les-item-alle">
 
-                    <span>
-                        📅 ${formatteerDatum(les.datum)}
-                        |
-                        🕒 ${les.tijdstip}
-                        |
-                        ${naam}
-                        |
-                        ${euro(les.tarief)}
-                    </span>
+        <span>
+            📅 ${formatteerDatum(les.datum)}
+            •
+            🕒 ${les.tijdstip}
+            •
+            ${naam}
+            •
+            ${euro(les.tarief)}
+        </span>
 
-                </div>
-            `;
+        <button
+            class="verwijder-klein"
+            onclick="verwijderHistorischeLes(${lessen.length - 1 - index})">
 
+            ✕
+
+        </button>
+
+    </div>
+`;
         });
 
     document.getElementById(
