@@ -16,6 +16,8 @@ let lessen =
 
 const seizoenTotaal = 16;
 
+let alleLessenOpen = false;
+
 // =========================
 // Opstarten
 // =========================
@@ -115,6 +117,14 @@ function verwijderHistorischeLes(index) {
     lessen.splice(index, 1);
 
     opslaan();
+
+    updateDashboard();
+}
+
+function toggleAlleLessen() {
+
+    alleLessenOpen =
+        !alleLessenOpen;
 
     updateDashboard();
 }
