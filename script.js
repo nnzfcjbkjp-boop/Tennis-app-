@@ -395,24 +395,29 @@ const weekdagen = {
 
 lessen.forEach(les => {
 
-    const dag =
-        new Date(les.datum)
-            .toLocaleDateString(
-                "nl-NL",
-                {
-                    weekday: "long"
-                }
-            );
+  const dag =
+    new Date(les.datum)
+        .toLocaleDateString(
+            "nl-NL",
+            {
+                weekday: "long"
+            }
+        )
+        .toLowerCase();
 
-    const tijd =
-        les.tijdstip;
+const tijd =
+    les.tijdstip;
 
-    if (!weekdagen[dag][tijd]) {
+if (!weekdagen[dag]) {
+    return;
+}
 
-        weekdagen[dag][tijd] = 0;
-    }
+if (!weekdagen[dag][tijd]) {
 
-    weekdagen[dag][tijd]++;
+    weekdagen[dag][tijd] = 0;
+}
+
+weekdagen[dag][tijd]++;
 
 });
 
@@ -455,7 +460,7 @@ document.getElementById(
 ).innerHTML =
     seizoenHtml;
 
-    }
+}
     
 // =========================
 // Helpers
