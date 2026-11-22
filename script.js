@@ -1,5 +1,7 @@
 function voegLesToe(type) {
-    alert(type);
+
+    alert("werkt");
+
 }
 
 function resetVandaag() {
