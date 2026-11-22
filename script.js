@@ -127,6 +127,22 @@ function resetVandaag() {
     updateDashboard();
 }
 
+function resetAlleLessen() {
+
+    const bevestiging = confirm(
+        "Weet je zeker dat je ALLE lessen wilt verwijderen?"
+    );
+
+    if (!bevestiging) {
+        return;
+    }
+
+    lessen = [];
+
+    opslaan();
+
+    updateDashboard();
+}
 
 // =========================
 // Instellingen opslaan
