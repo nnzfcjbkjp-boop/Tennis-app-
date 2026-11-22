@@ -53,23 +53,23 @@ h1 {
     
     background: white;
 
-    border-radius: 24px;
+    border-radius: 20px;
 
-    padding: 20px;
+    padding: 16px;
 
-    margin-bottom: 18px;
+    margin-bottom: 14px;
 
     box-shadow:
-        0 8px 25px rgba(0,0,0,.06);
+        0 4px 12px rgba(0,0,0,.05);
 }
 
 .card h2 {
 
     margin-top: 0;
 
-    margin-bottom: 15px;
+    margin-bottom: 12px;
 
-    font-size: 28px;
+    font-size: 22px;
 
     font-weight: 700;
 
@@ -97,7 +97,7 @@ input {
 
     width: 92%;
 
-    height: 54px;
+    height: 48px;
 
     border-radius: 14px;
 
@@ -109,7 +109,7 @@ input {
 
     padding: 0 15px;
 
-    font-size: 18px;
+    font-size: 16px;
 
     text-align: center;
 }
@@ -186,7 +186,7 @@ input {
 
     border-radius: 22px;
 
-    min-height: 100px;
+    min-height: 75px;
 
     background:
         linear-gradient(
@@ -263,19 +263,21 @@ input {
 
     border-radius: 16px;
 
-    padding: 16px;
+    padding: 12px;
 
-    background: #a70000;
+    background: #d14343;
 
     color: white;
 
     font-size: 18px;
 
+    opacity: 0.85;
+
     font-weight: bold;
 
     margin-top: 14px;
 
-    margin-bottom: 50px;
+    margin-bottom: 30px;
 }
 
 .regel,
