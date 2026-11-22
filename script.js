@@ -352,9 +352,12 @@ function updateDashboard() {
    // Alle lessen
 let alleLessenHtml = "";
 
-[...lessen]
-    .reverse()
-    .forEach((les, index) => {
+const lessenWeergave =
+    alleLessenOpen
+        ? [...lessen].reverse()
+        : [...lessen].reverse().slice(0, 10);
+
+lessenWeergave.forEach((les, index) => {
 
         const naam =
             les.type === "prive"
@@ -390,6 +393,13 @@ document.getElementById(
     "alleLessenLijst"
 ).innerHTML =
     alleLessenHtml;
+
+    document.querySelector(
+    ".toon-meer-button"
+).innerText =
+    alleLessenOpen
+        ? "Toon minder"
+        : `Toon alle lessen (${lessen.length})`;
 
 // Seizoensmonitor
 
