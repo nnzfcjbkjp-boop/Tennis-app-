@@ -182,9 +182,8 @@ lessenVandaag.forEach((les, index) => {
 
 let naam =
     les.type === "prive"
-    ? `🕒 ${les.tijdstip} | 🎾 Privéles - ${euro(les.tarief)}`
-    : `🕒 ${les.tijdstip} | 🎾 Groepsles - ${euro(les.tarief)}`;
-
+    ? `📅 ${les.datum} | 🕒 ${les.tijdstip} | 🎾 Privéles - ${euro(les.tarief)}`
+    : `📅 ${les.datum} | 🕒 ${les.tijdstip} | 🎾 Groepsles - ${euro(les.tarief)}`;
     html += `
         <div class="les-item">
 
