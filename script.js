@@ -52,7 +52,6 @@ function voegLesToe(type) {
         ? priveTarief
         : groepTarief;
 
-    ...
 }
 
 
