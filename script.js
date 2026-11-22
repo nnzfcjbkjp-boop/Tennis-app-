@@ -259,19 +259,14 @@ console.log("totale omzet", totaalOmzet);
 console.log("totale btw", totaalBTW);
 console.log("totale lessen", lessen.length);
     
-if (totaalOmzetElement) {
-    totaalOmzetElement.innerText =
-        euro(totaalOmzet);
-}
+document.getElementById("kaartTotaalOmzet").innerText =
+    euro(totaalOmzet);
 
-if (totaalBTWElement) {
-    totaalBTWElement.innerText =
-        euro(totaalBTW);
-}
+document.getElementById("kaartTotaalBTW").innerText =
+    euro(totaalBTW);
 
-if (totaalLessenElement) {
-    totaalLessenElement.innerText =
-        lessen.length;
+document.getElementById("kaartTotaalLessen").innerText =
+    lessen.length;
 }
 
     document.getElementById("kaartBTW").innerText =
