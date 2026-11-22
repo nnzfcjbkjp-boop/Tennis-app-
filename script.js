@@ -72,6 +72,7 @@ function voegLesToe(type) {
 }
 
 
+
 // Les verwijderen
 
 function verwijderLes(index) {
