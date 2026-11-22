@@ -1,0 +1,123 @@
+<<!DOCTYPE html>
+<html lang="nl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tennis Omzet</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>Tennis Omzet</h1>
+
+        <div id="datum" class="datum"></div>
+
+<div class="card">
+
+    <h2>Instellingen</h2>
+
+    <label>Privé tarief (€)</label>
+    <input id="priveTarief" type="number">
+
+    <label>Groep tarief (€)</label>
+    <input id="groepTarief" type="number">
+
+    <label>BTW (%)</label>
+    <input id="btwPercentage" type="number">
+
+    <button class="opslaan-button" onclick="slaInstellingenOp()">
+        Instellingen opslaan
+    </button>
+
+</div>
+            <h2>Totale omzet vandaag</h2>
+
+            <div id="omzetVandaag" class="grote-omzet">
+                € 0,00
+            </div>
+
+            <div id="omzetExcl" class="subtekst">
+                € 0,00 excl. btw
+            </div>
+
+            <hr>
+
+            <div class="stats">
+
+                <div>
+                    <div id="priveAantal" class="stat-getal">0</div>
+                    <div>Privélessen</div>
+                </div>
+
+                <div>
+                    <div id="groepAantal" class="stat-getal">0</div>
+                    <div>Groepslessen</div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <h2>Lessen registreren</h2>
+
+        <div class="knoppen">
+
+            <button onclick="voegLesToe('prive')">
+                + Privéles
+                <span>€63,00</span>
+            </button>
+
+            <button onclick="voegLesToe('groep')">
+                + Groepsles
+                <span>€67,00</span>
+            </button>
+
+        </div>
+
+        <button class="reset-button" onclick="resetVandaag()">
+            Reset vandaag
+        </button>
+
+        <div class="card">
+
+    <h2>Vandaag geregistreerd</h2>
+
+    <div id="lessenLijst"></div>
+
+</div>
+
+        <div class="card omzet-verdeling">
+
+            <h2>Omzetverdeling</h2>
+
+            <div class="regel">
+                <span>Omzet excl. btw</span>
+                <strong id="kaartExcl">€ 0,00</strong>
+            </div>
+
+            <div class="regel">
+                <span>BTW</span>
+                <strong id="kaartBTW">€ 0,00</strong>
+            </div>
+
+            <hr>
+
+            <div class="totaal-regel">
+                <span>Totaal incl. btw</span>
+                <strong id="kaartIncl">€ 0,00</strong>
+            </div>
+
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
