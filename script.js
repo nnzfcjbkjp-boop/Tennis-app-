@@ -13,28 +13,14 @@ let lessen =
 toonDatum();
 
 updateDashboard();
-document.getElementById("kaartIncl").innerText =
-    euro(omzetIncl);
+document.getElementById("priveTarief").value =
+    priveTarief;
 
-let html = "";
-
-lessenVandaag.forEach((les, index) => {
-
-    ...
-});
-
-document.getElementById("lessenLijst").innerHTML =
-    html;
-
-document.getElementById("priveTariefKnop").innerText =
-    euro(priveTarief);
-
-document.getElementById("groepTariefKnop").innerText =
-    euro(groepTarief);
-
-}
+document.getElementById("groepTarief").value =
     groepTarief;
 
+document.getElementById("btwPercentage").value =
+    btwPercentage;
 document.getElementById("btwPercentage").value =
     btwPercentage;
 
@@ -143,7 +129,11 @@ lessenVandaag.forEach(les => {
     if (les.tarief) {
         omzetIncl += les.tarief;
     }
+document.getElementById("priveTariefKnop").innerText =
+    euro(priveTarief);
 
+document.getElementById("groepTariefKnop").innerText =
+    euro(groepTarief);
 });
 
 
