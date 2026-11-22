@@ -214,6 +214,47 @@ document.getElementById("lessenLijst").innerHTML =
     html;
 }
 
+let alleLessenHtml = "";
+
+const alleLessen =
+    [...lessen].reverse();
+
+alleLessen.forEach((les, index) => {
+
+    let naam =
+        les.type === "prive"
+        ? "🎾 Privéles"
+        : "🎾 Groepsles";
+
+    alleLessenHtml += `
+        <div class="les-item">
+
+            <span>
+
+                📅 ${les.datum}
+
+                |
+
+                🕒 ${les.tijdstip}
+
+                |
+
+                ${naam}
+
+                |
+
+                ${euro(les.tarief)}
+
+            </span>
+
+        </div>
+    `;
+
+});
+
+document.getElementById("alleLessenLijst").innerHTML =
+    alleLessenHtml;
+
 function euro(bedrag) {
 
     return bedrag.toLocaleString(
