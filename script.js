@@ -338,50 +338,47 @@ function updateDashboard() {
         html;
 
 
-    // Alle lessen
+   // Alle lessen
+let alleLessenHtml = "";
 
-    let alleLessenHtml = "";
+[...lessen]
+    .reverse()
+    .forEach((les, index) => {
 
-    [...lessen]
-        .reverse()
-        .forEach(les => {
+        const naam =
+            les.type === "prive"
+                ? "🎾 Privéles"
+                : "🎾 Groepsles";
 
-            const naam =
-                les.type === "prive"
-                    ? "🎾 Privéles"
-                    : "🎾 Groepsles";
+        alleLessenHtml += `
+            <div class="les-item les-item-alle">
 
-           alleLessenHtml += `
-    <div class="les-item les-item-alle">
+                <span>
+                    📅 ${formatteerDatum(les.datum)}
+                    •
+                    🕒 ${les.tijdstip}
+                    •
+                    ${naam}
+                    •
+                    ${euro(les.tarief)}
+                </span>
 
-        <span>
-            📅 ${formatteerDatum(les.datum)}
-            •
-            🕒 ${les.tijdstip}
-            •
-            ${naam}
-            •
-            ${euro(les.tarief)}
-        </span>
+                <button
+                    class="verwijder-klein"
+                    onclick="verwijderHistorischeLes(${lessen.length - 1 - index})">
 
-        <button
-            class="verwijder-klein"
-            onclick="verwijderHistorischeLes(${lessen.length - 1 - index})">
+                    ✕
 
-            ✕
+                </button>
 
-        </button>
+            </div>
+        `;
+    });
 
-    </div>
-`;
-        });
-
-    document.getElementById(
-        "alleLessenLijst"
-    ).innerHTML =
-        alleLessenHtml;
-
-}
+document.getElementById(
+    "alleLessenLijst"
+).innerHTML =
+    alleLessenHtml;
    
 
     // Vandaag geregistreerd
