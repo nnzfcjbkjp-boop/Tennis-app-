@@ -265,13 +265,13 @@ input {
 
     padding: 12px;
 
-    background: #d14343;
+    background: #6b7280;
 
     color: white;
 
     font-size: 18px;
 
-    opacity: 0.85;
+    opacity: 0.8;
 
     font-weight: bold;
 
@@ -363,4 +363,37 @@ hr {
     color: #9ca3af;
 
     font-style: italic;
+}
+
+.les-item-alle {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 12px;
+}
+
+.verwijder-klein {
+
+    border: none;
+
+    background: transparent;
+
+    color: #c0c0c0;
+
+    font-size: 16px;
+
+    cursor: pointer;
+
+    padding: 5px; 
+
+    margin-left: 10px;
+}
+
+.verwijder-klein:hover {
+
+    color: #d14343;
 }
