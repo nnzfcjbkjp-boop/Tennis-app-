@@ -16,14 +16,11 @@ body {
 }
 
 h1 {
+    font-size: 32px;
+}
 
-    font-size: 72px;
-
-    text-align: center;
-
-    margin-bottom: 5px;
-
-    color: #38a35d;
+.grote-omzet {
+    font-size: 60px;
 }
 
 .datum {
@@ -345,5 +342,114 @@ hr {
         flex-direction: column;
 
         gap: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+
+    body {
+        padding: 12px;
+    }
+
+    h1 {
+        font-size: 40px;
+        margin-bottom: 5px;
+    }
+
+    .datum {
+        font-size: 14px;
+        letter-spacing: 1px;
+        margin-bottom: 20px;
+    }
+
+    .card {
+        padding: 18px;
+        border-radius: 20px;
+        margin-bottom: 16px;
+    }
+
+    .grote-omzet {
+        font-size: 52px;
+        margin: 10px 0;
+    }
+
+    .subtekst {
+        font-size: 15px;
+    }
+
+    .stats {
+        display: flex;
+        gap: 10px;
+        margin-top: 15px;
+    }
+
+    .stats > div {
+        flex: 1;
+        background: #f7f7f7;
+        padding: 12px;
+        border-radius: 12px;
+    }
+
+    .stat-getal {
+        font-size: 36px;
+        margin-bottom: 4px;
+    }
+
+    .knoppen {
+        gap: 12px;
+    }
+
+    .knoppen button {
+        min-height: 85px;
+        padding: 15px;
+        font-size: 18px;
+    }
+
+    .knoppen span {
+        font-size: 16px;
+        margin-top: 6px;
+    }
+
+    .reset-button,
+    .alles-reset-button {
+        padding: 14px;
+        font-size: 16px;
+    }
+
+    .regel,
+    .totaal-regel {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 0;
+    }
+
+    .regel strong,
+    .totaal-regel strong {
+        font-weight: 700;
+        color: #38a35d;
+    }
+
+    #lessenLijst:empty::before {
+
+        content: "Nog geen lessen geregistreerd";
+
+        color: #999;
+
+        font-style: italic;
+    }
+
+    #alleLessenLijst {
+
+        max-height: 300px;
+
+        overflow-y: auto;
+    }
+
+    .les-item {
+
+        padding: 10px 0;
+
+        font-size: 14px;
     }
 }
