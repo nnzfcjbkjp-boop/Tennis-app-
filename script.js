@@ -136,9 +136,14 @@ function updateDashboard() {
             les => les.type === "groep"
         ).length;
 
-let omzetIncl =
-    (priveAantal * priveTarief) +
-    (groepAantal * groepTarief);
+let omzetIncl = 0;
+
+lessenVandaag.forEach(les => {
+
+    omzetIncl += les.tarief;
+
+});
+
 
 let omzetExcl =
     omzetIncl /
