@@ -407,26 +407,28 @@ hr {
     align-items: center;
 
     padding: 8px 0;
-
-    border-bottom: 1px solid #ececec;
 }
 
 #seizoensMonitor strong {
-
-    color: #38a35d;
-
-    font-weight: 700;
+ 
+color: #38a35d;
+ 
+font-weight: 700;
 }
 
 .dag-kop {
 
-    font-size: 17px;
+    color: #38a35d;
+
+    font-size: 18px;
 
     font-weight: 700;
 
-    color: #38a35d;
-
     margin-top: 16px;
 
-    margin-bottom: 6px;
+    margin-bottom: 8px;
+
+    padding-bottom: 4px;
+
+    border-bottom: 2px solid #e5e7eb;
 }
