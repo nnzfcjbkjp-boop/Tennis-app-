@@ -116,6 +116,17 @@ function vandaag() {
         .toISOString()
         .split("T")[0];
 }
+function formatteerDatum(datum) {
+
+    return new Date(datum).toLocaleDateString(
+        "nl-NL",
+        {
+            day: "numeric",
+            month: "long",
+            year: "numeric"
+        }
+    );
+}
 
 function updateDashboard() {
 
@@ -182,8 +193,8 @@ lessenVandaag.forEach((les, index) => {
 
 let naam =
     les.type === "prive"
-    ? `📅 ${les.datum} | 🕒 ${les.tijdstip} | 🎾 Privéles - ${euro(les.tarief)}`
-    : `📅 ${les.datum} | 🕒 ${les.tijdstip} | 🎾 Groepsles - ${euro(les.tarief)}`;
+    ? `📅 ${formatteerDatum(les.datum)} | 🕒 ${les.tijdstip} | 🎾 Privéles - ${euro(les.tarief)}`
+    : `📅 ${formatteerDatum(les.datum)} | 🕒 ${les.tijdstip} | 🎾 Groepsles - ${euro(les.tarief)}`;
     html += `
         <div class="les-item">
 
