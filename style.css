@@ -67,7 +67,7 @@ h1 {
 
     margin-top: 0;
 
-    margin-bottom: 18px;
+    margin-bottom: 15px;
 
     font-size: 28px;
 
@@ -146,10 +146,12 @@ input {
 
     text-align: center;
 
-    font-size: 15px;
+    font-size: 14px;
 
     font-weight: 700;
 
+    margin-bottom: 4px;
+    
     color: #4b5563;
 }
 
@@ -161,11 +163,11 @@ input {
 
     box-sizing: border-box;
 
-    height: 56px;
+    height: 50px;
 
     padding: 0 10px;
 
-    border-radius: 18px;
+    border-radius: 14px;
 
     border: 1px solid #e5e7eb;
 
