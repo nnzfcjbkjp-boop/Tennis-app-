@@ -286,7 +286,7 @@ function updateDashboard() {
                 <div class="les-item">
 
                     <span>
-                        📅 ${les.datum}
+                        📅 ${formatteerDatum(les.datum)}
                         |
                         🕒 ${les.tijdstip}
                         |
@@ -367,4 +367,17 @@ function toonDatum() {
                 opties
             )
             .toUpperCase();
+}
+
+function formatteerDatum(datum) {
+
+    return new Date(datum)
+        .toLocaleDateString(
+            "nl-NL",
+            {
+                day: "numeric",
+                month: "long",
+                year: "numeric"
+            }
+        );
 }
