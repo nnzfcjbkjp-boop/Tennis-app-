@@ -53,19 +53,22 @@ function voegLesToe(type) {
             ? priveTarief
             : groepTarief;
 
-    lessen.push({
+   lessen.push({
 
-        datum:
-            document.getElementById("lesDatum").value,
+    datum:
+        document.getElementById("lesDatum").value,
 
-        tijdstip:
-            document.getElementById("lesTijd").value,
+    tijdstip:
+        document.getElementById("lesTijd").value,
 
-        type: type,
+    groep:
+        document.getElementById("groepNaam").value,
 
-        tarief: tarief
+    type: type,
 
-    });
+    tarief: tarief
+
+});
 
     opslaan();
 
