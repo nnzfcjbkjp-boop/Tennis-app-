@@ -190,6 +190,13 @@ h1 {
     background: #f7f7f7;
 
     border-radius: 12px;
+
+    #alleLessenLijst {
+
+    max-height: 400px;
+
+    overflow-y: auto;
+}
 }
 
 .verwijder-knop {
