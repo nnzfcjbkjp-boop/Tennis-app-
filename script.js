@@ -445,8 +445,8 @@ Object.entries(weekdagen)
 
                         <span>${tijd}</span>
 
-                        <strong>
-                            ${aantal}/16
+                       <strong>
+                            Les ${aantal} van ${seizoenTotaal}
                         </strong>
 
                     </div>
