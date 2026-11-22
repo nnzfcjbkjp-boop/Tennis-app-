@@ -441,7 +441,6 @@ function toonDatum() {
                 "nl-NL",
                 opties
             )
-            .toUpperCase();
 }
 
 function formatteerDatum(datum) {
