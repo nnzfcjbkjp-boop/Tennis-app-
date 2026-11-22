@@ -280,6 +280,7 @@ document.getElementById("kaartTotaalLessen").innerText =
 
     document.getElementById("groepTariefKnop").innerText =
         euro(groepTarief);
+}
 
     // Vandaag geregistreerd
 
