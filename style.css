@@ -41,15 +41,16 @@ h1 {
 
 .grote-omzet {
 
-    font-size: 72px;
+    font-size: 64px;
 
     font-weight: 700;
 
-    color: #2f8f57;
+    color: #38a35d;
 
-    margin-bottom: 10px;
+    text-align: center;
+
+    margin: 20px 0;
 }
-
 }
 
 .subtekst {
@@ -61,11 +62,24 @@ h1 {
 }
 
 .stats {
+
     display: flex;
 
     justify-content: space-around;
 
+    text-align: center;
+
     margin-top: 25px;
+}
+
+.stat-getal {
+
+    font-size: 56px;
+
+    font-weight: bold;
+
+    color: #38a35d;
+}
 }
 
 .stat-getal {
@@ -220,13 +234,14 @@ h1 {
         flex-direction: column;
     }
 
-input {
+.card input {
 
     width: 100%;
 
-    padding: 12px;
+    padding: 14px;
 
     margin-top: 5px;
+
     margin-bottom: 15px;
 
     border: 1px solid #ddd;
@@ -238,32 +253,37 @@ input {
     font-size: 16px;
 }
 
-label {
+.card label {
 
     display: block;
 
-    font-weight: bold;
+    font-weight: 600;
 
-    color: #697171;
+    margin-bottom: 4px;
+}
 }
 
 .opslaan-button {
 
     width: 100%;
 
-    background: #2f8f57;
-
-    color: white;
+    padding: 14px;
 
     border: none;
 
     border-radius: 12px;
 
-    padding: 14px;
+    background: #38a35d;
+
+    color: white;
 
     font-size: 16px;
 
+    font-weight: bold;
+
     cursor: pointer;
+}
+
 }
     input {
 
@@ -305,46 +325,27 @@ label {
     font-weight: bold;
 }
 
-.card input {
-
-    width: 100%;
-
-    padding: 12px;
-
-    border: 1px solid #ddd;
-
-    border-radius: 10px;
-
-    box-sizing: border-box;
-}
-    #alleLessenLijst {
-
-    max-height: 350px;
-
-    overflow-y: auto;
 }
 
 .alles-reset-button {
 
     width: 100%;
 
-    padding: 16px;
-
     margin-top: 10px;
+
+    padding: 14px;
 
     border: none;
 
-    border-radius: 15px;
+    border-radius: 12px;
 
-    background: #8b0000;
+    background: #8B0000;
 
     color: white;
 
-    font-size: 18px;
-
     font-weight: bold;
+}
 
-    cursor: pointer;
 }
     .alles-reset-button:hover {
 
