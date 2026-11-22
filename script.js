@@ -12,6 +12,18 @@ let lessen =
 
 toonDatum();
 
+document.getElementById("lesDatum").value =
+    vandaag();
+
+document.getElementById("lesTijd").value =
+    new Date().toLocaleTimeString(
+        "nl-NL",
+        {
+            hour: "2-digit",
+            minute: "2-digit"
+        }
+    );
+
 updateDashboard();
 document.getElementById("priveTarief").value =
     priveTarief;
@@ -31,24 +43,21 @@ function voegLesToe(type) {
         ? priveTarief
         : groepTarief;
 
-    lessen.push({
+lessen.push({
 
-        datum: vandaag(),
+    datum:
+        document.getElementById("lesDatum").value,
 
-        type: type,
+    tijdstip:
+        document.getElementById("lesTijd").value,
 
-        tarief: tarief,
+    type: type,
 
-        btwPercentage: btwPercentage,
+    tarief: tarief,
 
-        tijdstip: new Date().toLocaleTimeString(
-            "nl-NL",
-            {
-                hour: "2-digit",
-                minute: "2-digit"
-            }
-        )
-    });
+    btwPercentage: btwPercentage
+
+});
 
     opslaan();
 
