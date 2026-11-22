@@ -255,13 +255,29 @@ let totaalBTW =
     document.getElementById("kaartExcl").innerText =
         euro(omzetExcl);
     
-   document.getElementById("kaartTotaalOmzet").innerText =
-    euro(totaalOmzet);
+  const totaalOmzetElement =
+    document.getElementById("kaartTotaalOmzet");
 
-// document.getElementById("kaartTotaalBTW").innerText = euro(totaalBTW);
+const totaalBTWElement =
+    document.getElementById("kaartTotaalBTW");
 
-document.getElementById("kaartTotaalLessen").innerText =
-    lessen.length;
+const totaalLessenElement =
+    document.getElementById("kaartTotaalLessen");
+
+if (totaalOmzetElement) {
+    totaalOmzetElement.innerText =
+        euro(totaalOmzet);
+}
+
+if (totaalBTWElement) {
+    totaalBTWElement.innerText =
+        euro(totaalBTW);
+}
+
+if (totaalLessenElement) {
+    totaalLessenElement.innerText =
+        lessen.length;
+}
 
     document.getElementById("kaartBTW").innerText =
         euro(btw);
