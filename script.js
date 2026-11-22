@@ -221,6 +221,15 @@ function updateDashboard() {
 
     const btw =
         omzetIncl - omzetExcl;
+    let totaalOmzet = 0;
+
+lessen.forEach(les => {
+
+    totaalOmzet += Number(
+        les.tarief || 0
+    );
+
+});
 
     document.getElementById("priveAantal").innerText =
         priveAantal;
@@ -237,6 +246,16 @@ function updateDashboard() {
 
     document.getElementById("kaartExcl").innerText =
         euro(omzetExcl);
+    document.getElementById(
+    "kaartTotaalOmzet"
+).innerText =
+    euro(totaalOmzet);
+
+document.getElementById(
+    "kaartTotaalLessen"
+).innerText =
+    lessen.length;
+
 
     document.getElementById("kaartBTW").innerText =
         euro(btw);
