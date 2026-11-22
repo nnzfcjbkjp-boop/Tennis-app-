@@ -14,6 +14,7 @@ let btwPercentage =
 let lessen =
     JSON.parse(localStorage.getItem("lessen")) || [];
 
+const seizoenTotaal = 16;
 
 // =========================
 // Opstarten
@@ -382,6 +383,59 @@ document.getElementById(
     "alleLessenLijst"
 ).innerHTML =
     alleLessenHtml;
+
+    // Seizoensmonitor
+
+const groepen = {};
+
+lessen.forEach(les => {
+
+    const weekdag =
+        new Date(les.datum)
+            .toLocaleDateString(
+                "nl-NL",
+                {
+                    weekday: "long"
+                }
+            );
+
+    const groep =
+        `${weekdag} ${les.tijdstip}`;
+
+    if (!groepen[groep]) {
+
+        groepen[groep] = 0;
+    }
+
+    groepen[groep]++;
+
+});
+
+let seizoenHtml = "";
+
+Object.entries(groepen)
+    .sort()
+    .forEach(([groep, aantal]) => {
+
+        seizoenHtml += `
+            <div class="regel">
+
+                <span>
+                    ${groep}
+                </span>
+
+                <strong>
+                    ${aantal}/${seizoenTotaal}
+                </strong>
+
+            </div>
+        `;
+    });
+
+document.getElementById(
+    "seizoensMonitor"
+).innerHTML =
+    seizoenHtml;
 } 
     
 // =========================
