@@ -381,7 +381,7 @@ document.getElementById(
 ).innerHTML =
     alleLessenHtml;
 
-    // Seizoensmonitor
+// Seizoensmonitor
 
 const weekdagen = {
     maandag: {},
@@ -407,15 +407,12 @@ lessen.forEach(les => {
     const tijd =
         les.tijdstip;
 
-    const sleutel =
-        dag + "-" + tijd;
+    if (!weekdagen[dag][tijd]) {
 
-    if (!weekdagen[dag][sleutel]) {
-
-        weekdagen[dag][sleutel] = 0;
+        weekdagen[dag][tijd] = 0;
     }
 
-    weekdagen[dag][sleutel]++;
+    weekdagen[dag][tijd]++;
 
 });
 
@@ -434,7 +431,7 @@ Object.entries(weekdagen)
 
             seizoenHtml += `
                 <div class="regel">
-                    <span>-</span>
+                    <span>Geen lessen</span>
                 </div>
             `;
 
@@ -443,10 +440,7 @@ Object.entries(weekdagen)
 
         Object.entries(tijden)
             .sort()
-            .forEach(([sleutel, aantal]) => {
-
-                const tijd =
-                    sleutel.split("-")[1];
+            .forEach(([tijd, aantal]) => {
 
                 seizoenHtml += `
                     <div class="regel">
