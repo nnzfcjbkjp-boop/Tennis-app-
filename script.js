@@ -102,12 +102,13 @@ function updateDashboard() {
             les => les.type === "groep"
         ).length;
 
-    let omzetIncl =
-        (priveAantal * TARIEF_PRIVE) +
-        (groepAantal * TARIEF_GROEP);
+let omzetIncl =
+    (priveAantal * priveTarief) +
+    (groepAantal * groepTarief);
 
-    let omzetExcl =
-        omzetIncl / 1.21;
+let omzetExcl =
+    omzetIncl /
+    (1 + (btwPercentage / 100));
 
     let btw =
         omzetIncl - omzetExcl;
