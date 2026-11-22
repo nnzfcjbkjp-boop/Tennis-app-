@@ -267,7 +267,6 @@ document.getElementById("kaartTotaalBTW").innerText =
 
 document.getElementById("kaartTotaalLessen").innerText =
     lessen.length;
-}
 
     document.getElementById("kaartBTW").innerText =
         euro(btw);
