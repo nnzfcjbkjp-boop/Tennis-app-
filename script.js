@@ -379,44 +379,8 @@ document.getElementById(
     "alleLessenLijst"
 ).innerHTML =
     alleLessenHtml;
-   
 
-    // Vandaag geregistreerd
-
-    let html = "";
-
-    lessenVandaag.forEach((les, index) => {
-
-        const naam =
-            les.type === "prive"
-                ? "🎾 Privéles"
-                : "🎾 Groepsles";
-
-        html += `
-            <div class="les-item">
-
-                <span>
-                    🕒 ${les.tijdstip}
-                    |
-                    ${naam}
-                    |
-                    ${euro(les.tarief)}
-                </span>
-
-                <button
-                    class="verwijder-knop"
-                    onclick="verwijderLes(${index})">
-                    Verwijder
-                </button>
-
-            </div>
-        `;
-    });
-
-    document.getElementById("lessenLijst").innerHTML =
-        html;
-
-
+    
 // =========================
 // Helpers
 // =========================
