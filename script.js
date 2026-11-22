@@ -230,6 +230,14 @@ lessen.forEach(les => {
     );
 
 });
+    let totaalOmzetExcl =
+    totaalOmzet /
+    (1 + btwPercentage / 100);
+
+let totaalBTW =
+    totaalOmzet -
+    totaalOmzetExcl;
+
 
     document.getElementById("priveAantal").innerText =
         priveAantal;
@@ -246,13 +254,18 @@ lessen.forEach(les => {
 
     document.getElementById("kaartExcl").innerText =
         euro(omzetExcl);
-    document.getElementById(
-    "kaartTotaalOmzet"
-).innerText =
+    
+   document.getElementById("kaartTotaalOmzet").innerText =
     euro(totaalOmzet);
+
+document.getElementById("kaartTotaalBTW").innerText =
+    euro(totaalBTW);
 
 document.getElementById(
     "kaartTotaalLessen"
+).innerText =
+    lessen.length;
+
 ).innerText =
     lessen.length;
 
