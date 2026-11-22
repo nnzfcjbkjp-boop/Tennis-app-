@@ -261,14 +261,8 @@ let totaalBTW =
 document.getElementById("kaartTotaalBTW").innerText =
     euro(totaalBTW);
 
-document.getElementById(
-    "kaartTotaalLessen"
-).innerText =
+document.getElementById("kaartTotaalLessen").innerText =
     lessen.length;
-
-).innerText =
-    lessen.length;
-
 
     document.getElementById("kaartBTW").innerText =
         euro(btw);
