@@ -454,6 +454,8 @@ document.getElementById(
     "seizoensMonitor"
 ).innerHTML =
     seizoenHtml;
+
+    }
     
 // =========================
 // Helpers
