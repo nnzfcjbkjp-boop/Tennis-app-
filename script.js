@@ -190,6 +190,8 @@ function slaInstellingenOp() {
 
 function updateDashboard() {
 
+    // Vandaag
+
     const lessenVandaag =
         lessen.filter(
             les => les.datum === vandaag()
@@ -222,6 +224,9 @@ function updateDashboard() {
     const btw =
         omzetIncl - omzetExcl;
 
+
+    // Totaal alle lessen
+
     let totaalOmzet = 0;
 
     lessen.forEach(les => {
@@ -237,7 +242,11 @@ function updateDashboard() {
         (1 + btwPercentage / 100);
 
     const totaalBTW =
-        totaalOmzet - totaalOmzetExcl;
+        totaalOmzet -
+        totaalOmzetExcl;
+
+
+    // Dashboard cijfers
 
     document.getElementById("priveAantal").innerText =
         priveAantal;
@@ -275,6 +284,9 @@ function updateDashboard() {
     document.getElementById("groepTariefKnop").innerText =
         euro(groepTarief);
 
+
+    // Vandaag geregistreerd
+
     let html = "";
 
     lessenVandaag.forEach((les, index) => {
@@ -311,6 +323,9 @@ function updateDashboard() {
     document.getElementById("lessenLijst").innerHTML =
         html;
 
+
+    // Alle lessen
+
     let alleLessenHtml = "";
 
     [...lessen]
@@ -344,7 +359,9 @@ function updateDashboard() {
         "alleLessenLijst"
     ).innerHTML =
         alleLessenHtml;
+
 }
+   
 
     // Vandaag geregistreerd
 
@@ -380,42 +397,6 @@ function updateDashboard() {
 
     document.getElementById("lessenLijst").innerHTML =
         html;
-
-    // Alle lessen
-
-    let alleLessenHtml = "";
-
-    [...lessen]
-        .reverse()
-        .forEach(les => {
-
-            const naam =
-                les.type === "prive"
-                    ? "🎾 Privéles"
-                    : "🎾 Groepsles";
-
-            alleLessenHtml += `
-                <div class="les-item">
-
-                    <span>
-                        📅 ${formatteerDatum(les.datum)}
-                        |
-                        🕒 ${les.tijdstip}
-                        |
-                        ${naam}
-                        |
-                        ${euro(les.tarief)}
-                    </span>
-
-                </div>
-            `;
-        });
-
-    document.getElementById(
-        "alleLessenLijst"
-    ).innerHTML =
-        alleLessenHtml;
-}
 
 
 // =========================
