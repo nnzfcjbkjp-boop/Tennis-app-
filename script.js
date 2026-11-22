@@ -222,4 +222,9 @@ function slaInstellingenOp() {
     );
 
     updateDashboard();
+    document.getElementById("priveTariefKnop").innerText =
+    euro(priveTarief);
+
+document.getElementById("groepTariefKnop").innerText =
+    euro(groepTarief);
 }
