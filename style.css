@@ -417,3 +417,16 @@ hr {
 
     font-weight: 700;
 }
+
+.dag-kop {
+
+    font-size: 17px;
+
+    font-weight: 700;
+
+    color: #38a35d;
+
+    margin-top: 16px;
+
+    margin-bottom: 6px;
+}
