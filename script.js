@@ -367,7 +367,7 @@ let alleLessenHtml = "";
                     class="verwijder-klein"
                     onclick="verwijderHistorischeLes(${lessen.length - 1 - index})">
 
-                    ✕
+                    🗑
 
                 </button>
 
@@ -379,7 +379,7 @@ document.getElementById(
     "alleLessenLijst"
 ).innerHTML =
     alleLessenHtml;
-
+} 
     
 // =========================
 // Helpers
