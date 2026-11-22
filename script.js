@@ -383,11 +383,19 @@ document.getElementById(
 
     // Seizoensmonitor
 
-const groepen = {};
+const weekdagen = {
+    maandag: {},
+    dinsdag: {},
+    woensdag: {},
+    donderdag: {},
+    vrijdag: {},
+    zaterdag: {},
+    zondag: {}
+};
 
 lessen.forEach(les => {
 
-    const weekdag =
+    const dag =
         new Date(les.datum)
             .toLocaleDateString(
                 "nl-NL",
@@ -396,44 +404,69 @@ lessen.forEach(les => {
                 }
             );
 
-    const groep =
-        `${weekdag} ${les.tijdstip}`;
+    const tijd =
+        les.tijdstip;
 
-    if (!groepen[groep]) {
+    const sleutel =
+        dag + "-" + tijd;
 
-        groepen[groep] = 0;
+    if (!weekdagen[dag][sleutel]) {
+
+        weekdagen[dag][sleutel] = 0;
     }
 
-    groepen[groep]++;
+    weekdagen[dag][sleutel]++;
 
 });
 
 let seizoenHtml = "";
 
-Object.entries(groepen)
-    .sort()
-    .forEach(([groep, aantal]) => {
+Object.entries(weekdagen)
+    .forEach(([dag, tijden]) => {
 
         seizoenHtml += `
-            <div class="regel">
-
-                <span>
-                    ${groep}
-                </span>
-
-                <strong>
-                    ${aantal}/${seizoenTotaal}
-                </strong>
-
+            <div class="dag-kop">
+                📅 ${dag.charAt(0).toUpperCase() + dag.slice(1)}
             </div>
         `;
+
+        if (Object.keys(tijden).length === 0) {
+
+            seizoenHtml += `
+                <div class="regel">
+                    <span>-</span>
+                </div>
+            `;
+
+            return;
+        }
+
+        Object.entries(tijden)
+            .sort()
+            .forEach(([sleutel, aantal]) => {
+
+                const tijd =
+                    sleutel.split("-")[1];
+
+                seizoenHtml += `
+                    <div class="regel">
+
+                        <span>${tijd}</span>
+
+                        <strong>
+                            ${aantal}/16
+                        </strong>
+
+                    </div>
+                `;
+            });
+
     });
 
 document.getElementById(
     "seizoensMonitor"
 ).innerHTML =
     seizoenHtml;
-} 
     
 // =========================
 // Helpers
