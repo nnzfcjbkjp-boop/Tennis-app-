@@ -22,11 +22,34 @@ body {
 }
 
 h1 {
+
+    text-align: center;
+
+    color: #38a35d;
+
+    font-size: 28px;
+
+    font-weight: 800;
+
+    margin-top: 10px;
+
     margin-bottom: 2px;
 }
 
 .datum {
-    margin-bottom: 8px;
+
+    text-align: center;
+
+    color: #6b7280;
+
+    font-size: 12px;
+
+    font-weight: 600;
+
+    letter-spacing: 1px;
+
+    margin-bottom: 12px;
+}
 }
 
 .card:first-of-type {
