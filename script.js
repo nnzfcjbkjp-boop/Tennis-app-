@@ -427,17 +427,10 @@ Object.entries(weekdagen)
             </div>
         `;
 
-        if (Object.keys(tijden).length === 0) {
+       if (Object.keys(tijden).length === 0) {
 
-            seizoenHtml += `
-                <div class="regel">
-                    <span>Geen lessen</span>
-                </div>
-            `;
-
-            return;
-        }
-
+    return;
+}
         Object.entries(tijden)
             .sort()
             .forEach(([tijd, aantal]) => {
