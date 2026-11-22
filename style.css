@@ -323,3 +323,30 @@ label {
 
     overflow-y: auto;
 }
+
+.alles-reset-button {
+
+    width: 100%;
+
+    padding: 16px;
+
+    margin-top: 10px;
+
+    border: none;
+
+    border-radius: 15px;
+
+    background: #8b0000;
+
+    color: white;
+
+    font-size: 18px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+}
+    .alles-reset-button:hover {
+
+    background: #a50000;
+}
