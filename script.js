@@ -258,8 +258,7 @@ let totaalBTW =
    document.getElementById("kaartTotaalOmzet").innerText =
     euro(totaalOmzet);
 
-document.getElementById("kaartTotaalBTW").innerText =
-    euro(totaalBTW);
+// document.getElementById("kaartTotaalBTW").innerText = euro(totaalBTW);
 
 document.getElementById("kaartTotaalLessen").innerText =
     lessen.length;
