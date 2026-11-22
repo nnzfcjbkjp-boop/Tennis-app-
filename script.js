@@ -255,15 +255,10 @@ let totaalBTW =
     document.getElementById("kaartExcl").innerText =
         euro(omzetExcl);
     
-  const totaalOmzetElement =
-    document.getElementById("kaartTotaalOmzet");
-
-const totaalBTWElement =
-    document.getElementById("kaartTotaalBTW");
-
-const totaalLessenElement =
-    document.getElementById("kaartTotaalLessen");
-
+console.log("totale omzet", totaalOmzet);
+console.log("totale btw", totaalBTW);
+console.log("totale lessen", lessen.length);
+    
 if (totaalOmzetElement) {
     totaalOmzetElement.innerText =
         euro(totaalOmzet);
