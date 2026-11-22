@@ -45,10 +45,16 @@ updateDashboard();
 
 function voegLesToe(type) {
 
+    alert("Les toevoegen werkt");
+
     const tarief =
         type === "prive"
         ? priveTarief
         : groepTarief;
+
+    ...
+}
+
 
     lessen.push({
 
