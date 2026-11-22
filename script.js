@@ -40,16 +40,34 @@ document.getElementById("btwPercentage").value =
 
 function voegLesToe(type) {
 
+    let tarief =
+        type === "prive"
+        ? priveTarief
+        : groepTarief;
+
     lessen.push({
+
         datum: vandaag(),
-        type: type
+
+        type: type,
+
+        tarief: tarief,
+
+        btwPercentage: btwPercentage,
+
+        tijdstip: new Date().toLocaleTimeString(
+            "nl-NL",
+            {
+                hour: "2-digit",
+                minute: "2-digit"
+            }
+        )
     });
 
     opslaan();
 
     updateDashboard();
 }
-
 function resetVandaag() {
 
     lessen = lessen.filter(
