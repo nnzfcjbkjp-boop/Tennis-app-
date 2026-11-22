@@ -176,10 +176,10 @@ let omzetExcl =
 
 lessenVandaag.forEach((les, index) => {
 
-    let naam =
-        les.type === "prive"
-        ? "🎾 Privéles"
-        : "🎾 Groepsles";
+let naam =
+    les.type === "prive"
+    ? `🎾 Privéles - ${euro(les.tarief)}`
+    : `🎾 Groepsles - ${euro(les.tarief)}`;
 
     html += `
         <div class="les-item">
