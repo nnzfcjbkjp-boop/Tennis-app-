@@ -101,8 +101,9 @@ function verwijderLes(index) {
 
         updateDashboard();
     }
-    
-    function verwijderHistorischeLes(index) {
+}
+
+function verwijderHistorischeLes(index) {
 
     const bevestiging = confirm(
         "Deze les verwijderen?"
@@ -116,7 +117,6 @@ function verwijderLes(index) {
 
     updateDashboard();
 }
-
 
 // =========================
 // Reset vandaag
