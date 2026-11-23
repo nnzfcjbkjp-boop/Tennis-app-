@@ -436,12 +436,6 @@ function updateDashboard() {
 
     // Dashboard cijfers
 
-    document.getElementById("priveAantal").innerText =
-        priveAantal;
-
-    document.getElementById("groepAantal").innerText =
-        groepAantal;
-
     document.getElementById("kaartExcl").innerText =
         euro(omzetExcl);
 
