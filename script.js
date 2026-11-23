@@ -587,12 +587,15 @@ const weekdagen = {
 
 lessen.forEach(les => {
 
-   if (les.type === "regen" ||
+  if (
+    les.type === "uitgevallen" ||
+    les.type === "regen" ||
     les.type === "vakantie" ||
     les.type === "afwezig"
 ) {
     return;
 }
+
 
 
   const dag =
