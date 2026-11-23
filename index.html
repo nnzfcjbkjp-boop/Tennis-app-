@@ -167,25 +167,70 @@
 
 </div>
 
-.voortgang {
+<div class="card">
 
-    width: 120px;
+    <h2>📝 Lesblokregistratie</h2>
 
-    height: 10px;
+    <label>Type</label>
 
-    background: #e5e7eb;
+    <select id="blokType">
 
-    border-radius: 999px;
+        <option value="prive">
+            🎾 Privéles
+        </option>
 
-    overflow: hidden;
-}
+        <option value="groep">
+            👥 Groepsles
+        </option>
 
-.voortgang-balk {
+        <option value="weersomstandigheden">
+            🌧️ Weersomstandigheden
+        </option>
 
-    height: 100%;
+        <option value="vakantie">
+            🏖️ Vakantie
+        </option>
 
-    background: #22c55e;
-}
+        <option value="afwezig">
+            🤒 Leerling afwezig
+        </option>
+
+    </select>
+
+    <label>Datum</label>
+
+    <input
+        type="date"
+        id="blokDatum">
+
+    <label>Starttijd</label>
+
+    <input
+        type="time"
+        id="blokStart">
+
+    <label>Eindtijd</label>
+
+    <input
+        type="time"
+        id="blokEinde">
+
+    <label>Interval (minuten)</label>
+
+    <input
+        type="number"
+        id="blokInterval"
+        value="60">
+
+    <button
+        class="registreren-button"
+        onclick="registreerBlok()">
+
+        ✅ Blok registreren
+
+    </button>
+
+</div>
         
         <!-- Vandaag geregistreerd -->
 
