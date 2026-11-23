@@ -632,3 +632,16 @@ select {
 
     font-size: 14px;
 }
+
+.datum-header {
+
+    margin-top: 15px;
+
+    padding: 8px 0;
+
+    font-weight: 700;
+
+    color: #374151;
+
+    border-bottom: 1px solid #e5e7eb;
+}
