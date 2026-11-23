@@ -32,6 +32,8 @@ let weekOffset = 0;
 
 let bewerkIndex = null;
 
+let openBewerkLes = null;
+
 // =========================
 // Opstarten
 // =========================
@@ -198,6 +200,41 @@ function toggleAlleLessen() {
         !alleLessenOpen;
 
     updateDashboard();
+}
+
+function toggleBewerken(index) {
+
+    if (openBewerkLes === index) {
+
+        openBewerkLes = null;
+
+    } else {
+
+        openBewerkLes = index;
+    }
+
+    updateDashboard();
+}
+
+function wijzigType(index, nieuwType) {
+
+    lessen[index].type =
+        nieuwType;
+
+    lessen[index].tarief =
+        nieuwType === "prive"
+            ? priveTarief
+            : nieuwType === "groep"
+            ? groepTarief
+            : 0;
+
+    opslaan();
+
+    updateDashboard();
+
+    toonMelding(
+        "✅ Les bijgewerkt"
+    );
 }
 
 function toggleDag(dag) {
@@ -562,49 +599,6 @@ function updateDashboard() {
     `📚 Alle lessen (${lessen.length})`;
 
 
-    // Vandaag geregistreerd
-
-    let html = "";
-
-    lessenVandaag.forEach((les, index) => {
-
-       const naam =
-    les.type === "prive"
-        ? "🎾 Privéles"
-        : les.type === "groep"
-        ? "🎾 Groepsles"
-        : les.type === "weersomstandigheden"
-        ? "🌧️ weersomstandigheden"
-        : les.type === "vakantie"
-        ? "🏖️ Vakantie"
-        : "🤒 Leerling afwezig";
-        html += `
-            <div class="les-item">
-
-                <span>
-                    🕒 ${les.tijdstip}
-                    |
-                    ${naam}
-                    |
-                    ${euro(les.tarief)}
-                </span>
-
-                <button
-                    class="verwijder-knop"
-                    onclick="verwijderLes(${index})">
-
-                    Verwijder
-
-                </button>
-
-            </div>
-        `;
-
-    });
-
-    document.getElementById("lessenLijst").innerHTML =
-        html;
-
 // Alle lessen gegroepeerd
 
 let alleLessenHtml = "";
@@ -663,25 +657,24 @@ Object.entries(dagen)
         return;
     }
 
-   let vorigeDatum = "";
+    let vorigeDatum = "";
 
-dagLessen.forEach(les => {
+    dagLessen.forEach(les => {
 
-    if (les.datum !== vorigeDatum) {
+        if (les.datum !== vorigeDatum) {
 
-        alleLessenHtml += `
+            alleLessenHtml += `
 
-            <div class="datum-header">
+                <div class="datum-header">
 
-                📅 ${formatteerDatum(les.datum)}
+                    📅 ${formatteerDatum(les.datum)}
 
-            </div>
+                </div>
 
-        `;
+            `;
 
-        vorigeDatum = les.datum;
-    }
-
+            vorigeDatum = les.datum;
+        }
 
         const naam =
             les.type === "prive"
@@ -694,53 +687,19 @@ dagLessen.forEach(les => {
                 ? "🏖️ Vakantie"
                 : "🤒 Leerling afwezig";
 
-alleLessenHtml += `
+        alleLessenHtml += `
 
-    <div class="les-item-compact">
+            <div class="les-item-compact">
 
-        <span>
+                <span>
 
-            🕒 ${les.tijdstip}
+                    🕒 ${les.tijdstip}
 
-        </span>
+                </span>
 
-<div class="les-acties">
+                <div class="les-acties">
 
-    <span>
-
-        ${naam}
-
-    </span>
-
-<button
-    class="bewerk-knop"
-    onclick="bewerkLes(${lessen.indexOf(les)})">
-
-    ✏️
-
-</button>
-
-    <button
-        class="verwijder-klein"
-        onclick="verwijderHistorischeLes(${lessen.indexOf(les)})">
-
-        🗑️
-
-    </button>
-
-</div>
-
-    </div>
-
-`;
-    });
-
-});
-
-document.getElementById(
-    "alleLessenLijst"
-).innerHTML =
-    alleLessenHtml;
+     
    
 // Seizoensmonitor
 
