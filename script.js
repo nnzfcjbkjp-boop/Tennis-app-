@@ -30,6 +30,8 @@ let openDagen = {
 
 let weekOffset = 0;
 
+let bewerkIndex = null;
+
 // =========================
 // Opstarten
 // =========================
@@ -227,7 +229,69 @@ function registreerLes() {
             "lesType"
         ).value;
 
+    if (bewerkIndex !== null) {
+
+        lessen[bewerkIndex].datum =
+            document.getElementById(
+                "lesDatum"
+            ).value;
+
+        lessen[bewerkIndex].tijdstip =
+            document.getElementById(
+                "lesTijd"
+            ).value;
+
+        lessen[bewerkIndex].type =
+            type;
+
+        lessen[bewerkIndex].tarief =
+            type === "prive"
+                ? priveTarief
+                : type === "groep"
+                ? groepTarief
+                : 0;
+
+        bewerkIndex = null;
+
+        opslaan();
+
+        updateDashboard();
+
+        toonMelding(
+            "✅ Les gewijzigd"
+        );
+
+        return;
+    }
+
     voegLesToe(type);
+}
+function bewerkLes(index) {
+
+    const les = lessen[index];
+
+    bewerkIndex = index;
+
+    document.getElementById(
+        "lesDatum"
+    ).value =
+        les.datum;
+
+    document.getElementById(
+        "lesTijd"
+    ).value =
+        les.tijdstip;
+
+    document.getElementById(
+        "lesType"
+    ).value =
+        les.type;
+
+    updateTariefPreview();
+
+    toonMelding(
+        "✏️ Les geladen voor bewerken"
+    );
 }
 
 function updateTariefPreview() {
@@ -648,12 +712,13 @@ alleLessenHtml += `
 
     </span>
 
-    <button
-        class="bewerk-knop">
+<button
+    class="bewerk-knop"
+    onclick="bewerkLes(${lessen.indexOf(les)})">
 
-        ✏️
+    ✏️
 
-    </button>
+</button>
 
     <button
         class="verwijder-klein"
