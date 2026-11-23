@@ -224,6 +224,74 @@ function updateTariefPreview() {
         tekst;
 }
 
+function registreerUitval() {
+
+    const type =
+        document.getElementById(
+            "uitvalType"
+        ).value;
+
+    const start =
+        document.getElementById(
+            "uitvalStart"
+        ).value;
+
+    const einde =
+        document.getElementById(
+            "uitvalEinde"
+        ).value;
+
+    if (!start || !einde) {
+
+        toonMelding(
+            "⚠️ Vul een start- en einddatum in"
+        );
+
+        return;
+    }
+
+    let huidigeDatum =
+        new Date(start);
+
+    const eindDatum =
+        new Date(einde);
+
+    let teller = 0;
+
+    while (
+        huidigeDatum <= eindDatum
+    ) {
+
+        lessen.push({
+
+            datum:
+                huidigeDatum
+                    .toISOString()
+                    .split("T")[0],
+
+            tijdstip: "Uitval",
+
+            type: type,
+
+            tarief: 0
+
+        });
+
+        teller++;
+
+        huidigeDatum.setDate(
+            huidigeDatum.getDate() + 1
+        );
+    }
+
+    opslaan();
+
+    updateDashboard();
+
+    toonMelding(
+        `✅ ${teller} uitvaldagen toegevoegd`
+    );
+}
 // =========================
 // Reset vandaag
 // =========================
