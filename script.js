@@ -946,11 +946,23 @@ Object.entries(dagen)
 
                 <div class="les-acties">
 
-                    <span>
+                    <div>
 
-                        ${naam}
+    <div>
 
-                    </span>
+        ${naam}
+
+    </div>
+
+    <div class="les-tarief">
+
+        ${les.tarief > 0
+            ? euro(les.tarief)
+            : "-"}
+
+    </div>
+
+</div>
 
                     <button
                         class="bewerk-knop"
