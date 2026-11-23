@@ -505,19 +505,20 @@ function registreerBlok() {
             ).value
         );
 
-   if (
+  if (
     !startDatum ||
     !eindDatum ||
     !start ||
     !einde
-)
+) {
 
-        toonMelding(
-            "⚠️ Vul alle velden in"
-        );
+    toonMelding(
+        "⚠️ Vul alle velden in"
+    );
 
-        return;
-    }
+    return;
+}
+
 
     let teller = 0;
 
