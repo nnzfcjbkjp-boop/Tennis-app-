@@ -303,33 +303,6 @@ function registreerLes() {
 
     voegLesToe(type);
 }
-function bewerkLes(index) {
-
-    const les = lessen[index];
-
-    bewerkIndex = index;
-
-    document.getElementById(
-        "lesDatum"
-    ).value =
-        les.datum;
-
-    document.getElementById(
-        "lesTijd"
-    ).value =
-        les.tijdstip;
-
-    document.getElementById(
-        "lesType"
-    ).value =
-        les.type;
-
-    updateTariefPreview();
-
-    toonMelding(
-        "✏️ Les geladen voor bewerken"
-    );
-}
 
 function updateTariefPreview() {
 
@@ -790,7 +763,12 @@ Object.entries(dagen)
 
 });
      
-   
+document.getElementById(
+    "alleLessenLijst"
+).innerHTML =
+    alleLessenHtml;
+
+    
 // Seizoensmonitor
 
 const weekdagen = {
