@@ -28,6 +28,16 @@ let openDagen = {
     zondag: false
 };
 
+let openSeizoensDagen = {
+    maandag: false,
+    dinsdag: false,
+    woensdag: false,
+    donderdag: false,
+    vrijdag: false,
+    zaterdag: false,
+    zondag: false
+};
+
 let weekOffset = 0;
 
 let bewerkIndex = null;
@@ -293,6 +303,14 @@ function toggleDag(dag) {
 
     openDagen[dag] =
         !openDagen[dag];
+
+    updateDashboard();
+}
+
+function toggleSeizoensDag(dag) {
+
+    openSeizoensDagen[dag] =
+        !openSeizoensDagen[dag];
 
     updateDashboard();
 }
@@ -914,11 +932,26 @@ Object.entries(weekdagen)
             return;
         }
 
-        seizoenHtml += `
-            <div class="dag-kop">
-                📅 ${dag.charAt(0).toUpperCase() + dag.slice(1)}
-            </div>
-        `;
+       seizoenHtml += `
+
+    <div
+        class="dag-header"
+        onclick="toggleSeizoensDag('${dag}')">
+
+        ${openSeizoensDagen[dag] ? "▼" : "▶"}
+
+        ${dag.charAt(0).toUpperCase() + dag.slice(1)}
+
+        (${Object.keys(tijden).length})
+
+    </div>
+
+`;
+
+if (!openSeizoensDagen[dag]) {
+
+    return;
+}
         Object.entries(tijden)
             .sort()
             .forEach(([tijd, aantal]) => {
@@ -928,9 +961,18 @@ Object.entries(weekdagen)
 
                         <span>${tijd}</span>
 
-                       <strong>
-                            Les ${aantal} van ${seizoenTotaal}
-                        </strong>
+<div class="voortgang">
+
+    <div
+        class="voortgang-balk"
+        style="width: ${(aantal / seizoenTotaal) * 100}%">
+    </div>
+
+</div>
+
+<strong>
+    ${aantal}/${seizoenTotaal}
+</strong>
 
                     </div>
                 `;
