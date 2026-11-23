@@ -478,10 +478,15 @@ function registreerBlok() {
             "blokType"
         ).value;
 
-    const datum =
-        document.getElementById(
-            "blokDatum"
-        ).value;
+    const startDatum =
+    document.getElementById(
+        "blokStartDatum"
+    ).value;
+
+    const eindDatum =
+    document.getElementById(
+        "blokEindDatum"
+    ).value;
 
     const start =
         document.getElementById(
@@ -500,11 +505,12 @@ function registreerBlok() {
             ).value
         );
 
-    if (
-        !datum ||
-        !start ||
-        !einde
-    ) {
+   if (
+    !startDatum ||
+    !eindDatum ||
+    !start ||
+    !einde
+)
 
         toonMelding(
             "⚠️ Vul alle velden in"
@@ -513,17 +519,30 @@ function registreerBlok() {
         return;
     }
 
+    let teller = 0;
+
+let dag =
+    new Date(startDatum);
+
+const laatsteDag =
+    new Date(eindDatum);
+
+while (dag <= laatsteDag) {
+
+    const datumString =
+        dag
+            .toISOString()
+            .split("T")[0];
+
     let huidige =
         new Date(
-            `${datum}T${start}`
+            `${datumString}T${start}`
         );
 
     const eind =
         new Date(
-            `${datum}T${einde}`
+            `${datumString}T${einde}`
         );
-
-    let teller = 0;
 
     while (huidige < eind) {
 
@@ -539,7 +558,7 @@ function registreerBlok() {
 
         lessen.push({
 
-            datum: datum,
+            datum: datumString,
 
             tijdstip: tijdstip,
 
@@ -562,6 +581,10 @@ function registreerBlok() {
         teller++;
     }
 
+    dag.setDate(
+        dag.getDate() + 1
+    );
+}
     opslaan();
 
     updateDashboard();
