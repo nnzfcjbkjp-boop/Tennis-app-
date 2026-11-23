@@ -626,22 +626,20 @@ select {
 
     justify-content: space-between;
 
-    padding: 10px 12px;
+    align-items: center;
+
+    padding: 12px 0;
 
     border-bottom: 1px solid #ececec;
-
-    font-size: 14px;
 }
 
 .datum-header {
 
-    margin-top: 15px;
+    margin-top: 16px;
 
-    padding: 8px 0;
+    padding-bottom: 8px;
 
     font-weight: 700;
 
     color: #374151;
-
-    border-bottom: 1px solid #e5e7eb;
 }
