@@ -59,7 +59,7 @@ h1 {
 
     padding: 16px;
 
-    margin-bottom: 14px;
+    margin-bottom: 20px;
 
     box-shadow:
         0 4px 12px rgba(0,0,0,.05);
@@ -744,6 +744,11 @@ select {
 .blok-interval {
 
     margin-bottom: 20px;
+}
+
+.lesblok-card {
+
+    margin-bottom: 24px;
 }
 
 @media (max-width: 768px) {
