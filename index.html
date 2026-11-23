@@ -321,7 +321,23 @@
 
 <div class="card">
 
-    <h2>📊 Seizoensmonitor</h2>
+   <div class="week-header">
+
+    <button onclick="vorigeWeek()">
+        ◀
+    </button>
+
+    <h2 id="weekTitel">
+        📅 Huidige week
+    </h2>
+
+    <button onclick="volgendeWeek()">
+        ▶
+    </button>
+
+</div>
+
+<div id="weekOverzicht"></div>
 
     <div id="seizoensMonitor"></div>
 
