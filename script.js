@@ -41,6 +41,8 @@ window.onload = function () {
     document.getElementById("lesTijd").value =
         huidigeTijd();
 
+    updateTariefPreview();
+    
     updateDashboard();
 };
 
@@ -125,6 +127,46 @@ function verwijderHistorischeLes(index) {
 
 function toggleAlleLessen() {
 
+function registreerLes() {
+
+    const type =
+        document.getElementById(
+            "lesType"
+        ).value;
+
+    voegLesToe(type);
+}
+
+function updateTariefPreview() {
+
+    const type =
+        document.getElementById(
+            "lesType"
+        ).value;
+
+    let tekst = "";
+
+    if (type === "prive") {
+
+        tekst =
+            euro(priveTarief);
+
+    } else if (type === "groep") {
+
+        tekst =
+            euro(groepTarief);
+
+    } else {
+
+        tekst =
+            "Geen omzet";
+    }
+
+    document.getElementById(
+        "tariefPreview"
+    ).innerText =
+        tekst;
+}
     alleLessenOpen =
         !alleLessenOpen;
 
