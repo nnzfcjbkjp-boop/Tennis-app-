@@ -74,11 +74,28 @@ function voegLesToe(type) {
 
 });
 
-    opslaan();
+   opslaan();
 
-    updateDashboard();
+updateDashboard();
+
+if (type === "prive") {
+
+    toonMelding(
+        "✅ Privéles toegevoegd"
+    );
+
+} else if (type === "groep") {
+
+    toonMelding(
+        "✅ Groepsles toegevoegd"
+    );
+
+} else {
+
+    toonMelding(
+        "🚫 Uitgevallen les geregistreerd"
+    );
 }
-
 
 // =========================
 // Les verwijderen
@@ -108,6 +125,29 @@ function verwijderLes(index) {
 
         updateDashboard();
     }
+}
+
+function toonMelding(tekst) {
+
+    const melding =
+        document.getElementById(
+            "toastMelding"
+        );
+
+    melding.innerText =
+        tekst;
+
+    melding.classList.add(
+        "show"
+    );
+
+    setTimeout(() => {
+
+        melding.classList.remove(
+            "show"
+        );
+
+    }, 1800);
 }
 
 function verwijderHistorischeLes(index) {
