@@ -523,8 +523,7 @@ const lessenWeergave =
         : [...lessen].reverse().slice(0, 10);
 
 lessenWeergave.forEach((les, index) => {
-
-       const naam =
+    
     const naam =
     les.type === "prive"
         ? "🎾 Privéles"
