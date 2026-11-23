@@ -416,9 +416,9 @@ function updateBlokType() {
             "tijdBlok"
         );
 
-    if (
-        type === "vakantie" ||
-    ) {
+   if (
+    type === "vakantie"
+) {
 
         tijdBlok.style.display =
             "none";
