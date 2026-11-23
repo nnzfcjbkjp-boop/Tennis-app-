@@ -118,31 +118,43 @@
 </div>
         <!-- Lessen registreren -->
 
-        <h2>Lessen registreren</h2>
+     <div class="card">
 
-        <div class="knoppen">
+    <h2>🎾 Lesregistratie</h2>
 
-    <button onclick="voegLesToe('prive')">
+    <label>Type les</label>
 
-        + Privéles
+    <select
+        id="lesType"
+        onchange="updateTariefPreview()">
 
-        <span id="priveTariefKnop"></span>
+        <option value="prive">
+            Privéles
+        </option>
 
-    </button>
+        <option value="groep">
+            Groepsles
+        </option>
 
-    <button onclick="voegLesToe('groep')">
+        <option value="uitgevallen">
+            Les uitgevallen
+        </option>
 
-        + Groepsles
+    </select>
 
-        <span id="groepTariefKnop"></span>
+    <div
+        id="tariefPreview"
+        class="tarief-preview">
 
-    </button>
+        €63,00
+
+    </div>
 
     <button
-        class="uitgevallen-button"
-        onclick="voegLesToe('uitgevallen')">
+        class="registreren-button"
+        onclick="registreerLes()">
 
-        🚫 Les uitgevallen
+        Les registreren
 
     </button>
 
