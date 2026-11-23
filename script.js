@@ -259,6 +259,36 @@ function opslaanLes(index) {
         "✅ Les bijgewerkt"
     );
 }
+
+function updateEditTarief(index) {
+
+    const type =
+        document.getElementById(
+            `edit-type-${index}`
+        ).value;
+
+    const tariefVeld =
+        document.getElementById(
+            `edit-tarief-${index}`
+        );
+
+    if (type === "prive") {
+
+        tariefVeld.value =
+            priveTarief;
+
+    } else if (type === "groep") {
+
+        tariefVeld.value =
+            groepTarief;
+
+    } else {
+
+        tariefVeld.value =
+            0;
+    }
+}
+
 function toggleDag(dag) {
 
     openDagen[dag] =
@@ -745,13 +775,14 @@ if (
                 id="edit-tijd-${lessen.indexOf(les)}"
                 value="${les.tijdstip !== "Uitval" ? les.tijdstip : ""}">
 
-            <label>Type</label>
+<label>Type</label>
 
-            <select
-                id="edit-type-${lessen.indexOf(les)}">
+<select
+    id="edit-type-${lessen.indexOf(les)}"
+    onchange="updateEditTarief(${lessen.indexOf(les)})">
 
-                <option
-                    value="prive"
+    <option
+        value="prive"
                     ${les.type === "prive" ? "selected" : ""}>
 
                     🎾 Privéles
