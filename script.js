@@ -642,13 +642,6 @@ document.getElementById(
 ).innerHTML =
     alleLessenHtml;
    
-    document.querySelector(
-    ".toon-meer-button"
-).innerText =
-    alleLessenOpen
-        ? "Toon minder"
-        : `Toon alle lessen (${lessen.length})`;
-
 // Seizoensmonitor
 
 const weekdagen = {
