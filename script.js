@@ -348,12 +348,6 @@ function updateDashboard() {
     document.getElementById("alleLessenTitel").innerText =
     `📚 Alle lessen (${lessen.length})`;
 
-    document.getElementById("priveTariefKnop").innerText =
-        euro(priveTarief);
-
-    document.getElementById("groepTariefKnop").innerText =
-        euro(groepTarief);
-
 
     // Vandaag geregistreerd
 
