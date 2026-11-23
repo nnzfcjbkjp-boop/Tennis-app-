@@ -162,7 +162,7 @@ function updateTariefPreview() {
 
     } else {
 
-        tekst = "Geen omzet";
+        tekst = "-";
     }
 
     document.getElementById(
