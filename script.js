@@ -699,6 +699,96 @@ Object.entries(dagen)
 
                 <div class="les-acties">
 
+                    <span>
+
+                        ${naam}
+
+                    </span>
+
+                    <button
+                        class="bewerk-knop"
+                        onclick="toggleBewerken(${lessen.indexOf(les)})">
+
+                        ✏️
+
+                    </button>
+
+                    <button
+                        class="verwijder-klein"
+                        onclick="verwijderHistorischeLes(${lessen.indexOf(les)})">
+
+                        🗑️
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        `;
+
+        if (
+            openBewerkLes ===
+            lessen.indexOf(les)
+        ) {
+
+            alleLessenHtml += `
+
+                <div class="bewerk-paneel">
+
+                    <select
+                        onchange="wijzigType(${lessen.indexOf(les)}, this.value)">
+
+                        <option
+                            value="prive"
+                            ${les.type === "prive" ? "selected" : ""}>
+
+                            🎾 Privéles
+
+                        </option>
+
+                        <option
+                            value="groep"
+                            ${les.type === "groep" ? "selected" : ""}>
+
+                            🎾 Groepsles
+
+                        </option>
+
+                        <option
+                            value="weersomstandigheden"
+                            ${les.type === "weersomstandigheden" ? "selected" : ""}>
+
+                            🌧️ Weersomstandigheden
+
+                        </option>
+
+                        <option
+                            value="vakantie"
+                            ${les.type === "vakantie" ? "selected" : ""}>
+
+                            🏖️ Vakantie
+
+                        </option>
+
+                        <option
+                            value="afwezig"
+                            ${les.type === "afwezig" ? "selected" : ""}>
+
+                            🤒 Leerling afwezig
+
+                        </option>
+
+                    </select>
+
+                </div>
+
+            `;
+        }
+
+    });
+
+});
      
    
 // Seizoensmonitor
