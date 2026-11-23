@@ -729,9 +729,9 @@ select {
 
 .les-tarief {
 
-    font-size: 12px;
-
     color: #6b7280;
 
-    margin-top: 2px;
+    font-size: 13px;
+
+    font-weight: 400;
 }
