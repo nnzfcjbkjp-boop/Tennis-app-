@@ -90,10 +90,22 @@ if (type === "prive") {
         "✅ Groepsles toegevoegd"
     );
 
+} else if (type === "regen") {
+
+    toonMelding(
+        "🌧️ Regen geregistreerd"
+    );
+
+} else if (type === "vakantie") {
+
+    toonMelding(
+        "🏖️ Vakantie geregistreerd"
+    );
+
 } else {
 
     toonMelding(
-        "🚫 Uitgevallen les geregistreerd"
+        "🤒 Leerling afwezig"
     );
 }
 
@@ -401,8 +413,11 @@ function updateDashboard() {
         ? "🎾 Privéles"
         : les.type === "groep"
         ? "🎾 Groepsles"
-        : "🚫 Uitgevallen";
-
+        : les.type === "regen"
+        ? "🌧️ Regen"
+        : les.type === "vakantie"
+        ? "🏖️ Vakantie"
+        : "🤒 Leerling afwezig";
         html += `
             <div class="les-item">
 
@@ -442,11 +457,17 @@ const lessenWeergave =
 lessenWeergave.forEach((les, index) => {
 
        const naam =
+    const naam =
     les.type === "prive"
         ? "🎾 Privéles"
         : les.type === "groep"
         ? "🎾 Groepsles"
-        : "🚫 Uitgevallen";
+        : les.type === "regen"
+        ? "🌧️ Regen"
+        : les.type === "vakantie"
+        ? "🏖️ Vakantie"
+        : "🤒 Leerling afwezig";
+
 
         alleLessenHtml += `
             <div class="les-item les-item-alle">
@@ -499,9 +520,13 @@ const weekdagen = {
 
 lessen.forEach(les => {
 
-    if (les.type === "uitgevallen") {
-        return;
-    }
+   if (les.type === "regen" ||
+    les.type === "vakantie" ||
+    les.type === "afwezig"
+) {
+    return;
+}
+
 
   const dag =
     new Date(les.datum)
