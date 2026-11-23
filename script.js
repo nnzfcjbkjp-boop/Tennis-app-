@@ -68,6 +68,8 @@ window.onload = function () {
         huidigeTijd();
 
     updateTariefPreview();
+
+    updateBlokType();
     
     updateDashboard();
 };
@@ -402,6 +404,33 @@ function updateTariefPreview() {
         tekst;
 }
 
+function updateBlokType() {
+
+    const type =
+        document.getElementById(
+            "blokType"
+        ).value;
+
+    const tijdBlok =
+        document.getElementById(
+            "tijdBlok"
+        );
+
+    if (
+        type === "vakantie" ||
+        type === "afwezig"
+    ) {
+
+        tijdBlok.style.display =
+            "none";
+
+    } else {
+
+        tijdBlok.style.display =
+            "block";
+    }
+}
+
 function registreerUitval() {
 
     const type =
@@ -504,6 +533,56 @@ function registreerBlok() {
                 "blokInterval"
             ).value
         );
+    if (
+    type === "vakantie" ||
+    type === "afwezig"
+) {
+
+    let dag =
+        new Date(startDatum);
+
+    const laatsteDag =
+        new Date(eindDatum);
+
+    let teller = 0;
+
+    while (dag <= laatsteDag) {
+
+        lessen.push({
+
+            datum:
+                dag
+                    .toISOString()
+                    .split("T")[0],
+
+            tijdstip:
+                type === "vakantie"
+                    ? "Vakantie"
+                    : "Afwezig",
+
+            type: type,
+
+            tarief: 0
+
+        });
+
+        teller++;
+
+        dag.setDate(
+            dag.getDate() + 1
+        );
+    }
+
+    opslaan();
+
+    updateDashboard();
+
+    toonMelding(
+        `✅ ${teller} dagen toegevoegd`
+    );
+
+    return;
+}
 
   if (
     !startDatum ||
