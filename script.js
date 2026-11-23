@@ -599,7 +599,25 @@ Object.entries(dagen)
         return;
     }
 
-    dagLessen.forEach(les => {
+   let vorigeDatum = "";
+
+dagLessen.forEach(les => {
+
+    if (les.datum !== vorigeDatum) {
+
+        alleLessenHtml += `
+
+            <div class="datum-header">
+
+                📅 ${formatteerDatum(les.datum)}
+
+            </div>
+
+        `;
+
+        vorigeDatum = les.datum;
+    }
+
 
         const naam =
             les.type === "prive"
