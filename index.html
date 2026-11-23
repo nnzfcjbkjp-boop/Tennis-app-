@@ -173,7 +173,9 @@
 
     <label>Type</label>
 
-    <select id="blokType">
+    <select
+    id="blokType"
+    onchange="updateBlokType()">
 
         <option value="prive">
             🎾 Privéles
@@ -209,6 +211,8 @@
     type="date"
     id="blokEindDatum">
 
+<div id="tijdBlok">
+
     <label>Starttijd</label>
 
     <input
@@ -227,6 +231,8 @@
         type="number"
         id="blokInterval"
         value="60">
+
+</div>
 
     <button
         class="registreren-button"
