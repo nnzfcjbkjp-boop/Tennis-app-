@@ -127,6 +127,12 @@ function verwijderHistorischeLes(index) {
 
 function toggleAlleLessen() {
 
+    alleLessenOpen =
+        !alleLessenOpen;
+
+    updateDashboard();
+}
+
 function registreerLes() {
 
     const type =
@@ -148,29 +154,21 @@ function updateTariefPreview() {
 
     if (type === "prive") {
 
-        tekst =
-            euro(priveTarief);
+        tekst = euro(priveTarief);
 
     } else if (type === "groep") {
 
-        tekst =
-            euro(groepTarief);
+        tekst = euro(groepTarief);
 
     } else {
 
-        tekst =
-            "Geen omzet";
+        tekst = "Geen omzet";
     }
 
     document.getElementById(
         "tariefPreview"
     ).innerText =
         tekst;
-}
-    alleLessenOpen =
-        !alleLessenOpen;
-
-    updateDashboard();
 }
 
 // =========================
