@@ -751,6 +751,11 @@ select {
     margin-bottom: 24px;
 }
 
+.vandaag-card {
+
+    margin-top: 20px;
+}
+
 @media (max-width: 768px) {
 
     body {
