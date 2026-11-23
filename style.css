@@ -604,3 +604,31 @@ select {
 
     opacity: 1;
 }
+
+.dag-header {
+
+    background: #f3f4f6;
+
+    padding: 12px;
+
+    border-radius: 10px;
+
+    margin-top: 10px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+}
+
+.les-item-compact {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    padding: 10px 12px;
+
+    border-bottom: 1px solid #ececec;
+
+    font-size: 14px;
+}
