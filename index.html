@@ -12,110 +12,90 @@
 
     <div class="container">
 
-        <!-- Omzetkaart -->
-
-      <div class="card">
+<div class="card">
 
     <div class="dashboard-header">
 
         <div class="dashboard-title">
-             Coach's Administration
+            🎾 Coach's Administration
         </div>
 
         <div id="datum" class="dashboard-date"></div>
 
     </div>
 
-    <h2>💰 Omzet vandaag</h2>
+    <div class="stats">
 
-            <div id="omzetVandaag" class="grote-omzet">
-                € 0,00
+        <div>
+
+            <div id="priveAantal" class="stat-getal">
+                0
             </div>
 
-            <div id="omzetExcl" class="subtekst">
-                € 0,00 excl. btw
-            </div>
-
-            <hr>
-
-            <div class="stats">
-
-                <div>
-                    <div id="priveAantal" class="stat-getal">
-                        0
-                    </div>
-
-                    <div>Privélessen</div>
-                </div>
-
-                <div>
-                    <div id="groepAantal" class="stat-getal">
-                        0
-                    </div>
-
-                    <div>Groepslessen</div>
-                </div>
-
-            </div>
+            <div>Privélessen vandaag</div>
 
         </div>
 
-        <!-- Tarieven -->
+        <div>
 
-        <div class="card">
+            <div id="groepAantal" class="stat-getal">
+                0
+            </div>
 
-            <h2>💶 Tarieven</h2>
-
-            <label>Privé tarief (€)</label>
-            <input id="priveTarief" type="number">
-
-            <label>Groep tarief (€)</label>
-            <input id="groepTarief" type="number">
-
-            <label>BTW (%)</label>
-            <input id="btwPercentage" type="number">
-
-            <button
-                class="opslaan-button"
-                onclick="slaInstellingenOp()">
-
-                Instellingen opslaan
-
-            </button>
-
-        </div>
-
-        <!-- Lesgegevens -->
-
-     <div class="card lesgegevens-kaart">
-
-    <h2>📅 Lesgegevens</h2>
-
-    <div class="les-row">
-
-        <div class="veld groot">
-
-            <label>Datum</label>
-
-            <input
-                type="date"
-                id="lesDatum">
-
-        </div>
-
-        <div class="veld klein">
-
-            <label>Tijdstip</label>
-
-            <input
-                type="time"
-                id="lesTijd">
+            <div>Groepslessen vandaag</div>
 
         </div>
 
     </div>
 
 </div>
+
+<div class="card">
+
+    <h2>⚙️ Instellingen & Lesgegevens</h2>
+
+    <label>Datum</label>
+
+    <input
+        type="date"
+        id="lesDatum">
+
+    <label>Tijdstip</label>
+
+    <input
+        type="time"
+        id="lesTijd">
+
+    <hr>
+
+    <label>Privé tarief (€)</label>
+
+    <input
+        id="priveTarief"
+        type="number">
+
+    <label>Groep tarief (€)</label>
+
+    <input
+        id="groepTarief"
+        type="number">
+
+    <label>BTW (%)</label>
+
+    <input
+        id="btwPercentage"
+        type="number">
+
+    <button
+        class="opslaan-button"
+        onclick="slaInstellingenOp()">
+
+        Instellingen opslaan
+
+    </button>
+
+</div>
+       
       <!-- Lesregistratie -->
 
 <div class="card">
