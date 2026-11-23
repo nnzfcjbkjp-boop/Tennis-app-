@@ -19,11 +19,11 @@ const seizoenTotaal = 16;
 let alleLessenOpen = false;
 
 let openDagen = {
-    maandag: true,
+    maandag: false,
     dinsdag: false,
     woensdag: false,
     donderdag: false,
-    vrijdag: true,
+    vrijdag: false,
     zaterdag: false,
     zondag: false
 };
@@ -216,38 +216,31 @@ function toggleBewerken(index) {
     updateDashboard();
 }
 
-function wijzigType(index, nieuwType) {
+function opslaanLes(index) {
+
+    lessen[index].datum =
+        document.getElementById(
+            `edit-datum-${index}`
+        ).value;
+
+    lessen[index].tijdstip =
+        document.getElementById(
+            `edit-tijd-${index}`
+        ).value || "Uitval";
 
     lessen[index].type =
-        nieuwType;
+        document.getElementById(
+            `edit-type-${index}`
+        ).value;
 
     lessen[index].tarief =
-        nieuwType === "prive"
-            ? priveTarief
-            : nieuwType === "groep"
-            ? groepTarief
-            : 0;
+        Number(
+            document.getElementById(
+                `edit-tarief-${index}`
+            ).value
+        );
 
-    if (
-        lessen[index].tijdstip === "Uitval" &&
-        (
-            nieuwType === "prive" ||
-            nieuwType === "groep"
-        )
-    ) {
-
-        const nieuwTijdstip =
-            prompt(
-                "Tijdstip van deze les?",
-                "17:00"
-            );
-
-        if (nieuwTijdstip) {
-
-            lessen[index].tijdstip =
-                nieuwTijdstip;
-        }
-    }
+    openBewerkLes = null;
 
     opslaan();
 
@@ -257,6 +250,7 @@ function wijzigType(index, nieuwType) {
         "✅ Les bijgewerkt"
     );
 }
+
 function toggleDag(dag) {
 
     openDagen[dag] =
@@ -720,17 +714,95 @@ Object.entries(dagen)
 
         `;
 
-        if (
-            openBewerkLes ===
-            lessen.indexOf(les)
-        ) {
+if (
+    openBewerkLes ===
+    lessen.indexOf(les)
+) {
 
-            alleLessenHtml += `
+    alleLessenHtml += `
 
-                <div class="bewerk-paneel">
+        <div class="bewerk-paneel">
 
-                    <select
-                        onchange="wijzigType(${lessen.indexOf(les)}, this.value)">
+            <label>Datum</label>
+
+            <input
+                type="date"
+                id="edit-datum-${lessen.indexOf(les)}"
+                value="${les.datum}">
+
+            <label>Tijdstip</label>
+
+            <input
+                type="time"
+                id="edit-tijd-${lessen.indexOf(les)}"
+                value="${les.tijdstip !== "Uitval" ? les.tijdstip : ""}">
+
+            <label>Type</label>
+
+            <select
+                id="edit-type-${lessen.indexOf(les)}">
+
+                <option
+                    value="prive"
+                    ${les.type === "prive" ? "selected" : ""}>
+
+                    🎾 Privéles
+
+                </option>
+
+                <option
+                    value="groep"
+                    ${les.type === "groep" ? "selected" : ""}>
+
+                    🎾 Groepsles
+
+                </option>
+
+                <option
+                    value="weersomstandigheden"
+                    ${les.type === "weersomstandigheden" ? "selected" : ""}>
+
+                    🌧️ Weersomstandigheden
+
+                </option>
+
+                <option
+                    value="vakantie"
+                    ${les.type === "vakantie" ? "selected" : ""}>
+
+                    🏖️ Vakantie
+
+                </option>
+
+                <option
+                    value="afwezig"
+                    ${les.type === "afwezig" ? "selected" : ""}>
+
+                    🤒 Leerling afwezig
+
+                </option>
+
+            </select>
+
+            <label>Tarief</label>
+
+            <input
+                type="number"
+                id="edit-tarief-${lessen.indexOf(les)}"
+                value="${les.tarief}">
+
+            <button
+                class="opslaan-button"
+                onclick="opslaanLes(${lessen.indexOf(les)})">
+
+                💾 Opslaan
+
+            </button>
+
+        </div>
+
+    `;
+}
 
                         <option
                             value="prive"
