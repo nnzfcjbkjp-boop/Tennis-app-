@@ -533,7 +533,7 @@ function registreerBlok() {
             ).value
         );
     if (
-    type === "vakantie" ||
+    type === "vakantie"
 ) {
 
     let dag =
