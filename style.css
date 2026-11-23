@@ -686,3 +686,23 @@ select {
 
     width: 100%;
 }
+
+.voortgang {
+
+    width: 120px;
+
+    height: 10px;
+
+    background: #e5e7eb;
+
+    border-radius: 999px;
+
+    overflow: hidden;
+}
+
+.voortgang-balk {
+
+    height: 100%;
+
+    background: #22c55e;
+}
