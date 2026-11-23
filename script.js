@@ -18,6 +18,8 @@ const seizoenTotaal = 16;
 
 let alleLessenOpen = false;
 
+let weekOffset = 0;
+
 // =========================
 // Opstarten
 // =========================
@@ -182,6 +184,20 @@ function toggleAlleLessen() {
 
     alleLessenOpen =
         !alleLessenOpen;
+
+    updateDashboard();
+}
+
+function vorigeWeek() {
+
+    weekOffset--;
+
+    updateDashboard();
+}
+
+function volgendeWeek() {
+
+    weekOffset++;
 
     updateDashboard();
 }
