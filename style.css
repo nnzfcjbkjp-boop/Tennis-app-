@@ -736,6 +736,11 @@ select {
     font-weight: 400;
 }
 
+.blok-registreren {
+
+    margin-top: 16px;
+}
+
 @media (max-width: 768px) {
 
     body {
