@@ -741,6 +741,11 @@ select {
     margin-top: 24px;
 }
 
+.blok-interval {
+
+    margin-bottom: 20px;
+}
+
 @media (max-width: 768px) {
 
     body {
