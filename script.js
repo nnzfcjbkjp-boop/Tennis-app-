@@ -52,9 +52,11 @@ window.onload = function () {
 function voegLesToe(type) {
 
     const tarief =
-        type === "prive"
-            ? priveTarief
-            : groepTarief;
+    type === "prive"
+        ? priveTarief
+        : type === "groep"
+        ? groepTarief
+        : 0;
 
    lessen.push({
 
@@ -319,10 +321,12 @@ function updateDashboard() {
 
     lessenVandaag.forEach((les, index) => {
 
-        const naam =
-            les.type === "prive"
-                ? "🎾 Privéles"
-                : "🎾 Groepsles";
+       const naam =
+    les.type === "prive"
+        ? "🎾 Privéles"
+        : les.type === "groep"
+        ? "🎾 Groepsles"
+        : "🚫 Uitgevallen";
 
         html += `
             <div class="les-item">
