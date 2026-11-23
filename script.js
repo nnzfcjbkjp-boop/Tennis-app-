@@ -228,18 +228,49 @@ function opslaanLes(index) {
             `edit-tijd-${index}`
         ).value || "Uitval";
 
-    lessen[index].type =
+function opslaanLes(index) {
+
+    const nieuwType =
         document.getElementById(
             `edit-type-${index}`
         ).value;
 
-    lessen[index].tarief =
+    const nieuwTarief =
         Number(
             document.getElementById(
                 `edit-tarief-${index}`
             ).value
         );
 
+    const nieuwTijdstip =
+        document.getElementById(
+            `edit-tijd-${index}`
+        ).value;
+
+    lessen[index].datum =
+        document.getElementById(
+            `edit-datum-${index}`
+        ).value;
+
+    lessen[index].tijdstip =
+        nieuwTijdstip || "Uitval";
+
+    lessen[index].type =
+        nieuwType;
+
+    lessen[index].tarief =
+        nieuwTarief;
+
+    openBewerkLes = null;
+
+    opslaan();
+
+    updateDashboard();
+
+    toonMelding(
+        "✅ Les bijgewerkt"
+    );
+}
     openBewerkLes = null;
 
     opslaan();
@@ -803,53 +834,6 @@ if (
 
     `;
 }
-
-                        <option
-                            value="prive"
-                            ${les.type === "prive" ? "selected" : ""}>
-
-                            🎾 Privéles
-
-                        </option>
-
-                        <option
-                            value="groep"
-                            ${les.type === "groep" ? "selected" : ""}>
-
-                            🎾 Groepsles
-
-                        </option>
-
-                        <option
-                            value="weersomstandigheden"
-                            ${les.type === "weersomstandigheden" ? "selected" : ""}>
-
-                            🌧️ Weersomstandigheden
-
-                        </option>
-
-                        <option
-                            value="vakantie"
-                            ${les.type === "vakantie" ? "selected" : ""}>
-
-                            🏖️ Vakantie
-
-                        </option>
-
-                        <option
-                            value="afwezig"
-                            ${les.type === "afwezig" ? "selected" : ""}>
-
-                            🤒 Leerling afwezig
-
-                        </option>
-
-                    </select>
-
-                </div>
-
-            `;
-        }
 
     });
 
