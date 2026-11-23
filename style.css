@@ -735,3 +735,82 @@ select {
 
     font-weight: 400;
 }
+
+@media (max-width: 768px) {
+
+    body {
+
+        font-size: 14px;
+    }
+
+    .container {
+
+        padding: 10px;
+    }
+
+    .card {
+
+        padding: 12px;
+
+        margin-bottom: 12px;
+    }
+
+    h2 {
+
+        font-size: 18px;
+
+        margin-bottom: 10px;
+    }
+
+    input,
+    select,
+    button {
+
+        font-size: 14px;
+
+        padding: 10px;
+    }
+
+    .dag-header {
+
+        padding: 10px;
+
+        font-size: 14px;
+    }
+
+    .datum-header {
+
+        font-size: 13px;
+    }
+
+    .les-item-compact {
+
+        padding: 8px 0;
+
+        font-size: 14px;
+    }
+
+    .bewerk-knop,
+    .verwijder-klein {
+
+        width: 32px;
+
+        height: 32px;
+    }
+
+    .stat-getal {
+
+        font-size: 24px;
+    }
+
+    .dashboard-title {
+
+        font-size: 20px;
+    }
+
+    .voortgang {
+
+        width: 90px;
+    }
+
+}
