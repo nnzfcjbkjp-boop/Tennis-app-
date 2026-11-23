@@ -218,18 +218,6 @@ function toggleBewerken(index) {
 
 function opslaanLes(index) {
 
-    lessen[index].datum =
-        document.getElementById(
-            `edit-datum-${index}`
-        ).value;
-
-    lessen[index].tijdstip =
-        document.getElementById(
-            `edit-tijd-${index}`
-        ).value || "Uitval";
-
-function opslaanLes(index) {
-
     const nieuwType =
         document.getElementById(
             `edit-type-${index}`
@@ -271,17 +259,6 @@ function opslaanLes(index) {
         "✅ Les bijgewerkt"
     );
 }
-    openBewerkLes = null;
-
-    opslaan();
-
-    updateDashboard();
-
-    toonMelding(
-        "✅ Les bijgewerkt"
-    );
-}
-
 function toggleDag(dag) {
 
     openDagen[dag] =
