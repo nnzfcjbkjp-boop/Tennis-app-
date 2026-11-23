@@ -189,25 +189,43 @@
 
 <div class="card">
 
-    <h2>🏖️ Vakantieweek</h2>
+    <h2>🚫 Uitval toevoegen</h2>
+
+    <label>Reden</label>
+
+    <select id="uitvalType">
+
+        <option value="regen">
+            🌧️ Regen
+        </option>
+
+        <option value="vakantie">
+            🏖️ Vakantie
+        </option>
+
+        <option value="afwezig">
+            🤒 Leerling afwezig
+        </option>
+
+    </select>
 
     <label>Startdatum</label>
 
     <input
         type="date"
-        id="vakantieStart">
+        id="uitvalStart">
 
     <label>Einddatum</label>
 
     <input
         type="date"
-        id="vakantieEinde">
+        id="uitvalEinde">
 
     <button
         class="registreren-button"
-        onclick="registreerVakantieweek()">
+        onclick="registreerUitval()">
 
-        Vakantieweek toevoegen
+        Uitval toevoegen
 
     </button>
 
