@@ -442,12 +442,6 @@ function updateDashboard() {
     document.getElementById("groepAantal").innerText =
         groepAantal;
 
-    document.getElementById("omzetVandaag").innerText =
-        euro(omzetIncl);
-
-    document.getElementById("omzetExcl").innerText =
-        euro(omzetExcl) + " excl. btw";
-
     document.getElementById("kaartExcl").innerText =
         euro(omzetExcl);
 
