@@ -366,10 +366,12 @@ const lessenWeergave =
 
 lessenWeergave.forEach((les, index) => {
 
-        const naam =
-            les.type === "prive"
-                ? "🎾 Privéles"
-                : "🎾 Groepsles";
+       const naam =
+    les.type === "prive"
+        ? "🎾 Privéles"
+        : les.type === "groep"
+        ? "🎾 Groepsles"
+        : "🚫 Uitgevallen";
 
         alleLessenHtml += `
             <div class="les-item les-item-alle">
@@ -421,6 +423,10 @@ const weekdagen = {
 };
 
 lessen.forEach(les => {
+
+    if (les.type === "uitgevallen") {
+        return;
+    }
 
   const dag =
     new Date(les.datum)
