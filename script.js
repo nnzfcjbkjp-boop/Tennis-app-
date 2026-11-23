@@ -90,10 +90,10 @@ if (type === "prive") {
         "✅ Groepsles toegevoegd"
     );
 
-} else if (type === "regen") {
+} else if (type === "weersomstandigheden") {
 
     toonMelding(
-        "🌧️ Regen geregistreerd"
+        "🌧️ Weersomstandigheden geregistreerd"
     );
 
 } else if (type === "vakantie") {
@@ -481,8 +481,8 @@ function updateDashboard() {
         ? "🎾 Privéles"
         : les.type === "groep"
         ? "🎾 Groepsles"
-        : les.type === "regen"
-        ? "🌧️ Regen"
+        : les.type === "weersomstandigheden"
+        ? "🌧️ weersomstandigheden"
         : les.type === "vakantie"
         ? "🏖️ Vakantie"
         : "🤒 Leerling afwezig";
@@ -529,8 +529,8 @@ lessenWeergave.forEach((les, index) => {
         ? "🎾 Privéles"
         : les.type === "groep"
         ? "🎾 Groepsles"
-        : les.type === "regen"
-        ? "🌧️ Regen"
+        : les.type === "weersomstandigheden"
+        ? "🌧️ weersomstandigheden"
         : les.type === "vakantie"
         ? "🏖️ Vakantie"
         : "🤒 Leerling afwezig";
@@ -589,7 +589,7 @@ lessen.forEach(les => {
 
   if (
     les.type === "uitgevallen" ||
-    les.type === "regen" ||
+    les.type === "weersomstandigheden" ||
     les.type === "vakantie" ||
     les.type === "afwezig"
 ) {
