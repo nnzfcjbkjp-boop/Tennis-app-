@@ -495,3 +495,10 @@ font-weight: 700;
 
     padding: 10px;
 }
+
+.uitgevallen-button {
+
+    background: #f59e0b;
+
+    color: white;
+}
