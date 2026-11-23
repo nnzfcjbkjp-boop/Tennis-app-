@@ -228,6 +228,27 @@ function wijzigType(index, nieuwType) {
             ? groepTarief
             : 0;
 
+    if (
+        lessen[index].tijdstip === "Uitval" &&
+        (
+            nieuwType === "prive" ||
+            nieuwType === "groep"
+        )
+    ) {
+
+        const nieuwTijdstip =
+            prompt(
+                "Tijdstip van deze les?",
+                "17:00"
+            );
+
+        if (nieuwTijdstip) {
+
+            lessen[index].tijdstip =
+                nieuwTijdstip;
+        }
+    }
+
     opslaan();
 
     updateDashboard();
@@ -236,7 +257,6 @@ function wijzigType(index, nieuwType) {
         "✅ Les bijgewerkt"
     );
 }
-
 function toggleDag(dag) {
 
     openDagen[dag] =
