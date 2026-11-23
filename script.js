@@ -470,6 +470,107 @@ function registreerUitval() {
         `✅ ${teller} uitvaldagen toegevoegd`
     );
 }
+
+function registreerBlok() {
+
+    const type =
+        document.getElementById(
+            "blokType"
+        ).value;
+
+    const datum =
+        document.getElementById(
+            "blokDatum"
+        ).value;
+
+    const start =
+        document.getElementById(
+            "blokStart"
+        ).value;
+
+    const einde =
+        document.getElementById(
+            "blokEinde"
+        ).value;
+
+    const interval =
+        Number(
+            document.getElementById(
+                "blokInterval"
+            ).value
+        );
+
+    if (
+        !datum ||
+        !start ||
+        !einde
+    ) {
+
+        toonMelding(
+            "⚠️ Vul alle velden in"
+        );
+
+        return;
+    }
+
+    let huidige =
+        new Date(
+            `${datum}T${start}`
+        );
+
+    const eind =
+        new Date(
+            `${datum}T${einde}`
+        );
+
+    let teller = 0;
+
+    while (huidige < eind) {
+
+        const tijdstip =
+            huidige
+                .toLocaleTimeString(
+                    "nl-NL",
+                    {
+                        hour: "2-digit",
+                        minute: "2-digit"
+                    }
+                );
+
+        lessen.push({
+
+            datum: datum,
+
+            tijdstip: tijdstip,
+
+            type: type,
+
+            tarief:
+                type === "prive"
+                    ? priveTarief
+                    : type === "groep"
+                    ? groepTarief
+                    : 0
+
+        });
+
+        huidige.setMinutes(
+            huidige.getMinutes() +
+            interval
+        );
+
+        teller++;
+    }
+
+    opslaan();
+
+    updateDashboard();
+
+    toonMelding(
+        `✅ ${teller} lessen toegevoegd`
+    );
+}
+
 // =========================
 // Reset vandaag
 // =========================
