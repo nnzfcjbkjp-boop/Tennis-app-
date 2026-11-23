@@ -444,19 +444,6 @@ font-weight: 700;
     border-bottom: 1px solid #ececec;
 }
 
-.dashboard-header::before {
-
-     text-align: right;
-
-    content: "🎾";
-
-    display: block;
-
-    font-size: 22px;
-
-    margin-bottom: 4px;
-}
-
 .dashboard-title {
 
     font-size: 28px;
