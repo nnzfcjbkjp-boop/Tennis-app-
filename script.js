@@ -609,7 +609,7 @@ dagLessen.forEach(les => {
 
             <div class="datum-header">
 
-                📅 ${formatteerDatum(les.datum)}
+                📅 ${les.tijdstip}
 
             </div>
 
