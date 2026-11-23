@@ -418,7 +418,6 @@ function updateBlokType() {
 
     if (
         type === "vakantie" ||
-        type === "afwezig"
     ) {
 
         tijdBlok.style.display =
@@ -535,7 +534,6 @@ function registreerBlok() {
         );
     if (
     type === "vakantie" ||
-    type === "afwezig"
 ) {
 
     let dag =
