@@ -609,7 +609,7 @@ dagLessen.forEach(les => {
 
             <div class="datum-header">
 
-                📅 ${les.tijdstip}
+                📅 ${formatteerDatum(les.datum)}
 
             </div>
 
@@ -630,27 +630,25 @@ dagLessen.forEach(les => {
                 ? "🏖️ Vakantie"
                 : "🤒 Leerling afwezig";
 
-        alleLessenHtml += `
+alleLessenHtml += `
 
-            <div class="les-item-compact">
+    <div class="les-item-compact">
 
-                <span>
+        <span>
 
-                    ${formatteerDatum(les.datum)}
-                    •
-                    ${les.tijdstip}
+            🕒 ${les.tijdstip}
 
-                </span>
+        </span>
 
-                <span>
+        <span>
 
-                    ${naam}
+            ${naam}
 
-                </span>
+        </span>
 
-            </div>
+    </div>
 
-        `;
+`;
     });
 
 });
