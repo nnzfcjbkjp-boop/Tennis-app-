@@ -640,11 +640,30 @@ alleLessenHtml += `
 
         </span>
 
-        <span>
+<div class="les-acties">
 
-            ${naam}
+    <span>
 
-        </span>
+        ${naam}
+
+    </span>
+
+    <button
+        class="bewerk-knop">
+
+        ✏️
+
+    </button>
+
+    <button
+        class="verwijder-klein"
+        onclick="verwijderHistorischeLes(${lessen.indexOf(les)})">
+
+        🗑️
+
+    </button>
+
+</div>
 
     </div>
 
