@@ -808,6 +808,22 @@ select {
     margin-top: 16px;
 }
 
+.btw-label {
+
+    font-size: 12px;
+
+    color: #9ca3af;
+
+    margin-top: 12px;
+}
+
+.btw-input {
+
+    width: 80px;
+
+    height: 36px;
+}
+
 @media (max-width: 768px) {
 
     .card h2 {
