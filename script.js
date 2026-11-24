@@ -345,6 +345,7 @@ function vulTarieven() {
 
 }
 
+
 function toggleDag(dag) {
 
     openDagen[dag] =
