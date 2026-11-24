@@ -54,54 +54,29 @@
 
     <h2>⚙️ Instellingen & Lesgegevens</h2>
 
-<div class="instellingen-rij">
+    <div class="instellingen-rij">
 
-    <div class="instellingen-kolom datum-kolom">
+        <div class="instellingen-kolom">
 
-       <label>📅 Datum</label>
+            <label>Privé (€)</label>
 
-<input
-    type="date"
-    id="lesDatum">
+            <input
+                id="priveTarief"
+                type="number">
 
-<details>
+        </div>
 
-    <summary>Meer instellingen</summary>
+        <div class="instellingen-kolom">
 
-    Privé
-    Groep
-    BTW
+            <label>Groep (€)</label>
 
-</details>
-    </div>
+            <input
+                id="groepTarief"
+                type="number">
 
-</div>
-
-    <hr>
-
-   <div class="instellingen-rij">
-
-    <div class="instellingen-kolom">
-
-        <label>Privé (€)</label>
-
-        <input
-            id="priveTarief"
-            type="number">
+        </div>
 
     </div>
-
-    <div class="instellingen-kolom">
-
-        <label>Groep (€)</label>
-
-        <input
-            id="groepTarief"
-            type="number">
-
-    </div>
-
-</div>
 
     <label>BTW (%)</label>
 
@@ -125,80 +100,35 @@
 
     <h2>🎾 Lesregistratie</h2>
 
+    <div class="instellingen-rij">
+
+        <div class="instellingen-kolom datum-kolom">
+
+            <label>📅 Datum</label>
+
+            <input
+                type="date"
+                id="lesDatum">
+
+        </div>
+
+        <div class="instellingen-kolom tijd-kolom">
+
+            <label>🕒 Tijd</label>
+
+            <input
+                type="time"
+                id="lesTijd">
+
+        </div>
+
+    </div>
+
     <label>Type les</label>
 
     <select
         id="lesType"
         onchange="updateTariefPreview()">
-
-        <option value="prive">
-            🎾 Privéles
-        </option>
-
-        <option value="groep">
-            👥 Groepsles
-        </option>
-
-        <option value="weersomstandigheden">
-    🌧️ Weersomstandigheden
-</option>
-
-<option value="vakantie">
-    🏖️ Vakantie
-</option>
-
-<option value="afwezig">
-    🤒 Leerling afwezig
-</option>
-
-
-    </select>
-
-    <div
-        id="tariefPreview"
-        class="tarief-preview">
-
-        €63,00
-
-    </div>
-
-    <button
-    class="registreren-button"
-    onclick="registreerLes()">
-
-    ✅ Les registreren
-
-</button>
-
-    <hr class="actie-scheiding">
-
-    <button
-        class="reset-button"
-        onclick="resetVandaag()">
-
-        Reset vandaag
-
-    </button>
-
-    <button
-        class="alles-reset-button"
-        onclick="resetAlleLessen()">
-
-        Wis alle lessen
-
-    </button>
-
-</div>
-
-<div class="card lesblok-card">
-
-    <h2>📝 Lesblokregistratie</h2>
-
-    <label>Type</label>
-
-    <select
-    id="blokType"
-    onchange="updateBlokType()">
 
         <option value="prive">
             🎾 Privéles
@@ -222,50 +152,40 @@
 
     </select>
 
-<label>Startdatum</label>
+    <div
+        id="tariefPreview"
+        class="tarief-preview">
 
-<input
-    type="date"
-    id="blokStartDatum">
-
-<label>Einddatum</label>
-
-<input
-    type="date"
-    id="blokEindDatum">
-
-<div id="tijdBlok">
-
-    <label>Starttijd</label>
-
-    <input
-        type="time"
-        id="blokStart">
-
-    <label>Eindtijd</label>
-
-    <input
-        type="time"
-        id="blokEinde">
-
-    <label>Interval (minuten)</label>
-
-   <input
-    type="number"
-    id="blokInterval"
-    class="blok-interval"
-    value="60">
-
-<button
-    class="registreren-button"
-    onclick="registreerBlok()">
-
-    ✅ Blok registreren
-
-</button>
+        €63,00
 
     </div>
-    
+
+    <button
+        class="registreren-button"
+        onclick="registreerLes()">
+
+        ✅ Les registreren
+
+    </button>
+
+    <hr class="actie-scheiding">
+
+    <button
+        class="reset-button"
+        onclick="resetVandaag()">
+
+        Reset vandaag
+
+    </button>
+
+    <button
+        class="alles-reset-button"
+        onclick="resetAlleLessen()">
+
+        Wis alle lessen
+
+    </button>
+
 </div>
         
         <!-- Vandaag geregistreerd -->
