@@ -49,7 +49,21 @@ let openBewerkLes = null;
 // =========================
 
 window.onload = function () {
+    
+    vulTarieven();
 
+    document.getElementById(
+    "priveTarief"
+).value = priveTarief;
+
+document.getElementById(
+    "groepTarief"
+).value = groepTarief;
+
+document.getElementById(
+    "btwPercentage"
+).value = btwPercentage;
+    
     toonDatum();
 
     document.getElementById("priveTarief").value =
@@ -299,6 +313,36 @@ function updateEditTarief(index) {
         tariefVeld.value =
             0;
     }
+}
+
+function vulTarieven() {
+
+    const prive =
+        document.getElementById("priveTarief");
+
+    const groep =
+        document.getElementById("groepTarief");
+
+    const btw =
+        document.getElementById("btwPercentage");
+
+    for (let i = 0; i <= 200; i++) {
+
+        prive.innerHTML +=
+            `<option value="${i}">${i}</option>`;
+
+        groep.innerHTML +=
+            `<option value="${i}">${i}</option>`;
+    }
+
+    [0, 9, 21].forEach(percentage => {
+
+        btw.innerHTML +=
+            `<option value="${percentage}">
+                ${percentage}
+            </option>`;
+    });
+
 }
 
 function toggleDag(dag) {
