@@ -771,6 +771,8 @@ function slaInstellingenOp() {
     );
 
     updateDashboard();
+
+    updateTariefPreview();
 }
 
 
