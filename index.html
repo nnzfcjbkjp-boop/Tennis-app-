@@ -61,9 +61,11 @@
         <label>Privé (€)</label>
 
         <input
-            id="priveTarief"
-            type="number"
-            onchange="slaInstellingenOp()">
+    id="priveTarief"
+    type="number"
+    inputmode="numeric"
+    pattern="[0-9]*"
+    onchange="slaInstellingenOp()">
 
     </div>
 
@@ -74,6 +76,8 @@
         <input
             id="groepTarief"
             type="number"
+            inputmode="numeric"
+            pattern="[0-9]*"
             onchange="slaInstellingenOp()">
 
     </div>
@@ -85,6 +89,8 @@
         <input
             id="btwPercentage"
             type="number"
+            inputmode="numeric"
+            pattern="[0-9]*"
             onchange="slaInstellingenOp()">
 
         </div>
