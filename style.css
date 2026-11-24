@@ -824,6 +824,11 @@ select {
     height: 36px;
 }
 
+.btw-kolom {
+
+    max-width: 70px;
+}
+
 @media (max-width: 768px) {
 
     .card h2 {
