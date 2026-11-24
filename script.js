@@ -807,41 +807,41 @@ lessenVandaag.forEach((les) => {
             ? "🏖️ Vakantie"
             : "🤒 Leerling afwezig";
 
-vandaagHtml += `
+    vandaagHtml += `
 
-    <div class="les-item-compact">
+        <div class="les-item-compact">
 
-        <span>
+            <span>
 
-            🕒 ${les.tijdstip}
-            ·
-            ${naam}
+                🕒 ${les.tijdstip}
+                ·
+                ${naam}
 
-            ${les.tarief > 0
-                ? " · " + euro(les.tarief)
-                : ""}
+                ${les.tarief > 0
+                    ? " · " + euro(les.tarief)
+                    : ""}
 
-        </span>
+            </span>
 
-        <button
-            class="verwijder-klein"
-            onclick="verwijderLes(${lessenVandaag.indexOf(les)})">
+            <button
+                class="verwijder-klein"
+                onclick="verwijderLes(${lessenVandaag.indexOf(les)})">
 
-            🗑️
+                🗑️
 
-        </button>
+            </button>
 
-    </div>
+        </div>
 
-`;
-    
-}}; 
+    `;
+
+});
 
 document.getElementById(
     "lessenLijst"
 ).innerHTML =
     vandaagHtml;
-
+    
     // Totaal alle lessen
 
     let totaalOmzet = 0;
