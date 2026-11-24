@@ -796,123 +796,28 @@ select {
 
 @media (max-width: 768px) {
 
-   .compact-input {
+    .card h2 {
 
-    height: 34px !important;
-
-    font-size: 12px !important;
-
-    padding: 0 6px !important;
-}
-
-    body {
-
-        font-size: 14px;
+        font-size: 16px;
     }
 
-    .container {
+    label {
 
-        padding: 10px;
-    }
+        font-size: 12px;
 
-    .card {
+        margin-top: 4px;
 
-        padding: 12px;
-
-        margin-bottom: 12px;
-    }
-
-    h2 {
-
-        font-size: 14px;
-
-        margin-bottom: 8px;
+        margin-bottom: 4px;
     }
 
     input,
-    select,
-    button {
+    select {
 
-        font-size: 14px;
-
-        padding: 10px;
-    }
-
-    .dag-header {
-
-        padding: 10px;
-
-        font-size: 14px;
-    }
-
-    .datum-header {
+        height: 38px;
 
         font-size: 13px;
+
+        padding: 0 8px;
     }
 
-    .les-item-compact {
-
-        padding: 8px 0;
-
-        font-size: 14px;
-    }
-
-    .bewerk-knop,
-    .verwijder-klein {
-
-        width: 32px;
-
-        height: 32px;
-    }
-
-    .stat-getal {
-
-        font-size: 24px;
-    }
-
-    .dashboard-title {
-
-        font-size: 20px;
-    }
-
-    .voortgang {
-
-        width: 90px;
-    }
-
-}
-
-.instellingen-rij {
-
-    display: flex;
-
-    gap: 8px;
-
-    margin-bottom: 6px;
-
-    align-items: end;
-}
-
-.instellingen-kolom {
-
-    flex: 1;
-
-    min-width: 0;
-}
-
-.instellingen-kolom input {
-
-    width: 100%;
-
-    box-sizing: border-box;
-}
-
-.datum-kolom {
-
-    flex: 1.7;
-}
-
-.tijd-kolom {
-
-    flex: 1;
 }
