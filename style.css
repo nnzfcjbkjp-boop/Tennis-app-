@@ -803,6 +803,11 @@ select {
     margin-top: 20px;
 }
 
+.alles-reset-button {
+
+    margin-top: 16px;
+}
+
 @media (max-width: 768px) {
 
     .card h2 {
