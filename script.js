@@ -309,6 +309,28 @@ function toggleDag(dag) {
     updateDashboard();
 }
 
+let lesblokOpen = false;
+
+function toggleLesblok() {
+
+    lesblokOpen =
+        !lesblokOpen;
+
+    document.getElementById(
+        "lesblokInhoud"
+    ).style.display =
+        lesblokOpen
+            ? "block"
+            : "none";
+
+    document.getElementById(
+        "lesblokPijl"
+    ).innerText =
+        lesblokOpen
+            ? "▼"
+            : "▶";
+}
+
 function toggleSeizoensDag(dag) {
 
     openSeizoensDagen[dag] =
