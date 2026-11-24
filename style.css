@@ -798,6 +798,11 @@ select {
     flex: 1;
 }
 
+.blok-knop {
+
+    margin-top: 20px;
+}
+
 @media (max-width: 768px) {
 
     .card h2 {
