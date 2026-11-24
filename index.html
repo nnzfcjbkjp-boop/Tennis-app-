@@ -188,6 +188,57 @@
 
 </div>
         
+    <!-- Lesblokregistratie -->
+        
+<div class="card">
+
+    <h2>📝 Lesblokregistratie</h2>
+
+    <label>Type</label>
+
+    <select
+        id="blokType"
+        onchange="updateBlokType()">
+
+        <option value="prive">🎾 Privéles</option>
+        <option value="groep">👥 Groepsles</option>
+        <option value="weersomstandigheden">🌧️ Weersomstandigheden</option>
+        <option value="vakantie">🏖️ Vakantie</option>
+        <option value="afwezig">🤒 Leerling afwezig</option>
+
+    </select>
+
+    <label>Startdatum</label>
+    <input type="date" id="blokStartDatum">
+
+    <label>Einddatum</label>
+    <input type="date" id="blokEindDatum">
+
+    <div id="tijdBlok">
+
+        <label>Starttijd</label>
+        <input type="time" id="blokStart">
+
+        <label>Eindtijd</label>
+        <input type="time" id="blokEinde">
+
+        <label>Interval (minuten)</label>
+        <input
+            type="number"
+            id="blokInterval"
+            value="60">
+
+    </div>
+
+    <button
+        class="registreren-button"
+        onclick="registreerBlok()">
+
+        ✅ Blok registreren
+
+    </button>
+
+</div>
         <!-- Vandaag geregistreerd -->
 
        <div class="card vandaag-card">
