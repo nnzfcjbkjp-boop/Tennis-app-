@@ -768,12 +768,14 @@ select {
 
 @media (max-width: 768px) {
 
-    .compact-input {
+   .compact-input {
 
-        height: 36px !important;
+    height: 34px !important;
 
-        font-size: 13px !important;
-    }
+    font-size: 12px !important;
+
+    padding: 0 6px !important;
+}
 
     body {
 
@@ -856,18 +858,33 @@ select {
 
     display: flex;
 
-    gap: 12px;
+    gap: 8px;
 
-    margin-bottom: 8px;
+    margin-bottom: 6px;
+
+    align-items: end;
 }
 
 .instellingen-kolom {
 
     flex: 1;
+
+    min-width: 0;
 }
 
 .instellingen-kolom input {
 
     width: 100%;
+
+    box-sizing: border-box;
 }
 
+.datum-kolom {
+
+    flex: 1.7;
+}
+
+.tijd-kolom {
+
+    flex: 1;
+}
