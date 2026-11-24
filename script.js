@@ -792,6 +792,42 @@ function updateDashboard() {
     const btw =
         omzetIncl - omzetExcl;
 
+let vandaagHtml = "";
+
+lessenVandaag.forEach((les) => {
+
+    const naam =
+        les.type === "prive"
+            ? "🎾 Privéles"
+            : les.type === "groep"
+            ? "👥 Groepsles"
+            : les.type === "weersomstandigheden"
+            ? "🌧️ Weersomstandigheden"
+            : les.type === "vakantie"
+            ? "🏖️ Vakantie"
+            : "🤒 Leerling afwezig";
+
+    vandaagHtml += `
+
+        <div class="les-item">
+
+            🕒 ${les.tijdstip}
+            ·
+            ${naam}
+
+            ${les.tarief > 0
+                ? " · " + euro(les.tarief)
+                : ""}
+
+        </div>
+
+    `;
+});
+
+document.getElementById(
+    "lessenLijst"
+).innerHTML =
+    vandaagHtml;
 
     // Totaal alle lessen
 
