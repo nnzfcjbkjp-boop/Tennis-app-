@@ -765,6 +765,34 @@ select {
     padding: 0 8px;
 }
 
+.instellingen-rij {
+
+    display: flex !important;
+
+    gap: 10px;
+
+    align-items: flex-end;
+}
+
+.datum-kolom {
+
+    flex: 2;
+}
+
+.tijd-kolom {
+
+    flex: 1;
+}
+
+.datum-kolom input,
+.tijd-kolom input {
+
+    width: 100%;
+
+    margin: 0;
+
+    box-sizing: border-box;
+}
 
 @media (max-width: 768px) {
 
