@@ -767,7 +767,7 @@ select {
 
 .instellingen-rij {
 
-    display: flex !important;
+    display: flex;
 
     gap: 10px;
 
@@ -776,7 +776,7 @@ select {
 
 .datum-kolom {
 
-    flex: 2;
+    flex: 1.5;
 }
 
 .tijd-kolom {
@@ -788,8 +788,6 @@ select {
 .tijd-kolom input {
 
     width: 100%;
-
-    margin: 0;
 
     box-sizing: border-box;
 }
