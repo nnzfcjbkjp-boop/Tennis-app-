@@ -807,9 +807,11 @@ lessenVandaag.forEach((les) => {
             ? "🏖️ Vakantie"
             : "🤒 Leerling afwezig";
 
-    vandaagHtml += `
+vandaagHtml += `
 
-        <div class="les-item">
+    <div class="les-item-compact">
+
+        <span>
 
             🕒 ${les.tijdstip}
             ·
@@ -819,10 +821,20 @@ lessenVandaag.forEach((les) => {
                 ? " · " + euro(les.tarief)
                 : ""}
 
-        </div>
+        </span>
 
-    `;
-});
+        <button
+            class="verwijder-klein"
+            onclick="verwijderLes(${lessenVandaag.indexOf(les)})">
+
+            🗑️
+
+        </button>
+
+    </div>
+
+`;
+
 
 document.getElementById(
     "lessenLijst"
