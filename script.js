@@ -834,7 +834,8 @@ vandaagHtml += `
     </div>
 
 `;
-
+    
+}}; 
 
 document.getElementById(
     "lessenLijst"
