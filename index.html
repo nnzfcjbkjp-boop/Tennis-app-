@@ -54,43 +54,41 @@
 
     <h2>⚙️ Tarieven</h2>
 
-    <div class="instellingen-rij">
+   <div class="instellingen-rij">
 
-        <div class="instellingen-kolom">
+    <div class="instellingen-kolom">
 
-            <label>Privé (€)</label>
+        <label>Privé (€)</label>
 
-            <input
-    id="priveTarief"
-    type="number"
-    onchange="slaInstellingenOp()">
-
-        </div>
-
-        <div class="instellingen-kolom">
-
-            <label>Groep (€)</label>
-
-            <input
-    id="groepTarief"
-    type="number"
-    onchange="slaInstellingenOp()">
-
-        </div>
+        <input
+            id="priveTarief"
+            type="number"
+            onchange="slaInstellingenOp()">
 
     </div>
 
-    <label class="btw-label">
+    <div class="instellingen-kolom">
 
-    BTW (%)
+        <label>Groep (€)</label>
 
-</label>
+        <input
+            id="groepTarief"
+            type="number"
+            onchange="slaInstellingenOp()">
 
-<input
-    id="btwPercentage"
-    class="btw-input"
-    type="number"
-    onchange="slaInstellingenOp()">
+    </div>
+
+    <div class="instellingen-kolom btw-kolom">
+
+        <label>BTW (%)</label>
+
+        <input
+            id="btwPercentage"
+            type="number"
+            onchange="slaInstellingenOp()">
+
+    </div>
+
 </div>
        
       <!-- Lesregistratie -->
