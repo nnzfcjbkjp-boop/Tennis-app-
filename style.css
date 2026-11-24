@@ -834,3 +834,23 @@ select {
     }
 
 }
+
+.instellingen-rij {
+
+    display: flex;
+
+    gap: 12px;
+
+    margin-bottom: 8px;
+}
+
+.instellingen-kolom {
+
+    flex: 1;
+}
+
+.instellingen-kolom input {
+
+    width: 100%;
+}
+
