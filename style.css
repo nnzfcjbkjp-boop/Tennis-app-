@@ -769,9 +769,9 @@ select {
 
     display: flex;
 
-    gap: 8px;
+    gap: 12px;
 
-    margin-bottom: 10px;
+    align-items: end;
 }
 
 .les-datum,
@@ -826,7 +826,11 @@ select {
 
 .btw-kolom {
 
-    max-width: 70px;
+    flex: 0.6;
+
+    min-width: 70px;
+
+    max-width: 80px;
 }
 
 @media (max-width: 768px) {
@@ -854,5 +858,18 @@ select {
 
         padding: 0 8px;
     }
+
+    .instellingen-kolom label {
+
+    font-size: 13px;
+
+    margin-bottom: 4px;
+
+    text-align: center;
+}
+    .instellingen-kolom input {
+
+    text-align: center;
+}
 
 }
