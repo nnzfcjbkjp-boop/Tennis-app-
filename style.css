@@ -711,15 +711,21 @@ select {
         .08
     );
 }
+
 .datum-header {
 
-    margin-top: 16px;
+ margin-top: 20px;
 
-    padding-bottom: 8px;
+ padding-bottom: 10px;
 
-    font-weight: 700;
+ font-weight: 700;
 
-    color: #374151;
+ font-size: 16px;
+
+ color: var(--lime);
+
+}
+
 }
 
 .les-acties {
