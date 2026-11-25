@@ -362,44 +362,5 @@
         
 <script src="script.js"></script>
 
-
-<div id="temp-storage-tool" style="padding:12px;margin:16px 0;background:#1e293b;color:#fff;border-radius:10px;font-family:sans-serif;">
-  <div style="font-weight:bold;margin-bottom:8px;">Tijdelijke LocalStorage Overzetter</div>
-  <button type="button" id="btn-export-ls" style="padding:8px 12px;margin-right:8px;border-radius:6px;border:0;background:#22c55e;color:#000;font-weight:bold;">Kopieer data</button>
-  <button type="button" id="btn-import-ls" style="padding:8px 12px;border-radius:6px;border:0;background:#38bdf8;color:#000;font-weight:bold;">Plak & herstel</button>
-  <textarea id="ls-box" rows="5" placeholder="Plak hier je gekopieerde JSON..." style="width:100%;margin-top:8px;padding:8px;border-radius:6px;background:#0f172a;color:#fff;border:1px solid #475569;"></textarea>
-</div>
-
-<script>
-  document.getElementById('btn-export-ls').addEventListener('click', async () => {
-    const dump = JSON.stringify(localStorage);
-    const box = document.getElementById('ls-box');
-    box.value = dump;
-    box.select();
-    try {
-      await navigator.clipboard.writeText(dump);
-      alert('Data in het vak gezet én gekopieerd naar je klembord!');
-    } catch {
-      alert('Data in het tekstvak gezet. Kopieer de tekst handmatig.');
-    }
-  });
-
-  document.getElementById('btn-import-ls').addEventListener('click', () => {
-    const raw = document.getElementById('ls-box').value.trim();
-    if (!raw) return alert('Plak eerst je JSON-data in het vak.');
-    try {
-      const parsed = JSON.parse(raw);
-      Object.entries(parsed).forEach(([key, val]) => {
-        localStorage.setItem(key, typeof val === 'string' ? val : JSON.stringify(val));
-      });
-      alert('Data teruggezet! De pagina wordt nu herladen.');
-      location.reload();
-    } catch {
-      alert('Ongeldige tekst. Controleer of je de volledige JSON hebt gekopieerd.');
-    }
-  });
-</script>
-
-    
 </body>
 </html>
