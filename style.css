@@ -51,8 +51,8 @@ body {
     max-width: 650px;
 
     margin: 0 auto;
-    
-    padding-top: 5px;
+
+    padding-top: calc(env(safe-area-inset-top) + 20px);
 }
 
 h1 {
