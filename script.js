@@ -122,7 +122,7 @@ if (type === "prive") {
 } else if (type === "weersomstandigheden") {
 
     toonMelding(
-        "🌧️ Weersomstandigheden geregistreerd"
+        "🌧️ Weer geregistreerd"
     );
 
 } else if (type === "vakantie") {
@@ -828,7 +828,7 @@ lessenVandaag.forEach((les) => {
             : les.type === "groep"
             ? "👥 Groepsles"
             : les.type === "weersomstandigheden"
-            ? "🌧️ Weersomstandigheden"
+            ? "🌧️ Weer"
             : les.type === "vakantie"
             ? "🏖️ Vakantie"
             : "🤒 Leerling afwezig";
@@ -1002,7 +1002,7 @@ Object.entries(dagen)
                 : les.type === "groep"
                 ? "🎾 Groepsles"
                 : les.type === "weersomstandigheden"
-                ? "🌧️ Weersomstandigheden"
+                ? "🌧️ Weer"
                 : les.type === "vakantie"
                 ? "🏖️ Vakantie"
                 : "🤒 Leerling afwezig";
@@ -1104,7 +1104,7 @@ if (
                     value="weersomstandigheden"
                     ${les.type === "weersomstandigheden" ? "selected" : ""}>
 
-                    🌧️ Weersomstandigheden
+                    🌧️ Weer
 
                 </option>
 
