@@ -698,9 +698,9 @@ select {
 
     display: flex;
 
-    justify-content: space-between;
-
     align-items: center;
+
+    gap: 12px;
 
     padding: 16px 0;
 
@@ -710,6 +710,8 @@ select {
         255,
         .08
     );
+
+    flex-wrap: nowrap;
 }
 
 .datum-header {
@@ -732,9 +734,11 @@ select {
 
     display: flex;
 
+    flex-shrink: 0;
+
     align-items: center;
 
-    gap: 8px;
+    gap: 4px;
 }
 
 .bewerk-knop {
@@ -959,7 +963,17 @@ input[type="number"] {
 
     flex: 1;
 
+    min-width: 0;
+
     color: white;
+
+    white-space: nowrap;
+    
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+
+    font-size: 13px;
 
     font-size: 14px;
 }
@@ -972,9 +986,11 @@ input[type="number"] {
 
     font-size: 14px;
 
-    min-width: 65px;
+    min-width: 55px;
 
     text-align: right;
+
+    flex-shrink: 0;
 }
 
 @media (max-width: 768px) {
