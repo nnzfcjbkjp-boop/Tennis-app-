@@ -674,18 +674,26 @@ select {
  background: #24335F;
 
  color: white;
-
- padding: 12px;
-
- border-radius: 14px;
-
+    
  margin-top: 10px;
 
  font-weight: 700;
 
  cursor: pointer;
+    
+ border: 1px solid rgba(
+     255,
+     255,
+     255,
+     .06
+ );
+
+ padding: 14px;
+
+ border-radius: 16px;
 
 }
+
 .les-item-compact {
 
     display: flex;
@@ -694,11 +702,15 @@ select {
 
     align-items: center;
 
-    padding: 12px 0;
+    padding: 16px 0;
 
-    border-bottom: 1px solid #ececec;
+    border-bottom: 1px solid rgba(
+        255,
+        255,
+        255,
+        .08
+    );
 }
-
 .datum-header {
 
     margin-top: 16px;
@@ -728,6 +740,20 @@ select {
     cursor: pointer;
 
     font-size: 16px;
+}
+
+.bewerk-knop,
+.verwijder-klein {
+
+    opacity: .45;
+
+    transition: .2s;
+}
+
+.bewerk-knop:hover,
+.verwijder-klein:hover {
+
+    opacity: 1;
 }
 
 .bewerk-paneel {
@@ -902,6 +928,34 @@ select {
 input[type="number"] {
 
     font-size: 16px;
+}
+
+.les-tijdstip {
+
+    background: #24335F;
+
+    color: white;
+
+    padding: 6px 12px;
+
+    border-radius: 12px;
+
+    font-weight: 700;
+
+    min-width: 60px;
+
+    text-align: center;
+}
+
+.les-bedrag {
+
+    color: var(--lime);
+
+    font-weight: 800;
+
+    margin-left: auto;
+
+    margin-right: 12px;
 }
 
 @media (max-width: 768px) {
