@@ -967,6 +967,16 @@ const dagen = {
 Object.entries(dagen)
 .forEach(([dag, dagLessen]) => {
 
+dagLessen.sort((a, b) => {
+
+    return new Date(
+        b.datum + " " + b.tijdstip
+    ) - new Date(
+        a.datum + " " + a.tijdstip
+    );
+
+});
+    
     alleLessenHtml += `
 
         <div
