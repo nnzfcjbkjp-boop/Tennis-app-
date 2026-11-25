@@ -982,8 +982,6 @@ input[type="number"] {
 
     display: flex;
 
-    justify-content: space-between;
-
     align-items: center;
 
     min-width: 0;
@@ -997,13 +995,9 @@ input[type="number"] {
 
  white-space: nowrap;
 
- overflow: hidden;
-
  text-overflow: ellipsis;
 
  font-size: 14px;
-
- min-width: 0;
 
 }
 
@@ -1015,7 +1009,7 @@ input[type="number"] {
 
  font-size: 14px;
 
- width: 70px;
+ width: 55px;
 
  text-align: right;
 
