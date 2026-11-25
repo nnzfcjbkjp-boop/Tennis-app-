@@ -1008,12 +1008,7 @@ alleLessenHtml += `
 
 `;
             vorigeDatum = les.datum;
-
-            if (!openDatums[les.datum]) {
-
-    continue;
-
-}
+         
         }
 
         const naam =
