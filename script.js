@@ -313,6 +313,18 @@ function toggleDag(dag) {
     updateDashboard();
 }
 
+function toggleMenu() {
+
+    const menu =
+        document.getElementById("actieMenu");
+
+    menu.style.display =
+        menu.style.display === "block"
+            ? "none"
+            : "block";
+
+}
+
 function toggleDatum(datum) {
 
     openDatums[datum] =
