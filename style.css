@@ -1011,25 +1011,26 @@ input[type="number"] {
     .card h2 {
 
         font-size: 16px;
+
     }
 
     label {
 
-    display: block;
+        display: block;
 
-    text-align: left;
+        text-align: left;
 
-    margin-bottom: 8px;
+        margin-bottom: 8px;
 
-    margin-top: 10px;
+        margin-top: 10px;
 
-    font-size: 15px;
+        font-size: 15px;
 
-    font-weight: 600;
+        font-weight: 600;
 
-    color: var(--text-secondary);
+        color: var(--text-secondary);
 
-}
+    }
 
     input,
     select {
@@ -1039,56 +1040,93 @@ input[type="number"] {
         font-size: 13px;
 
         padding: 0 8px;
+
     }
 
     .instellingen-kolom label {
 
-    font-size: 13px;
+        font-size: 13px;
 
-    margin-bottom: 4px;
+        margin-bottom: 4px;
 
-    text-align: center;
-}
-    
+        text-align: center;
+
+    }
+
     .instellingen-kolom input {
 
-    height: 42px;
+        height: 42px;
 
-    font-size: 16px;
+        font-size: 16px;
 
-    text-align: center;
+        text-align: center;
+
+    }
+
+    .les-item-compact {
+
+        gap: 10px;
+
+    }
+
+    .les-tijdstip {
+
+        min-width: 80px;
+
+    }
+
+    .les-naam {
+
+        flex: 1;
+
+        min-width: 90px;
+
+        white-space: nowrap;
+
+        font-size: 13px;
+
+    }
+
+    .les-bedrag {
+
+        min-width: 75px;
+
+        font-size: 13px;
+
+        flex-shrink: 0;
+
+    }
+
 }
 
- .les-naam {
+@media (display-mode: standalone) {
 
- flex: 1;
+    .les-item-compact {
 
- min-width: 0;
+        gap: 8px;
 
- font-size: 13px;
+    }
 
-}
+    .les-tijdstip {
 
-.les-bedrag {
+        min-width: 75px;
 
- min-width: 65px;
+    }
 
- font-size: 13px;
+    .les-bedrag {
 
- flex-shrink: 0;
+        min-width: 70px;
 
-}
-
-.les-item-compact {
-
- gap: 8px;
+    }
 
 }
 
-.les-tijdstip {
+@media (display-mode: standalone) {
 
- min-width: 80px;
+    body {
 
-}
+        border: 8px solid red !important;
+
+    }
 
 }
