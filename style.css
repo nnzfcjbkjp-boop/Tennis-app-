@@ -980,11 +980,9 @@ input[type="number"] {
 
     flex: 1;
 
-    min-width: 90px;
+    min-width: 0px;
 
     color: white;
-
-    white-space: nowrap;
 
     font-size: 13px;
 
@@ -1049,6 +1047,7 @@ input[type="number"] {
 
     text-align: center;
 }
+    
     .instellingen-kolom input {
 
     height: 42px;
@@ -1060,9 +1059,11 @@ input[type="number"] {
 
     .les-naam {
 
-    font-size: 11px;
+    flex: 1;
+        
+    font-size: 13px;
 
-    min-width: 80px;
+    min-width: 110px;
 }
 
 .les-bedrag {
@@ -1071,4 +1072,22 @@ input[type="number"] {
 
     min-width: 90px;
 }
+    
+.les-item-compact {
+
+        gap: 8px;
+    }
+    
+.les-tijdstip {
+
+        min-width: 90px;
+    }
+
+.les-bedrag {
+
+        min-width: 80px;
+
+        font-size: 13px;
+    }
+
 }
