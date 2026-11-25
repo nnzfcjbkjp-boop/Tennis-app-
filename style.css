@@ -1117,14 +1117,10 @@ input[type="number"] {
 
 }
 
+body {
 
-@media (display-mode: standalone) {
-
-    body {
-
-        background: red !important;
-
-    }
+    border: 5px solid red !important;
 
 }
+
    
