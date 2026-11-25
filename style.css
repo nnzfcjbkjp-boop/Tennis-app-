@@ -716,17 +716,25 @@ select {
 
 .datum-header {
 
- margin-top: 20px;
+    cursor: pointer;
 
- padding-bottom: 10px;
+    user-select: none;
 
- font-weight: 700;
+    background: #24335F;
 
- font-size: 16px;
+    padding: 12px 16px;
 
- color: var(--lime);
+    border-radius: 14px;
 
-}
+    margin-top: 12px;
+
+    margin-bottom: 8px;
+
+    font-weight: 700;
+
+    font-size: 16px;
+
+    color: var(--lime);
 
 }
 
