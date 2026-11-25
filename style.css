@@ -1115,13 +1115,12 @@ input[type="number"] {
 
     }
 
-    @media (display-mode: standalone) {
 
-    .container {
+@media (display-mode: standalone) {
 
-        transform: scale(0.92);
+    body {
 
-        transform-origin: top center;
+        background: red !important;
 
     }
 
