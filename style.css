@@ -976,6 +976,19 @@ input[type="number"] {
     margin-right: 12px;
 }
 
+.les-info {
+
+    flex: 1;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    min-width: 0;
+}
+
 .les-naam {
 
     flex: 1;
@@ -999,6 +1012,8 @@ input[type="number"] {
     font-size: 14px;
 
     min-width: 85px;
+
+    margin-left: 12px;
 
     text-align: right;
 
@@ -1055,7 +1070,7 @@ input[type="number"] {
 
     .les-tijdstip {
 
-        min-width: 80px;
+        min-width: 75px;
 
         flex-shrink: 0;
 
@@ -1090,6 +1105,12 @@ input[type="number"] {
         gap: 4px;
 
         flex-shrink: 0;
+
+    }
+    
+    .les-item-compact {
+
+        gap: 10px;
 
     }
 
