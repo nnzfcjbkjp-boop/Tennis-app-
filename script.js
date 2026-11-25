@@ -1010,7 +1010,12 @@ alleLessenHtml += `
             vorigeDatum = les.datum;
          
         }
+        
+if (!openDatums[les.datum]) {
 
+    return;
+
+}
         const naam =
             les.type === "prive"
                 ? "🎾 Privéles"
