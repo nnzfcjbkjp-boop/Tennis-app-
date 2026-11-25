@@ -577,15 +577,39 @@ select {
 
 .registreren-button {
 
+    width: 100%;
+
+    height: 64px;
+
     background: var(--lime);
 
     color: #0B1230;
 
+    border: none;
+
+    border-radius: 999px;
+
+    font-size: 20px;
+
     font-weight: 800;
 
-    border-radius: 18px;
+    display: flex;
 
-    height: 56px;
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 10px;
+
+    box-shadow:
+        0 10px 24px rgba(
+            168,
+            240,
+            68,
+            .25
+        );
+
+    transition: .2s;
 }
 
 .actie-scheiding {
