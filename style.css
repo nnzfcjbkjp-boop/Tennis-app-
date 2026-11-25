@@ -961,13 +961,13 @@ input[type="number"] {
 
 .les-naam {
 
-    flex: 1;
+    flex: 1.5;
 
     min-width: 0;
 
     color: white;
 
-    white-space: normal;
+    white-space: nowrap;
 
     font-size: 13px;
 
