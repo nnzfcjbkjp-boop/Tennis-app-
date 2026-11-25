@@ -1101,7 +1101,23 @@ input[type="number"] {
 
 #beheerContainer {
 
-    display: none;
+    max-height: 0;
+
+    overflow: hidden;
+
+    opacity: 0;
+
+    transition:
+        max-height .35s ease,
+        opacity .25s ease;
+
+}
+
+#beheerContainer.open {
+
+    max-height: 2000px;
+
+    opacity: 1;
 
 }
 
