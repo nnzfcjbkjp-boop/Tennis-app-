@@ -362,41 +362,76 @@
         
 <script src="script.js"></script>
 
+<div id="backup-section" style="padding:16px;margin:16px 0;background:#162033;color:#f8fafc;border-radius:16px;border:1px solid #26354f;font-family:sans-serif;">
+  <div style="font-weight:700;font-size:16px;margin-bottom:4px;">💾 Back-up & Herstel</div>
+  <div style="font-size:13px;color:#94a3b8;margin-bottom:12px;">Bewaar een kopie van je lesadministratie of zet een eerder bestand terug.</div>
 
-<div id="temp-storage-tool" style="padding:12px;margin:16px 0;background:#1e293b;color:#fff;border-radius:10px;font-family:sans-serif;">
-  <div style="font-weight:bold;margin-bottom:8px;">Tijdelijke LocalStorage Overzetter</div>
-  <button type="button" id="btn-export-ls" style="padding:8px 12px;margin-right:8px;border-radius:6px;border:0;background:#22c55e;color:#000;font-weight:bold;">Kopieer data</button>
-  <button type="button" id="btn-import-ls" style="padding:8px 12px;border-radius:6px;border:0;background:#38bdf8;color:#000;font-weight:bold;">Plak & herstel</button>
-  <textarea id="ls-box" rows="5" placeholder="Plak hier je gekopieerde JSON..." style="width:100%;margin-top:8px;padding:8px;border-radius:6px;background:#0f172a;color:#fff;border:1px solid #475569;"></textarea>
+  <div style="display:flex;gap:10px;flex-wrap:wrap;">
+    <button type="button" id="btn-backup-export" style="flex:1;min-width:130px;padding:12px;border-radius:10px;border:0;background:#a3e635;color:#0f172a;font-weight:700;font-size:14px;cursor:pointer;">
+      Exporteer (.json)
+    </button>
+    <button type="button" id="btn-backup-import" style="flex:1;min-width:130px;padding:12px;border-radius:10px;border:1px solid #38bdf8;background:#1e293b;color:#38bdf8;font-weight:700;font-size:14px;cursor:pointer;">
+      Importeer (.json)
+    </button>
+  </div>
+
+  <input type="file" id="backup-file-input" accept=".json,application/json" style="display:none;">
 </div>
 
 <script>
-  document.getElementById('btn-export-ls').addEventListener('click', async () => {
-    const dump = JSON.stringify(localStorage);
-    const box = document.getElementById('ls-box');
-    box.value = dump;
-    box.select();
-    try {
-      await navigator.clipboard.writeText(dump);
-      alert('Data in het vak gezet én gekopieerd naar je klembord!');
-    } catch {
-      alert('Data in het tekstvak gezet. Kopieer de tekst handmatig.');
+  document.getElementById('btn-backup-export').addEventListener('click', () => {
+    const data = {};
+    for (let i = 0; i < localStorage.length; i++) {
+      const key = localStorage.key(i);
+      data[key] = localStorage.getItem(key);
     }
+
+    const vandaag = new Date().toISOString().slice(0, 10);
+    const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `lesadministratie-backup-${vandaag}.json`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
   });
 
-  document.getElementById('btn-import-ls').addEventListener('click', () => {
-    const raw = document.getElementById('ls-box').value.trim();
-    if (!raw) return alert('Plak eerst je JSON-data in het vak.');
-    try {
-      const parsed = JSON.parse(raw);
-      Object.entries(parsed).forEach(([key, val]) => {
-        localStorage.setItem(key, typeof val === 'string' ? val : JSON.stringify(val));
-      });
-      alert('Data teruggezet! De pagina wordt nu herladen.');
-      location.reload();
-    } catch {
-      alert('Ongeldige tekst. Controleer of je de volledige JSON hebt gekopieerd.');
-    }
+  const fileInput = document.getElementById('backup-file-input');
+  document.getElementById('btn-backup-import').addEventListener('click', () => {
+    fileInput.value = '';
+    fileInput.click();
+  });
+
+  fileInput.addEventListener('change', (event) => {
+    const file = event.target.files[0];
+    if (!file) return;
+
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      try {
+        const parsed = JSON.parse(e.target.result);
+        if (!parsed || typeof parsed !== 'object' || Array.isArray(parsed)) {
+          throw new Error('Ongeldige structuur');
+        }
+
+        const bevestigd = confirm('Weet je zeker dat je deze back-up wilt terugzetten? Je huidige gegevens op dit apparaat worden overschreven.');
+        if (!bevestigd) return;
+
+        localStorage.clear();
+        Object.entries(parsed).forEach(([key, val]) => {
+          localStorage.setItem(key, typeof val === 'string' ? val : JSON.stringify(val));
+        });
+
+        alert('Back-up succesvol hersteld! De app wordt opnieuw geladen.');
+        location.reload();
+      } catch {
+        alert('Dit bestand kon niet worden ingelezen. Kies een geldig .json back-upbestand.');
+      }
+    };
+    reader.readAsText(file);
   });
 </script>
 
