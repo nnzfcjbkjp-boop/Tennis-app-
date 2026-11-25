@@ -1009,51 +1009,49 @@ Object.entries(dagen)
 
         alleLessenHtml += `
 
-            <div class="les-item-compact">
+<div class="les-item-compact">
 
-                <span>
+    <span class="les-tijdstip">
 
-                    🕒 ${les.tijdstip}
+        ${les.tijdstip}
 
-                </span>
+    </span>
 
-                <div class="les-acties">
+    <span class="les-naam">
 
-                   <span>
+        ${naam}
 
-    ${naam}
+    </span>
 
-    <span class="les-tarief">
+    <span class="les-bedrag">
 
         ${les.tarief > 0
-            ? " · " + euro(les.tarief)
+            ? euro(les.tarief)
             : ""}
 
     </span>
 
-</span>
+    <div class="les-acties">
 
-                    <button
-                        class="bewerk-knop"
-                        onclick="toggleBewerken(${lessen.indexOf(les)})">
+        <button
+            class="bewerk-knop"
+            onclick="toggleBewerken(${lessen.indexOf(les)})">
 
-                        ✏️
+            ✏️
 
-                    </button>
+        </button>
 
-                    <button
-                        class="verwijder-klein"
-                        onclick="verwijderHistorischeLes(${lessen.indexOf(les)})">
+        <button
+            class="verwijder-klein"
+            onclick="verwijderHistorischeLes(${lessen.indexOf(les)})">
 
-                        🗑️
+            🗑️
 
-                    </button>
+        </button>
 
-                </div>
+    </div>
 
-            </div>
-
-        `;
+</div>
 
 if (
     openBewerkLes ===
