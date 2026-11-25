@@ -1007,7 +1007,7 @@ Object.entries(dagen)
                 ? "🏖️ Vakantie"
                 : "🤒 Leerling afwezig";
 
-        alleLessenHtml += `
+       alleLessenHtml += `
 
 <div class="les-item-compact">
 
@@ -1053,6 +1053,8 @@ Object.entries(dagen)
 
 </div>
 
+`;
+        
 if (
     openBewerkLes ===
     lessen.indexOf(les)
