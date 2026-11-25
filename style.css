@@ -955,6 +955,13 @@ input[type="number"] {
     margin-right: 12px;
 }
 
+.les-naam {
+
+    flex: 1;
+
+    padding-left: 4px;
+}
+
 .les-bedrag {
 
     color: var(--lime);
