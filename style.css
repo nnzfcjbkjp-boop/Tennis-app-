@@ -17,6 +17,12 @@
     --danger: #EF5350;
 
     --success: #4CAF50;
+    
+}
+    
+html {
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
 
 }
 html, body {
