@@ -846,19 +846,23 @@ lessenVandaag.forEach((les) => {
 
     vandaagHtml += `
 
-        <div class="les-item-compact">
+ <div class="les-item-compact">
 
-            <span>
+    <span class="vandaag-info">
 
-                🕒 ${les.tijdstip}
-                ·
-                ${naam}
+        🕒 ${les.tijdstip}
+        ·
+        ${naam}
 
-                ${les.tarief > 0
-                    ? " · " + euro(les.tarief)
-                    : ""}
+    </span>
 
-            </span>
+    <span class="vandaag-bedrag">
+
+        ${les.tarief > 0
+            ? euro(les.tarief)
+            : ""}
+
+    </span>
 
             <button
                 class="verwijder-klein"
