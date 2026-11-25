@@ -1016,17 +1016,7 @@ input[type="number"] {
 
     label {
 
-        display: block;
-
-        text-align: left;
-
-        margin-bottom: 8px;
-
-        margin-top: 10px;
-
-        font-size: 15px;
-
-        font-weight: 600;
+        font-size: 13px;
 
         color: var(--text-secondary);
 
@@ -1045,10 +1035,6 @@ input[type="number"] {
 
     .instellingen-kolom label {
 
-        font-size: 13px;
-
-        margin-bottom: 4px;
-
         text-align: center;
 
     }
@@ -1058,8 +1044,6 @@ input[type="number"] {
         height: 42px;
 
         font-size: 16px;
-
-        text-align: center;
 
     }
 
@@ -1073,23 +1057,25 @@ input[type="number"] {
 
         min-width: 80px;
 
+        flex-shrink: 0;
+
     }
 
     .les-naam {
 
         flex: 1;
 
-        min-width: 90px;
+        font-size: 13px;
 
         white-space: nowrap;
-
-        font-size: 13px;
 
     }
 
     .les-bedrag {
 
-        min-width: 75px;
+        width: 75px;
+
+        text-align: right;
 
         font-size: 13px;
 
@@ -1097,35 +1083,13 @@ input[type="number"] {
 
     }
 
-}
+    .les-acties {
 
-@media (display-mode: standalone) {
+        display: flex;
 
-    .les-item-compact {
+        gap: 4px;
 
-        gap: 8px;
-
-    }
-
-    .les-tijdstip {
-
-        min-width: 75px;
-
-    }
-
-    .les-bedrag {
-
-        min-width: 70px;
-
-    }
-
-}
-
-@media (display-mode: standalone) {
-
-    body {
-
-        border: 8px solid red !important;
+        flex-shrink: 0;
 
     }
 
