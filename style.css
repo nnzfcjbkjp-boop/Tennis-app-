@@ -980,13 +980,14 @@ input[type="number"] {
 
     flex: 1;
 
-    min-width: 0px;
+    min-width: 90px;
 
     color: white;
 
-    font-size: 13px;
+    white-space: nowrap;
 
     font-size: 14px;
+
 }
 
 .les-bedrag {
@@ -1002,6 +1003,7 @@ input[type="number"] {
     text-align: right;
 
     flex-shrink: 0;
+
 }
 
 @media (max-width: 768px) {
