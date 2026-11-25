@@ -1117,10 +1117,9 @@ input[type="number"] {
 
 }
 
-body {
+html {
 
-    border: 5px solid red !important;
+ font-size: 90% !important;
 
 }
-
    
