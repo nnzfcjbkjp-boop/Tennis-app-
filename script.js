@@ -315,13 +315,29 @@ function toggleDag(dag) {
 
 function toggleMenu() {
 
-    const menu =
-        document.getElementById("actieMenu");
+    const beheer =
+        document.getElementById(
+            "beheerContainer"
+        );
 
-    menu.style.display =
-        menu.style.display === "block"
-            ? "none"
-            : "block";
+    const knop =
+        document.getElementById(
+            "fab"
+        );
+
+    if (beheer.style.display === "block") {
+
+        beheer.style.display = "none";
+
+        knop.textContent = "+";
+
+    } else {
+
+        beheer.style.display = "block";
+
+        knop.textContent = "✕";
+
+    }
 
 }
 
