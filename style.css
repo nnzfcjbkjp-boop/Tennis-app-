@@ -959,18 +959,22 @@ input[type="number"] {
 
     flex: 1;
 
-    padding-left: 4px;
+    color: white;
+
+    font-size: 14px;
 }
 
 .les-bedrag {
 
     color: var(--lime);
 
-    font-weight: 800;
+    font-weight: 700;
 
-    margin-left: auto;
+    font-size: 14px;
 
-    margin-right: 12px;
+    min-width: 65px;
+
+    text-align: right;
 }
 
 @media (max-width: 768px) {
@@ -1025,4 +1029,15 @@ input[type="number"] {
     text-align: center;
 }
 
+    .les-naam {
+
+    font-size: 13px;
+}
+
+.les-bedrag {
+
+    font-size: 13px;
+
+    min-width: 55px;
+}
 }
