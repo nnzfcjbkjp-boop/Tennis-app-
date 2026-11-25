@@ -1117,9 +1117,12 @@ input[type="number"] {
 
 }
 
-html {
+@media (max-width: 768px) {
 
- font-size: 90% !important;
+    html {
+
+        font-size: 80% !important;
+
+    }
 
 }
-   
