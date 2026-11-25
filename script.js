@@ -325,19 +325,23 @@ function toggleMenu() {
             "fab"
         );
 
-    if (beheer.style.display === "block") {
+    beheer.classList.toggle(
+        "open"
+    );
 
-        beheer.style.display = "none";
+    knop.textContent =
+        beheer.classList.contains(
+            "open"
+        )
+            ? "✕"
+            : "+";
 
-        knop.textContent = "+";
-
-    } else {
-
-        beheer.style.display = "block";
-
-        knop.textContent = "✕";
-
-    }
+    knop.style.transform =
+        beheer.classList.contains(
+            "open"
+        )
+            ? "rotate(90deg)"
+            : "rotate(0deg)";
 
 }
 
