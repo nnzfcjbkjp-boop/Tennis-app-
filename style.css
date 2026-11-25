@@ -436,6 +436,8 @@ hr {
     padding: 4px;
 
     transition: 0.2s;
+
+    margin-left: auto;
 }
 
 .verwijder-klein:hover {
