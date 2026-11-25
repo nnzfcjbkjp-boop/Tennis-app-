@@ -313,12 +313,14 @@ function toggleDag(dag) {
     updateDashboard();
 }
 
-function toggleDag(dag) {
+function toggleDatum(datum) {
 
-    openDagen[dag] =
-        !openDagen[dag];
+    openDatums[datum] =
+        !openDatums[datum];
 
     updateDashboard();
+
+}
 
 }
 
