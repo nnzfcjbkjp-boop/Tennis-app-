@@ -28,6 +28,8 @@ let openDagen = {
     zondag: false
 };
 
+let openDatums = {};
+
 let openSeizoensDagen = {
     maandag: false,
     dinsdag: false,
@@ -309,6 +311,15 @@ function toggleDag(dag) {
         !openDagen[dag];
 
     updateDashboard();
+}
+
+function toggleDag(dag) {
+
+    openDagen[dag] =
+        !openDagen[dag];
+
+    updateDashboard();
+
 }
 
 let lesblokOpen = false;
@@ -983,17 +994,26 @@ Object.entries(dagen)
 
         if (les.datum !== vorigeDatum) {
 
-            alleLessenHtml += `
+alleLessenHtml += `
 
-                <div class="datum-header">
+<div
+    class="datum-header"
+    onclick="toggleDatum('${les.datum}')">
 
-                    📅 ${formatteerDatum(les.datum)}
+    ${openDatums[les.datum] ? "▼" : "▶"}
 
-                </div>
+    📅 ${formatteerDatum(les.datum)}
 
-            `;
+</div>
 
+`;
             vorigeDatum = les.datum;
+
+            if (!openDatums[les.datum]) {
+
+    continue;
+
+}
         }
 
         const naam =
