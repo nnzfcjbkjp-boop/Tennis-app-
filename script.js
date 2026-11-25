@@ -1055,7 +1055,7 @@ if (!openDatums[les.datum]) {
 
     <span class="les-bedrag">
         ${les.tarief > 0
-            ? euro(les.tarief)
+            ? `€${les.tarief}`
             : ""}
     </span>
 
