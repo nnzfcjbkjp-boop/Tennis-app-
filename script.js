@@ -322,8 +322,6 @@ function toggleDatum(datum) {
 
 }
 
-}
-
 let lesblokOpen = false;
 
 function toggleLesblok() {
