@@ -967,11 +967,7 @@ input[type="number"] {
 
     color: white;
 
-    white-space: nowrap;
-    
-    overflow: hidden;
-
-    text-overflow: ellipsis;
+    white-space: normal;
 
     font-size: 13px;
 
