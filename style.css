@@ -1,15 +1,40 @@
+:root {
+
+    --bg: #0B1230;
+
+    --card: #19264A;
+
+    --card-hover: #22325d;
+
+    --lime: #A8F044;
+
+    --blue: #42A5F5;
+
+    --text: #FFFFFF;
+
+    --text-secondary: #B8C3DD;
+
+    --danger: #EF5350;
+
+    --success: #4CAF50;
+
+}
+
 body {
 
     margin: 0;
 
     padding: 16px;
 
-    background: #f2f4f7;
+    background: var(--bg);
 
-    font-family: -apple-system, BlinkMacSystemFont,
-        "Segoe UI", sans-serif;
+    color: var(--text);
 
-    color: #1f2937;
+    font-family:
+        Inter,
+        -apple-system,
+        BlinkMacSystemFont,
+        sans-serif;
 }
 
 .container {
@@ -52,17 +77,19 @@ h1 {
     transition: .2s;
 
     overflow: hidden;
-    
-    background: white;
 
-    border-radius: 20px;
+    background: var(--card);
+
+    border-radius: 28px;
 
     padding: 20px;
 
-    margin-bottom: 24px;
+    margin-bottom: 20px;
+
+    border: 1px solid rgba(255,255,255,.05);
 
     box-shadow:
-        0 4px 12px rgba(0,0,0,.05);
+        0 12px 32px rgba(0,0,0,.35);
 }
 
 .card h2 {
@@ -75,7 +102,7 @@ h1 {
 
     font-weight: 700;
 
-    color: #1f2937;
+    color: white;
 }
 
 label {
@@ -103,10 +130,16 @@ input {
 
     border-radius: 14px;
 
-    border: 1px solid #e5e7eb;
+    border: 1px solid rgba(
+        255,
+        255,
+        255,
+        .08
 
-    background: #f9fafb;
-
+    background: #24335F;
+    
+    color: white;
+    
     box-sizing: border-box;
 
     padding: 0 15px;
@@ -114,6 +147,7 @@ input {
     font-size: 16px;
 
     text-align: center;
+    
 }
 
 .grote-omzet {
@@ -149,15 +183,11 @@ input {
 
 .stats > div {
 
-    flex: 1;
+    background: #22325d;
 
-    background: #f9fafb;
+    border-radius: 20px;
 
-    border-radius: 16px;
-
-    padding: 12px;
-
-    text-align: center;
+    padding: 16px;
 }
 
 .stat-getal {
@@ -166,7 +196,7 @@ input {
 
     font-weight: 800;
 
-    color: #38a35d;
+    color: var(--lime);
 
     line-height: 1;
 }
@@ -446,18 +476,20 @@ font-weight: 700;
 
 .dashboard-title {
 
-    font-size: 28px;
+    font-size: 30px;
 
     font-weight: 800;
 
-    color: #1f2937;
+    color: white;
+
+    letter-spacing: -.5px;
 }
 
 .dashboard-date {
 
     margin-top: 4px;
 
-    color: #6b7280;
+    color: var(--text-secondary);
 
     font-size: 14px;
 }
@@ -505,9 +537,15 @@ select {
 
     border-radius: 14px;
 
-    border: 1px solid #e5e7eb;
+    border: 1px solid rgba(
+        255,
+        255,
+        255,
+        .08
 
-    background: #f9fafb;
+    background: #24335F;
+
+    color: white;
 
     padding: 0 12px;
 
@@ -518,7 +556,7 @@ select {
 
     text-align: center;
 
-    color: #38a35d;
+    color: var(--lime);
 
     font-size: 24px;
 
@@ -531,21 +569,15 @@ select {
 
 .registreren-button {
 
-    width: 100%;
+    background: var(--lime);
 
-    background: #38a35d;
+    color: #0B1230;
 
-    color: white;
+    font-weight: 800;
 
-    border: none;
+    border-radius: 18px;
 
-    border-radius: 14px;
-
-    height: 48px;
-
-    font-size: 16px;
-
-    font-weight: 700;
+    height: 56px;
 }
 
 .actie-scheiding {
