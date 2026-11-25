@@ -1047,19 +1047,19 @@ if (!openDatums[les.datum]) {
 
     </span>
 
+   <div class="les-info">
+
     <span class="les-naam">
-
         ${naam}
-
     </span>
 
     <span class="les-bedrag">
-
         ${les.tarief > 0
             ? euro(les.tarief)
             : ""}
-
     </span>
+
+</div>
 
     <div class="les-acties">
 
