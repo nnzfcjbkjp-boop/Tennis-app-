@@ -1073,11 +1073,13 @@ input[type="number"] {
 
     .les-tijdstip {
 
-        min-width: 75px;
+        min-width: 55px;
 
         flex-shrink: 0;
         
-        font-size: 12px;
+        font-size: 10px;
+        
+        padding: 4px 8px;
 
     }
 
