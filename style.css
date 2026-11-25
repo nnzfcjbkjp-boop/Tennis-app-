@@ -124,30 +124,31 @@ label {
 
 input {
 
-    width: 92%;
+ width: 92%;
 
-    height: 48px;
+ height: 48px;
 
-    border-radius: 14px;
+ border-radius: 14px;
 
-    border: 1px solid rgba(
-        255,
-        255,
-        255,
-        .08
+ border: 1px solid rgba(
+     255,
+     255,
+     255,
+     .08
+ );
 
-    background: #24335F;
-    
-    color: white;
-    
-    box-sizing: border-box;
+ background: #24335F;
 
-    padding: 0 15px;
+ color: white;
 
-    font-size: 16px;
+ box-sizing: border-box;
 
-    text-align: center;
-    
+ padding: 0 15px;
+
+ font-size: 16px;
+
+ text-align: center;
+
 }
 
 .grote-omzet {
@@ -465,13 +466,19 @@ font-weight: 700;
 
 .dashboard-header {
 
-    text-align: left;
+ text-align: left;
 
-    margin-bottom: 16px;
+ margin-bottom: 16px;
 
-    padding-bottom: 12px;
+ padding-bottom: 16px;
 
-    border-bottom: 1px solid #ececec;
+ border-bottom: 1px solid rgba(
+     255,
+     255,
+     255,
+     .08
+ );
+
 }
 
 .dashboard-title {
@@ -531,27 +538,28 @@ font-weight: 700;
 
 select {
 
-    width: 100%;
+ width: 100%;
 
-    height: 48px;
+ height: 48px;
 
-    border-radius: 14px;
+ border-radius: 14px;
 
-    border: 1px solid rgba(
-        255,
-        255,
-        255,
-        .08
+ border: 1px solid rgba(
+     255,
+     255,
+     255,
+     .08
+ );
 
-    background: #24335F;
+ background: #24335F;
 
-    color: white;
+ color: white;
 
-    padding: 0 12px;
+ padding: 0 12px;
 
-    font-size: 16px;
+ font-size: 16px;
+
 }
-
 .tarief-preview {
 
     text-align: center;
@@ -639,19 +647,21 @@ select {
 
 .dag-header {
 
-    background: #f3f4f6;
+ background: #24335F;
 
-    padding: 12px;
+ color: white;
 
-    border-radius: 10px;
+ padding: 12px;
 
-    margin-top: 10px;
+ border-radius: 14px;
 
-    font-weight: 700;
+ margin-top: 10px;
 
-    cursor: pointer;
+ font-weight: 700;
+
+ cursor: pointer;
+
 }
-
 .les-item-compact {
 
     display: flex;
@@ -702,7 +712,7 @@ select {
 
     padding: 12px;
 
-    background: #f8fafc;
+    background: #24335F;
 
     border-radius: 10px;
 
@@ -879,12 +889,21 @@ input[type="number"] {
 
     label {
 
-        font-size: 12px;
+    display: block;
 
-        margin-top: 4px;
+    text-align: left;
 
-        margin-bottom: 4px;
-    }
+    margin-bottom: 8px;
+
+    margin-top: 10px;
+
+    font-size: 15px;
+
+    font-weight: 600;
+
+    color: var(--text-secondary);
+
+}
 
     input,
     select {
