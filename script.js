@@ -352,20 +352,78 @@ function openSubMenu(type) {
     const overlay =
     document.getElementById("overlay");
 
-    popup.innerHTML = `
-        <div class="popup-title">
-            🎾 Les toevoegen
-        </div>
+    if (type === "les") {
 
-        <button onclick="closePopup()">
-            Sluiten
-        </button>
-    `;
+        popup.innerHTML = `
+
+            <div class="popup-title">
+                🎾 Les toevoegen
+            </div>
+
+            <label>Datum</label>
+
+            <input
+                type="date"
+                id="popupDatum"
+                value="${vandaag()}">
+
+            <label>Tijd</label>
+
+            <input
+                type="time"
+                id="popupTijd">
+
+            <label>Type les</label>
+
+            <select id="popupType">
+
+                <option value="prive">
+                    🎾 Privéles
+                </option>
+
+                <option value="groep">
+                    👥 Groepsles
+                </option>
+
+                <option value="weersomstandigheden">
+                    🌧️ Weer
+                </option>
+
+                <option value="vakantie">
+                    🏖️ Vakantie
+                </option>
+
+                <option value="afwezig">
+                    🤒 Leerling afwezig
+                </option>
+
+            </select>
+
+            <button
+                class="registreren-button"
+                onclick="registreerPopupLes()">
+
+                ➕ Les toevoegen
+
+            </button>
+
+            <button
+                class="popup-close"
+                onclick="closePopup()">
+
+                Sluiten
+
+            </button>
+
+        `;
+    }
 
     overlay.classList.add("open");
     popup.classList.add("open");
 
+    toggleMenu();
 }
+
 function openLesToevoegen() {
 
     document
