@@ -346,6 +346,13 @@ function toggleMenu() {
 
 function openSubMenu(type) {
 
+    const beheer =
+        document.getElementById(
+            "beheerContainer"
+        );
+
+    beheer.style.display = "block";
+
     if (type === "les") {
 
         document
@@ -377,6 +384,7 @@ function openSubMenu(type) {
     }
 
 }
+
 function openLesToevoegen() {
 
     document
