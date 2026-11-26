@@ -355,32 +355,48 @@ function openSubMenu(type) {
     if (type === "les") {
 
         popup.innerHTML = `
-            <div class="popup-title">
-                🎾 Les toevoegen
-            </div>
 
-            <label>Tijd</label>
+    <div class="popup-title">
+        🎾 Les toevoegen
+    </div>
 
-            <input
-                type="time"
-                id="popupTijd">
+    <label>Tijd</label>
 
-            <button
-                class="registreren-button"
-                onclick="testLesToevoegen()">
+    <input
+        type="time"
+        id="popupTijd">
 
-                ➕ Les toevoegen
+    <label>Type les</label>
 
-            </button>
+    <select id="popupType">
 
-            <button
-                class="popup-close"
-                onclick="closePopup()">
+        <option value="prive">
+            🎾 Privéles
+        </option>
 
-                Sluiten
+        <option value="groep">
+            👥 Groepsles
+        </option>
 
-            </button>
-        `;
+    </select>
+
+    <button
+        class="registreren-button"
+        onclick="registreerPopupLes()">
+
+        ➕ Les toevoegen
+
+    </button>
+
+    <button
+        class="popup-close"
+        onclick="closePopup()">
+
+        Sluiten
+
+    </button>
+
+`;
     }
 
     overlay.classList.add("open");
@@ -1521,12 +1537,28 @@ function registreerPopupLes() {
     
 }
 
-function testLesToevoegen() {
+function registreerPopupLes() {
 
     const tijd =
     document.getElementById("popupTijd").value;
 
-    alert("Les toegevoegd om " + tijd);
+    const type =
+    document.getElementById("popupType").value;
+
+    lessen.push({
+        datum: vandaag(),
+        tijdstip: tijd,
+        type: type,
+        tarief:
+            type === "prive"
+            ? priveTarief
+            : groepTarief
+    });
+
+    opslaan();
+    updateDashboard();
 
     closePopup();
+
+    toonMelding("✅ Les toegevoegd");
 }
