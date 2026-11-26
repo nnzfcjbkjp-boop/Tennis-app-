@@ -344,39 +344,6 @@ function toggleMenu() {
 
 }
 
-if (type === "les") {
-
-    popup.innerHTML = `
-    
-        <div class="popup-title">
-            🎾 Les toevoegen
-        </div>
-
-        <label>Tijd</label>
-
-        <input
-            type="time"
-            id="popupTijd">
-
-        <button
-            class="registreren-button"
-            onclick="testLesToevoegen()">
-
-            ➕ Les toevoegen
-
-        </button>
-
-        <button
-            class="popup-close"
-            onclick="closePopup()">
-
-            Sluiten
-
-        </button>
-
-    `;
-}
-
 function openSubMenu(type) {
 
     const popup =
