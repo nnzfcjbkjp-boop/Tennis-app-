@@ -1892,31 +1892,45 @@ input[type="number"] {
 }
 
 
-/* Vandaag geregistreerd - uitlijning mobiel */
+/* Vandaag geregistreerd: dezelfde uitstraling als Alle lessen */
 .les-item-compact {
     display: grid;
-    grid-template-columns: 112px minmax(0, 1fr) 32px;
+    grid-template-columns: 90px minmax(0, 1fr) 64px;
     align-items: center;
     gap: 8px;
     width: 100%;
+    box-sizing: border-box;
+    padding: 12px 0;
+}
+
+.vandaag-info {
+    display: contents;
 }
 
 .vandaag-tijd {
-    white-space: nowrap;
+    background: #263761;
+    border-radius: 30px;
+    padding: 8px 10px;
+    text-align: center;
     font-size: 14px;
+    font-weight: 700;
+    white-space: nowrap;
 }
 
 .vandaag-type {
-    white-space: nowrap;
     font-size: 14px;
-    min-width: 0;
+    font-weight: 400;
+    white-space: nowrap;
 }
 
 .vandaag-bedrag {
-    display: none;
+    font-size: 14px;
+    font-weight: 700;
+    color: #A8F044;
+    white-space: nowrap;
 }
 
 .verwijder-klein {
-    width: 32px;
+    justify-self: end;
     flex-shrink: 0;
 }
