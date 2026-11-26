@@ -1092,22 +1092,34 @@ input[type="number"] {
 
 #fabMenu.open .fab-les {
 
-    transform:
-        translateY(-70px);
+ transform:
+ translateY(-70px);
+
+ right: 28px;
+
+ bottom: 110px;
 
 }
 
 #fabMenu.open .fab-tarieven {
 
-    transform:
-        translateY(-140px);
+ transform:
+ translateY(-140px);
+
+ right: 28px;
+
+ bottom: 180px;
 
 }
 
 #fabMenu.open .fab-blok {
 
-    transform:
-        translateY(-210px);
+ transform:
+ translateY(-210px);
+
+ right: 28px;
+
+ bottom: 250px;
 
 }
 
@@ -1133,42 +1145,33 @@ input[type="number"] {
 
 .fab-item {
 
-    position: absolute;
+ position: fixed;
 
-    right: 0;
+ right: 24px;
 
-    width: 56px;
+ bottom: 24px;
 
-    height: 56px;
+ width: 56px;
 
-    border-radius: 50%;
+ height: 56px;
 
-    border: none;
+ border-radius: 50%;
 
-    background: #24335F;
+ border: none;
 
-    color: white;
+ background: #24335F;
 
-    font-size: 22px;
+ color: white;
 
-    cursor: pointer;
+ font-size: 22px;
 
-    box-shadow:
-        0 8px 24px rgba(
-            0,
-            0,
-            0,
-            .25
-        );
+ opacity: 0;
 
-    opacity: 0;
+ transform: scale(.6);
 
-    transform: scale(.6);
-
-    transition: .25s ease;
+ transition: .25s ease;
 
 }
-
 #fabMenu.open {
 
     opacity: 1;
@@ -1176,34 +1179,6 @@ input[type="number"] {
     transform: translateY(0);
 
     pointer-events: auto;
-
-}
-
-.fab-item {
-
-    width: 56px;
-
-    height: 56px;
-
-    border-radius: 50%;
-
-    border: none;
-
-    background: #24335F;
-
-    color: white;
-
-    font-size: 22px;
-
-    cursor: pointer;
-
-    box-shadow:
-        0 8px 24px rgba(
-            0,
-            0,
-            0,
-            .25
-        );
 
 }
 
