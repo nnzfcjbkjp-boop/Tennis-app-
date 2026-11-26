@@ -1754,19 +1754,23 @@ document.addEventListener("click", function(event) {
 
     const menu = document.getElementById("fabMenu");
     const knop = document.getElementById("fab");
+    const popup = document.getElementById("fabSubMenu");
+    const overlay = document.getElementById("overlay");
 
     if (
         menu.classList.contains("open") &&
         !menu.contains(event.target) &&
-        !knop.contains(event.target)
+        !knop.contains(event.target) &&
+        !popup.contains(event.target) &&
+        !overlay.contains(event.target)
     ) {
         event.preventDefault();
         event.stopPropagation();
 
         menu.classList.remove("open");
-
         knop.textContent = "+";
     }
 
 }, true);
+
 
