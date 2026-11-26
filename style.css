@@ -1078,6 +1078,8 @@ input[type="number"] {
 
     z-index: 9999;
 
+    transition: .25s ease;
+
 }
 #actieMenu {
 
