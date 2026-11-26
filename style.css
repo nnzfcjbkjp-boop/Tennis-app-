@@ -594,38 +594,33 @@ select {
 .registreren-button {
 
     width: 100%;
-
     height: 64px;
 
-    background: var(--lime);
+    border: none;
+    border-radius: 18px;
+
+    background:
+    linear-gradient(
+        135deg,
+        #A8F044,
+        #8fde2c
+    );
 
     color: #0B1230;
 
-    border: none;
-
-    border-radius: 999px;
-
-    font-size: 20px;
-
+    font-size: 18px;
     font-weight: 800;
 
-    display: flex;
-
-    justify-content: center;
-
-    align-items: center;
-
-    gap: 10px;
-
     box-shadow:
-        0 10px 24px rgba(
-            168,
-            240,
-            68,
-            .25
-        );
+        0 12px 24px rgba(168,240,68,.25);
 
-    transition: .2s;
+    transition: all .2s ease;
+}
+
+.registreren-button:active {
+
+    transform: scale(0.98);
+
 }
 
 .actie-scheiding {
@@ -1248,17 +1243,10 @@ input[type="number"] {
     pointer-events: none;
 
     transition: .25s;
+
+    border: 1px solid rgba(255,255,255,.08);
 }
 
-#fabSubMenu.open {
-
-    opacity: 1;
-    pointer-events: auto;
-
-}
-
-
-}
 
 #fabSubMenu.open {
 
@@ -1290,14 +1278,23 @@ input[type="number"] {
 }
 
 .popup-close {
+
     width: 100%;
-    margin-top: 16px;
-    height: 50px;
-    border: none;
-    border-radius: 14px;
-    background: #e0524c;
-    color: white;
+    height: 56px;
+
+    margin-top: 12px;
+
+    border: 1px solid rgba(255,255,255,.15);
+
+    background: transparent;
+
+    color: #B8C3DD;
+
+    border-radius: 18px;
+
+    font-size: 15px;
     font-weight: 700;
+
 }
 
 #fabSubMenu .popup-close {
