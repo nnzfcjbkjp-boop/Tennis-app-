@@ -1507,12 +1507,42 @@ input[type="number"] {
     text-align: center;
 }
 
-/* Subtiel limegroen accent op het mobiele actiemenu */
 
+/* Vaste posities voor het zwevende menu */
+.fab-les {
+    bottom: 100px;
+}
+
+.fab-tarieven {
+    bottom: 170px;
+}
+
+.fab-blok {
+    bottom: 240px;
+}
+
+/* Vloeiende animatie van de menuopties */
+.fab-item {
+    opacity: 0;
+    transform: translateY(10px) scale(0.98);
+    transition:
+        opacity 0.18s ease,
+        transform 0.18s ease;
+    will-change: opacity, transform;
+    pointer-events: none;
+}
+
+/* Menu geopend */
+#fabMenu.open .fab-item {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    pointer-events: auto;
+}
+
+/* Limegroene rand op mobiel */
+@media (max-width: 768px) {
     .fab-item {
         border: 2px solid rgba(168, 240, 68, 0.35);
         box-sizing: border-box;
     }
-}
-
 }
