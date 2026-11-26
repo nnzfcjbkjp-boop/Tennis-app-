@@ -1262,6 +1262,14 @@ input[type="number"] {
 
     transition: .25s ease;
 
+    z-index: 9998;
+
+}
+
+.fab-label.show {
+
+    opacity: 1;
+
 }
 
 @media (max-width: 768px) {
