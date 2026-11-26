@@ -1894,13 +1894,21 @@ input[type="number"] {
 
 /* Vandaag geregistreerd - vaste uitlijning */
 #lessenLijst .les-item-compact {
+
     display: grid;
-    grid-template-columns: 76px minmax(0, 1fr) 48px 24px;
+
+    grid-template-columns: 82px minmax(0, 1fr) 65px 28px;
+
     align-items: center;
-    gap: 6px;
+
+    gap: 8px;
+
     width: 100%;
+
     box-sizing: border-box;
+
     padding: 6px 0;
+
 }
 
 #lessenLijst .vandaag-info {
@@ -1923,17 +1931,22 @@ input[type="number"] {
     white-space: nowrap;
 }
 
+
+
 #lessenLijst .vandaag-bedrag {
-    color: #A8F044;
-    font-size: 12px;
-    font-weight: 700;
-    white-space: nowrap;
+
     text-align: right;
+
+    white-space: nowrap;
+
 }
 
 #lessenLijst .verwijder-klein {
-    font-size: 12px;
+
+    position: static;
+
     justify-self: end;
+
     flex-shrink: 0;
 }
 
