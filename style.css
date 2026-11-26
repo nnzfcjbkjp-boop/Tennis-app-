@@ -1225,27 +1225,21 @@ input[type="number"] {
     position: fixed;
     left: 50%;
     top: 50%;
-    transform: translate(-50%, -50%) scale(.9);
-
-    width: min(500px, 92vw);
-    max-height: 80vh;
-
-    overflow-y: auto;
-
+    transform: translate(-50%, -50%);
+    width: 90%;
+    max-width: 500px;
     background: #19264A;
     border-radius: 24px;
     padding: 24px;
+    z-index: 10001;
 
     opacity: 0;
     pointer-events: none;
-
-    transition: .25s;
 }
 
 #fabSubMenu.open {
     opacity: 1;
     pointer-events: auto;
-    transform: translate(-50%, -50%) scale(1);
 }
 
 .popup-title {
