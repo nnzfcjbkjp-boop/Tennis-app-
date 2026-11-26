@@ -349,25 +349,12 @@ function openSubMenu(type) {
     const popup =
     document.getElementById("fabSubMenu");
 
-    popup.innerHTML = `
-        <h1 style="color:red;text-align:center;">
-            TEST POPUP
-        </h1>
-    `;
-
-    document.getElementById("overlay")
-        .classList.add("open");
-
-    document.getElementById("fabSubMenu")
-        .classList.add("open");
-
-    return;
-}
+    const overlay =
+    document.getElementById("overlay");
 
     if (type === "les") {
 
         popup.innerHTML = `
-
             <div class="popup-title">
                 🎾 Les toevoegen
             </div>
@@ -411,7 +398,6 @@ function openSubMenu(type) {
             </select>
 
             <div style="margin-top:20px;">
-
                 <button
                     class="registreren-button"
                     onclick="registreerPopupLes()">
@@ -419,7 +405,6 @@ function openSubMenu(type) {
                     ➕ Les toevoegen
 
                 </button>
-
             </div>
 
             <button
@@ -429,7 +414,6 @@ function openSubMenu(type) {
                 Sluiten
 
             </button>
-
         `;
     }
 
