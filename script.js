@@ -1715,18 +1715,20 @@ function formatteerDatum(datum) {
 
 }
 
+
 function closePopup() {
 
-    document
-    .getElementById("overlay")
-    .classList.remove("open");
+    document.getElementById("overlay")
+        .classList.remove("open");
 
-    document
-    .getElementById("fabSubMenu")
-    .classList.remove("open");
+    document.getElementById("fabSubMenu")
+        .classList.remove("open");
+
+    document.getElementById("fabMenu")
+        .classList.remove("open");
+
+    document.getElementById("fab").textContent = "+";
 }
-
-
 
 function registreerPopupLes() {
 
