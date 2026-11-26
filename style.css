@@ -1196,6 +1196,49 @@ input[type="number"] {
 
 }
 
+#fabSubMenu {
+
+    position: fixed;
+
+    right: 95px;
+
+    bottom: 120px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 10px;
+
+    opacity: 0;
+
+    pointer-events: none;
+
+    transition: .25s ease;
+
+}
+
+#fabSubMenu.open {
+
+    opacity: 1;
+
+    pointer-events: auto;
+
+}
+
+#fabSubMenu button {
+
+    border: none;
+
+    border-radius: 16px;
+
+    padding: 12px 18px;
+
+    background: #24335F;
+
+    color: white;
+
+}
 
 @media (max-width: 768px) {
 
