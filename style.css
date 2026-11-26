@@ -1625,17 +1625,21 @@ input[type="number"] {
         justify-content: flex-start;
     }
 
+
+/* Gelijkmatige positionering FAB-menu */
+@media (max-width: 768px) {
+
     #fabMenu .fab-les {
-        bottom: 90px;
+        bottom: 90px !important;
     }
 
     #fabMenu .fab-tarieven {
-        bottom: 156px;
+        bottom: 156px !important;
     }
 
     #fabMenu .fab-blok {
-        bottom: 207px;
+        bottom: 222px !important;
     }
-}
 
+}
 
