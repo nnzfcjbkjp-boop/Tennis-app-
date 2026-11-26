@@ -1617,13 +1617,13 @@ document.addEventListener("click", function(event) {
         !menu.contains(event.target) &&
         !knop.contains(event.target)
     ) {
+        event.preventDefault();
+        event.stopPropagation();
 
         menu.classList.remove("open");
-
-        document.querySelectorAll(".fab-label")
-            .forEach(label => label.classList.remove("show"));
 
         knop.textContent = "+";
     }
 
-});
+}, true);
+
