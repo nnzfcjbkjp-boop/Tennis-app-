@@ -344,7 +344,7 @@ function toggleMenu() {
 
 }
 
-ffunction openSubMenu(type) {
+function openSubMenu(type) {
 
     const popup =
     document.getElementById("fabSubMenu");
