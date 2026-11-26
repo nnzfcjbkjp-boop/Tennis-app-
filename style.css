@@ -1897,11 +1897,11 @@ input[type="number"] {
 
     display: grid;
 
-    grid-template-columns: 82px minmax(0, 1fr) 65px 28px;
+    grid-template-columns: 82px minmax(0, 1fr) 82px 28px;
 
     align-items: center;
 
-    gap: 8px;
+    gap: 12px;
 
     width: 100%;
 
@@ -1938,6 +1938,8 @@ input[type="number"] {
     text-align: right;
 
     white-space: nowrap;
+
+    padding-right: 4px;
 
 }
 
