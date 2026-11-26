@@ -1604,6 +1604,44 @@ input[type="number"] {
         border-radius: 22px;
         border: 1px solid rgba(168, 240, 68, 0.35);
     }
+    
+
+/* Compact zwevend menu op mobiel */
+@media (max-width: 768px) {
+
+    #fabMenu .fab-item {
+        width: 180px !important;
+        max-width: calc(100vw - 110px);
+        height: 54px !important;
+        min-height: 54px !important;
+
+        padding: 0 14px !important;
+
+        font-size: 14px !important;
+        font-weight: 700;
+
+        border-radius: 18px;
+        border: 1px solid rgba(168, 240, 68, 0.35);
+
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+
+        box-sizing: border-box;
+    }
+
+    #fabMenu .fab-les {
+        bottom: 100px;
+    }
+
+    #fabMenu .fab-tarieven {
+        bottom: 164px;
+    }
+
+    #fabMenu .fab-blok {
+        bottom: 228px;
+    }
+}
 
 }
 
