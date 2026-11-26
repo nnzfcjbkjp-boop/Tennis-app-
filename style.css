@@ -1434,4 +1434,46 @@ input[type="number"] {
     }
 
 
+/* Compactere popup op mobiele telefoons */
+
+    #fabSubMenu {
+        width: calc(100% - 48px);
+        max-width: 340px;
+        max-height: 82dvh;
+        overflow-y: auto;
+        box-sizing: border-box;
+
+        padding: 18px;
+        border-radius: 20px;
+    }
+
+    .popup-title {
+        font-size: 19px;
+        margin-bottom: 14px;
+    }
+
+    #fabSubMenu input,
+    #fabSubMenu select {
+        height: 42px;
+        margin-bottom: 9px;
+        font-size: 14px;
+    }
+
+    .tarief-preview {
+        font-size: 22px;
+        margin: 8px 0;
+    }
+
+    .registreren-button {
+        height: 56px;
+        font-size: 16px;
+    }
+
+    .popup-close {
+        height: 48px;
+        margin-top: 8px;
+    }
+}
+
+
 }
