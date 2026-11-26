@@ -1240,6 +1240,28 @@ input[type="number"] {
 
 }
 
+.fab-label {
+
+    position: fixed;
+
+    right: 95px;
+
+    background: #24335F;
+
+    color: white;
+
+    padding: 10px 14px;
+
+    border-radius: 12px;
+
+    font-size: 13px;
+
+    opacity: 0;
+
+    transition: .25s ease;
+
+}
+
 @media (max-width: 768px) {
 
     .card h2 {
