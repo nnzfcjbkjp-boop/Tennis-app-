@@ -1489,10 +1489,10 @@ input[type="number"] {
 /* Datum en tijd verticaal centreren op iPhone */
 #fabSubMenu input[type="date"],
 #fabSubMenu input[type="time"] {
-    height: 64px;
+    height: 52px;
     padding-top: 0;
     padding-bottom: 0;
-    line-height: 64px;
+    line-height: 52px;
     text-align: center;
     text-align-last: center;
     box-sizing: border-box;
@@ -1502,7 +1502,7 @@ input[type="number"] {
 #fabSubMenu input[type="date"]::-webkit-date-and-time-value,
 #fabSubMenu input[type="time"]::-webkit-date-and-time-value {
     height: 100%;
-    line-height: 64px;
+    line-height: 52px;
     text-align: center;
 }
 
