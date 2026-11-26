@@ -351,45 +351,66 @@ function openSubMenu(type) {
     const overlay = document.getElementById("overlay");
 
     // 1. LES TOEVOEGEN
-    if (type === "les") {
+   if (type === "les") {
 
-        popup.innerHTML = `
-            <div class="popup-title">🎾 Les toevoegen</div>
+    popup.innerHTML = `
+        <div class="popup-title">🎾 Les toevoegen</div>
 
-            <label>Datum</label>
-            <input type="date" id="popupDatum" value="${vandaag()}">
+        <label>Datum</label>
+        <input type="date" id="popupDatum" value="${vandaag()}">
 
-            <label>Tijd</label>
-            <input type="time" id="popupTijd" value="${huidigeTijd()}">
+        <label>Tijd</label>
+        <input type="time" id="popupTijd" value="${huidigeTijd()}">
 
-            <label>Type les</label>
-            <select id="popupType" onchange="updatePopupTarief()">
-    <option value="prive">🎾 Privéles</option>
-    <option value="groep">👥 Groepsles</option>
-    <option value="weersomstandigheden">🌧️ Weer</option>
-    <option value="afwezig">🤒 Leerling afwezig</option>
-    <option value="trainer_afwezig">🚫 Trainer afwezig</option>
-</select>
+        <label>Type les</label>
+        <select id="popupType" onchange="updatePopupTarief()">
+            <option value="prive">🎾 Privéles</option>
+            <option value="groep">👥 Groepsles</option>
+            <option value="weersomstandigheden">🌧️ Weer</option>
+            <option value="afwezig">🤒 Leerling afwezig</option>
+            <option value="trainer_afwezig">🚫 Trainer afwezig</option>
+        </select>
 
-            <div id="popupTarief" style="
-                text-align:center;
-                font-size:24px;
-                font-weight:700;
+        <div id="popupTarief" style="
+            text-align:center;
+            font-size:24px;
+            font-weight:700;
+            color:#A8F044;
+            margin:16px 0;">
+            ${euro(priveTarief)}
+        </div>
+
+        <button type="button"
+            onclick="toggleAfwijkendTarief()"
+            style="
+                background:transparent;
                 color:#A8F044;
-                margin:16px 0;">
-                ${euro(priveTarief)}
-            </div>
+                border:1px solid rgba(168,240,68,.4);
+                margin-bottom:12px;">
+            ✏️ Afwijkend tarief
+        </button>
 
-            <button class="registreren-button"
-                onclick="registreerPopupLes()">
-                ➕ Les toevoegen
-            </button>
+        <div id="afwijkendTariefContainer" style="display:none;">
+            <label>Nieuw tarief (€)</label>
+            <input
+                type="number"
+                id="popupAfwijkendTarief"
+                min="0"
+                step="0.01"
+                placeholder="Bijvoorbeeld 35,00"
+                oninput="updateAfwijkendPreview()">
+        </div>
 
-            <button class="popup-close" onclick="closePopup()">
-                Sluiten
-            </button>
-        `;
-    }
+        <button class="registreren-button"
+            onclick="registreerPopupLes()">
+            ➕ Les toevoegen
+        </button>
+
+        <button class="popup-close" onclick="closePopup()">
+            Sluiten
+        </button>
+    `;
+}
 
     // 2. INSTELLINGEN
     else if (type === "instellingen") {
@@ -1724,12 +1745,41 @@ function registreerPopupLes() {
     const tijd = document.getElementById("popupTijd").value;
     const type = document.getElementById("popupType").value;
 
+    if (!datum || !tijd) {
+        toonMelding("⚠️ Vul datum en tijd in");
+        return;
+    }
+
     const isNormaleLes =
         type === "prive" || type === "groep";
 
-    const tarief = isNormaleLes
-        ? (type === "prive" ? priveTarief : groepTarief)
-        : 0;
+    const standaardTarief =
+        type === "prive"
+            ? priveTarief
+            : type === "groep"
+            ? groepTarief
+            : 0;
+
+    const afwijkendContainer =
+        document.getElementById("afwijkendTariefContainer");
+
+    const afwijkendVeld =
+        document.getElementById("popupAfwijkendTarief");
+
+    let tarief = standaardTarief;
+
+    if (
+        isNormaleLes &&
+        afwijkendContainer.style.display !== "none" &&
+        afwijkendVeld.value.trim() !== ""
+    ) {
+        tarief = Number(afwijkendVeld.value);
+
+        if (!Number.isFinite(tarief) || tarief < 0) {
+            toonMelding("⚠️ Controleer het afwijkende tarief");
+            return;
+        }
+    }
 
     lessen.push({
         datum: datum,
@@ -1740,6 +1790,24 @@ function registreerPopupLes() {
 
     opslaan();
     updateDashboard();
+
+    const [uren, minuten] = tijd.split(":").map(Number);
+    const volgendeTijd = new Date();
+    volgendeTijd.setHours(uren, minuten + 60, 0, 0);
+
+    const nieuweTijd =
+        String(volgendeTijd.getHours()).padStart(2, "0") +
+        ":" +
+        String(volgendeTijd.getMinutes()).padStart(2, "0");
+
+    document.getElementById("popupTijd").value = nieuweTijd;
+
+    toonMelding(
+        isNormaleLes
+            ? "✅ Les toegevoegd"
+            : "✅ Afwezigheid geregistreerd"
+    );
+}
 
     // Volgende hele uur instellen
     const [uren, minuten] = tijd.split(":").map(Number);
@@ -1767,16 +1835,71 @@ function updatePopupTarief() {
 
     const type = document.getElementById("popupType").value;
     const tariefElement = document.getElementById("popupTarief");
+    const afwijkendContainer =
+        document.getElementById("afwijkendTariefContainer");
+
+    const afwijkendKnop =
+        document.querySelector("#fabSubMenu button[onclick='toggleAfwijkendTarief()']");
+
+    const isNormaleLes =
+        type === "prive" || type === "groep";
+
+    afwijkendContainer.style.display = "none";
+    afwijkendKnop.style.display = isNormaleLes ? "block" : "none";
+
+    document.getElementById("popupAfwijkendTarief").value = "";
 
     if (type === "prive") {
         tariefElement.textContent = euro(priveTarief);
-    } 
-    else if (type === "groep") {
+    } else if (type === "groep") {
         tariefElement.textContent = euro(groepTarief);
-    } 
-    else {
+    } else {
         tariefElement.textContent = "€ 0,00";
     }
+}
+
+
+function toggleAfwijkendTarief() {
+
+    const container =
+        document.getElementById("afwijkendTariefContainer");
+
+    const veld =
+        document.getElementById("popupAfwijkendTarief");
+
+    const zichtbaar = container.style.display !== "none";
+
+    container.style.display = zichtbaar ? "none" : "block";
+
+    if (zichtbaar) {
+        veld.value = "";
+        updateAfwijkendPreview();
+    } else {
+        veld.focus();
+    }
+}
+
+
+function updateAfwijkendPreview() {
+
+    const veld =
+        document.getElementById("popupAfwijkendTarief");
+
+    const type =
+        document.getElementById("popupType").value;
+
+    const standaardTarief =
+        type === "prive" ? priveTarief : groepTarief;
+
+    const bedrag =
+        veld.value.trim() === ""
+            ? standaardTarief
+            : Number(veld.value);
+
+    document.getElementById("popupTarief").textContent =
+        Number.isFinite(bedrag) && bedrag >= 0
+            ? euro(bedrag)
+            : "Controleer bedrag";
 }
 
 
