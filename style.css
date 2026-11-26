@@ -1261,6 +1261,12 @@ input[type="number"] {
 
 }
 
+#beheerContainer {
+
+    display: none;
+
+}
+
 @media (max-width: 768px) {
 
     .card h2 {
