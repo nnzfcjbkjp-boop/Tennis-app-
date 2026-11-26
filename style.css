@@ -1545,4 +1545,25 @@ input[type="number"] {
         border: 2px solid rgba(168, 240, 68, 0.35);
         box-sizing: border-box;
     }
+
+@media (max-width: 768px) {
+
+    .fab-item {
+        width: 300px;
+        max-width: calc(100vw - 150px);
+        min-height: 70px;
+        padding: 0 20px;
+        box-sizing: border-box;
+
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+
+        font-size: 18px;
+        font-weight: 700;
+
+        border-radius: 22px;
+        border: 1px solid rgba(168, 240, 68, 0.3);
+    }
+
 }
