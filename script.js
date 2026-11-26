@@ -340,6 +340,8 @@ function toggleMenu() {
         .getElementById("fabSubMenu")
         .classList.remove("open");
 
+    }
+
 }
 
 function openSubMenu(type) {
