@@ -1527,16 +1527,16 @@ const weekdagen = {
 
 lessen.forEach(les => {
 
-  if (
+  
+if (
     les.type === "uitgevallen" ||
     les.type === "weersomstandigheden" ||
     les.type === "vakantie" ||
-    les.type === "afwezig"
+    les.type === "afwezig" ||
     les.type === "trainer_afwezig"
 ) {
     return;
 }
-
 
 
   const dag =
