@@ -364,9 +364,12 @@ function openSubMenu(type) {
 
             <label>Type les</label>
             <select id="popupType" onchange="updatePopupTarief()">
-                <option value="prive">🎾 Privéles</option>
-                <option value="groep">👥 Groepsles</option>
-            </select>
+    <option value="prive">🎾 Privéles</option>
+    <option value="groep">👥 Groepsles</option>
+    <option value="weersomstandigheden">🌧️ Weer</option>
+    <option value="afwezig">🤒 Leerling afwezig</option>
+    <option value="trainer_afwezig">🚫 Trainer afwezig</option>
+</select>
 
             <div id="popupTarief" style="
                 text-align:center;
@@ -1529,6 +1532,7 @@ lessen.forEach(les => {
     les.type === "weersomstandigheden" ||
     les.type === "vakantie" ||
     les.type === "afwezig"
+    les.type === "trainer_afwezig"
 ) {
     return;
 }
@@ -1714,39 +1718,25 @@ function closePopup() {
     .classList.remove("open");
 }
 
-function registreerPopupLes() {
-
-    document.getElementById("lesDatum").value =
-    document.getElementById("popupDatum").value;
-
-    document.getElementById("lesTijd").value =
-    document.getElementById("popupTijd").value;
-
-    document.getElementById("lesType").value =
-    document.getElementById("popupType").value;
-
-    registreerLes();
-
-    closePopup();
-    
-}
 
 function registreerPopupLes() {
 
-    const tijd =
-    document.getElementById("popupTijd").value;
+    const datum = document.getElementById("popupDatum").value;
+    const tijd = document.getElementById("popupTijd").value;
+    const type = document.getElementById("popupType").value;
 
-    const type =
-    document.getElementById("popupType").value;
+    const isNormaleLes =
+        type === "prive" || type === "groep";
+
+    const tarief = isNormaleLes
+        ? (type === "prive" ? priveTarief : groepTarief)
+        : 0;
 
     lessen.push({
-    datum: document.getElementById("popupDatum").value,
+        datum: datum,
         tijdstip: tijd,
         type: type,
-        tarief:
-            type === "prive"
-            ? priveTarief
-            : groepTarief
+        tarief: tarief
     });
 
     opslaan();
@@ -1754,20 +1744,30 @@ function registreerPopupLes() {
 
     closePopup();
 
-    toonMelding("✅ Les toegevoegd");
+    toonMelding(
+        isNormaleLes
+            ? "✅ Les toegevoegd"
+            : "✅ Afwezigheid geregistreerd"
+    );
 }
+
 
 function updatePopupTarief() {
 
-    const type =
-    document.getElementById("popupType").value;
+    const type = document.getElementById("popupType").value;
+    const tariefElement = document.getElementById("popupTarief");
 
-    document.getElementById("popupTarief").innerHTML =
-        type === "prive"
-        ? euro(priveTarief)
-        : euro(groepTarief);
-
+    if (type === "prive") {
+        tariefElement.textContent = euro(priveTarief);
+    } 
+    else if (type === "groep") {
+        tariefElement.textContent = euro(groepTarief);
+    } 
+    else {
+        tariefElement.textContent = "€ 0,00";
+    }
 }
+
 
 // Sluit het zwevende actiemenu bij een tik erbuiten
 document.addEventListener("click", function(event) {
