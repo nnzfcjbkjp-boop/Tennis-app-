@@ -1816,16 +1816,6 @@ updatePopupTarief();
     );
 }
 
-    // Melding tonen, popup open laten
-    toonMelding(
-        isNormaleLes
-            ? "✅ Les toegevoegd"
-            : "✅ Afwezigheid geregistreerd"
-    );
-}
-
-
-
 function updatePopupTarief() {
 
     const type = document.getElementById("popupType").value;
