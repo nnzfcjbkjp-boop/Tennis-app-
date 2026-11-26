@@ -422,8 +422,16 @@ function openSubMenu(type) {
 `;
     }
 
-    overlay.classList.add("open");
-    popup.classList.add("open");
+    // Sluit menu wanneer je buiten het popupmenu tikt
+overlay.onclick = function(event) {
+    if (event.target === overlay) {
+        closePopup();
+    }
+};
+
+overlay.classList.add("open");
+popup.classList.add("open");
+
 }
 
 function openLesToevoegen() {
