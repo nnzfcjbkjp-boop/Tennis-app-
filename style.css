@@ -1509,7 +1509,7 @@ input[type="number"] {
 /* Subtiel limegroen accent op het mobiele actiemenu */
 
     .fab-item {
-        border: 1px solid rgba(168, 240, 68, 0.35);
+        border: 2px solid rgba(168, 240, 68, 0.35);
         box-sizing: border-box;
     }
 }
