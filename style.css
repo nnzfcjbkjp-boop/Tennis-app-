@@ -1093,34 +1093,31 @@ input[type="number"] {
 
 #fabMenu.open .fab-les {
 
- transform:
- translateY(-70px);
+    bottom: 100px;
 
- right: 28px;
+    opacity: 1;
 
- bottom: 110px;
+    pointer-events: auto;
 
 }
 
 #fabMenu.open .fab-tarieven {
 
- transform:
- translateY(-140px);
+    bottom: 170px;
 
- right: 28px;
+    opacity: 1;
 
- bottom: 170px;
+    pointer-events: auto;
 
 }
 
 #fabMenu.open .fab-blok {
 
- transform:
- translateY(-210px);
+    bottom: 240px;
 
- right: 28px;
+    opacity: 1;
 
- bottom: 240px;
+    pointer-events: auto;
 
 }
 
@@ -1146,34 +1143,46 @@ input[type="number"] {
 
 .fab-item {
 
- position: fixed;
+    position: fixed;
 
- right: 24px;
+    right: 24px;
 
- bottom: 24px;
+    width: 180px;
 
- width: 56px;
+    height: 56px;
 
- height: 56px;
+    border: none;
 
- border-radius: 50%;
+    border-radius: 28px;
 
- border: none;
+    background: #24335F;
 
- background: #24335F;
+    color: white;
 
- color: white;
+    font-size: 14px;
 
- font-size: 22px;
+    font-weight: 600;
 
- opacity: 0;
+    display: flex;
 
- transform: scale(.6);
+    align-items: center;
 
- transition: .25s ease;
+    justify-content: flex-start;
+
+    padding-left: 18px;
+
+    gap: 12px;
+
+    box-shadow:
+        0 8px 24px rgba(0,0,0,.25);
+
+    opacity: 0;
+
+    pointer-events: none;
+
+    transition: .25s ease;
 
 }
-
 #fabMenu.open {
 
     opacity: 1;
@@ -1240,35 +1249,6 @@ input[type="number"] {
 
     color: white;
 
-}
-
-.fab-label {
-
-    position: fixed;
-
-    right: 95px;
-
-    background: #24335F;
-
-    color: white;
-
-    padding: 10px 14px;
-
-    border-radius: 12px;
-
-    font-size: 13px;
-
-    opacity: 0;
-
-    transition: .25s ease;
-
-    z-index: 9998;
-
-}
-
-.fab-label.show {
-
-    opacity: 1;
 
 }
 
