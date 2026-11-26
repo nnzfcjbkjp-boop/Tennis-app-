@@ -334,6 +334,53 @@ function toggleMenu() {
 
 }
 
+function openSubMenu(type) {
+
+    const menu =
+        document.getElementById(
+            "fabSubMenu"
+        );
+
+    if (type === "les") {
+
+        menu.innerHTML = `
+
+            <button>🎾 Privéles</button>
+            <button>👥 Groepsles</button>
+            <button>🌧️ Weer</button>
+            <button>🏖️ Vakantie</button>
+            <button>🤒 Afwezig</button>
+
+        `;
+
+    }
+
+    if (type === "instellingen") {
+
+        menu.innerHTML = `
+
+            <button>⚙️ Tarieven</button>
+            <button>💰 BTW</button>
+            <button>📦 Backup</button>
+
+        `;
+
+    }
+
+    if (type === "blok") {
+
+        menu.innerHTML = `
+
+            <button>📝 Nieuw lesblok</button>
+
+        `;
+
+    }
+
+    menu.classList.add("open");
+
+}
+
 function openLesToevoegen() {
 
     document
