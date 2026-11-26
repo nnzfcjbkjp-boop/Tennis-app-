@@ -1152,65 +1152,51 @@ function updateDashboard() {
     const btw =
         omzetIncl - omzetExcl;
 
+
 let vandaagHtml = "";
 
 lessenVandaag.forEach((les) => {
 
-    
-const naam =
-    les.type === "prive"
-        ? "🎾 Privéles"
-        : les.type === "groep"
-        ? "👥 Groepsles"
-        : les.type === "weersomstandigheden"
-        ? "🌧️ Weer"
-        : les.type === "vakantie"
-        ? "🏖️ Vakantie"
-        : les.type === "trainer_afwezig"
-        ? "🚫 Trainer afwezig"
-        : "🤒 Leerling afwezig";
-
+    const naam =
+        les.type === "prive"
+            ? "🎾 Privéles"
+            : les.type === "groep"
+            ? "👥 Groepsles"
+            : les.type === "weersomstandigheden"
+            ? "🌧️ Weer"
+            : les.type === "vakantie"
+            ? "🏖️ Vakantie"
+            : les.type === "trainer_afwezig"
+            ? "🚫 Trainer afwezig"
+            : "🤒 Leerling afwezig";
 
     vandaagHtml += `
+        <div class="les-item-compact">
 
- <div class="les-item-compact">
+            <span class="vandaag-tijd">
+                🕒 ${les.tijdstip}
+            </span>
 
-    <span class="vandaag-tijd">
-    🕒 ${les.tijdstip}
-</span>
+            <span class="vandaag-type">
+                ${naam}
+            </span>
 
-<span class="vandaag-type">
-    ${naam}
-</span>
-
-<span class="vandaag-bedrag">
-    ${les.tarief > 0 ? euro(les.tarief) : ""}
-</span>
-
-    <span class="vandaag-bedrag">
-
-        ${les.tarief > 0 ? "€" + Math.round(les.tarief) : ""}
-
-    </span>
+            <span class="vandaag-bedrag">
+                ${les.tarief > 0 ? "€" + Math.round(les.tarief) : ""}
+            </span>
 
             <button
                 class="verwijder-klein"
                 onclick="verwijderLes(${lessenVandaag.indexOf(les)})">
-
                 🗑️
-
             </button>
 
         </div>
-
     `;
-
 });
 
-document.getElementById(
-    "lessenLijst"
-).innerHTML =
-    vandaagHtml;
+document.getElementById("lessenLijst").innerHTML = vandaagHtml;
+
     
     // Totaal alle lessen
 
