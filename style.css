@@ -1816,5 +1816,11 @@ input[type="number"] {
     box-sizing: border-box;
 }
 
+/* Succesmeldingen altijd boven menu's tonen */
+#melding,
+.melding,
+.toast {
+    position: fixed !important;
+    z-index: 20000 !important;
 }
 
