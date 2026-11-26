@@ -1153,3 +1153,45 @@ hr {
         width: 92%;
     }
 }
+
+/* =========================================
+   UNIFORME POPUP-KNOPPEN
+   ========================================= */
+
+#fabSubMenu button:not(.popup-close) {
+    width: 100%;
+    min-height: 46px;
+    padding: 10px 14px;
+    border: none;
+    border-radius: 13px;
+    background: #38a35d;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 700;
+    box-shadow: none;
+    cursor: pointer;
+}
+
+#fabSubMenu .popup-close {
+    width: 100%;
+    min-height: 44px;
+    padding: 10px 14px;
+    border: 1px solid rgba(255, 255, 255, .15);
+    border-radius: 13px;
+    background: transparent;
+    color: #B8C3DD;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+/* Mobiele popup iets compacter */
+@media screen and (max-width: 768px) {
+    #fabSubMenu {
+        padding: 16px;
+    }
+
+    #fabSubMenu button:not(.popup-close) {
+        min-height: 44px;
+        font-size: 13px;
+    }
+}
