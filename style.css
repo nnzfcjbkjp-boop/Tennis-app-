@@ -1508,6 +1508,7 @@ input[type="number"] {
 }
 
 
+
 /* Vaste posities voor het zwevende menu */
 .fab-les {
     bottom: 100px;
@@ -1539,13 +1540,7 @@ input[type="number"] {
     pointer-events: auto;
 }
 
-/* Limegroene rand op mobiel */
-@media (max-width: 768px) {
-    .fab-item {
-        border: 2px solid rgba(168, 240, 68, 0.35);
-        box-sizing: border-box;
-    }
-
+/* Mobiele vormgeving */
 @media (max-width: 768px) {
 
     .fab-item {
@@ -1563,7 +1558,8 @@ input[type="number"] {
         font-weight: 700;
 
         border-radius: 22px;
-        border: 1px solid rgba(168, 240, 68, 0.3);
+        border: 1px solid rgba(168, 240, 68, 0.35);
     }
 
 }
+
