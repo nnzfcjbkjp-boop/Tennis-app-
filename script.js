@@ -344,13 +344,22 @@ function toggleMenu() {
 
 }
 
-function openSubMenu(type) {
+ffunction openSubMenu(type) {
 
     const popup =
     document.getElementById("fabSubMenu");
 
-    const overlay =
-    document.getElementById("overlay");
+    popup.innerHTML = `
+        <h1 style="color:red;text-align:center;">
+            TEST POPUP
+        </h1>
+    `;
+
+    document.getElementById("overlay")
+        .classList.add("open");
+
+    document.getElementById("fabSubMenu")
+        .classList.add("open");
 
     return;
 }
