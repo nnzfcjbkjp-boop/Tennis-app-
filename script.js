@@ -342,8 +342,6 @@ function toggleMenu() {
 
 }
 
-}
-
 function openSubMenu(type) {
 
     const menu =
