@@ -1486,4 +1486,24 @@ input[type="number"] {
     text-align-last: center;
 }
 
+/* Datum en tijd verticaal centreren op iPhone */
+#fabSubMenu input[type="date"],
+#fabSubMenu input[type="time"] {
+    height: 64px;
+    padding-top: 0;
+    padding-bottom: 0;
+    line-height: 64px;
+    text-align: center;
+    text-align-last: center;
+    box-sizing: border-box;
+}
+
+/* Interne tekstweergave van datum- en tijdvelden in Safari */
+#fabSubMenu input[type="date"]::-webkit-date-and-time-value,
+#fabSubMenu input[type="time"]::-webkit-date-and-time-value {
+    height: 100%;
+    line-height: 64px;
+    text-align: center;
+}
+
 }
