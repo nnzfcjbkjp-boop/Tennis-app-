@@ -1892,45 +1892,44 @@ input[type="number"] {
 }
 
 
-/* Vandaag geregistreerd: dezelfde uitstraling als Alle lessen */
-.les-item-compact {
+
+/* Vandaag geregistreerd - compact op mobiel */
+#lessenLijst .les-item-compact {
     display: grid;
-    grid-template-columns: 90px minmax(0, 1fr) 64px;
+    grid-template-columns: 90px minmax(0, 1fr) 28px;
     align-items: center;
     gap: 8px;
     width: 100%;
     box-sizing: border-box;
-    padding: 12px 0;
+    padding: 8px 0;
 }
 
-.vandaag-info {
+#lessenLijst .vandaag-info {
     display: contents;
 }
 
-.vandaag-tijd {
+#lessenLijst .vandaag-tijd {
     background: #263761;
     border-radius: 30px;
-    padding: 8px 10px;
+    padding: 8px 6px;
     text-align: center;
     font-size: 14px;
     font-weight: 700;
     white-space: nowrap;
 }
 
-.vandaag-type {
+#lessenLijst .vandaag-type {
     font-size: 14px;
     font-weight: 400;
     white-space: nowrap;
 }
 
-.vandaag-bedrag {
-    font-size: 14px;
-    font-weight: 700;
-    color: #A8F044;
-    white-space: nowrap;
+#lessenLijst .vandaag-bedrag {
+    display: none;
 }
 
-.verwijder-klein {
+#lessenLijst .verwijder-klein {
+    font-size: 14px;
     justify-self: end;
     flex-shrink: 0;
 }
