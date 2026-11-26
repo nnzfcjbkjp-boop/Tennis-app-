@@ -1174,7 +1174,7 @@ lessenVandaag.forEach((les) => {
         <div class="les-item-compact">
 
             <span class="vandaag-tijd">
-                🕒 ${les.tijdstip}
+                ${les.tijdstip}
             </span>
 
             <span class="vandaag-type">
