@@ -344,95 +344,238 @@ function toggleMenu() {
 
 }
 
+
 function openSubMenu(type) {
 
-    const popup =
-    document.getElementById("fabSubMenu");
+    const popup = document.getElementById("fabSubMenu");
+    const overlay = document.getElementById("overlay");
 
-    const overlay =
-    document.getElementById("overlay");
-
+    // 1. LES TOEVOEGEN
     if (type === "les") {
 
         popup.innerHTML = `
+            <div class="popup-title">🎾 Les toevoegen</div>
 
-    <div class="popup-title">
-        🎾 Les toevoegen
-    </div>
+            <label>Datum</label>
+            <input type="date" id="popupDatum" value="${vandaag()}">
 
-<label>Datum</label>
+            <label>Tijd</label>
+            <input type="time" id="popupTijd" value="${huidigeTijd()}">
 
-<input
-    type="date"
-    id="popupDatum"
-    value="${vandaag()}">
-    <label>Tijd</label>
+            <label>Type les</label>
+            <select id="popupType" onchange="updatePopupTarief()">
+                <option value="prive">🎾 Privéles</option>
+                <option value="groep">👥 Groepsles</option>
+            </select>
 
-   <input
-    type="time"
-    id="popupTijd"
-    value="${huidigeTijd()}">
+            <div id="popupTarief" style="
+                text-align:center;
+                font-size:24px;
+                font-weight:700;
+                color:#A8F044;
+                margin:16px 0;">
+                ${euro(priveTarief)}
+            </div>
 
-    <label>Type les</label>
+            <button class="registreren-button"
+                onclick="registreerPopupLes()">
+                ➕ Les toevoegen
+            </button>
 
-    <select
- id="popupType"
- onchange="updatePopupTarief()">
-
- <option value="prive">
-            🎾 Privéles
-        </option>
-
-        <option value="groep">
-            👥 Groepsles
-        </option>
-
-    </select>
-
-<div
-    id="popupTarief"
-    style="
-        text-align:center;
-        font-size:24px;
-        font-weight:700;
-        color:#A8F044;
-        margin:16px 0;
-    ">
-
-   ${euro(priveTarief)}
-
-</div>
-
-    <button
-        class="registreren-button"
-        onclick="registreerPopupLes()">
-
-        ➕ Les toevoegen
-
-    </button>
-
-    <button
-        class="popup-close"
-        onclick="closePopup()">
-
-        Sluiten
-
-    </button>
-
-`;
+            <button class="popup-close" onclick="closePopup()">
+                Sluiten
+            </button>
+        `;
     }
 
-    // Sluit menu wanneer je buiten het popupmenu tikt
-overlay.onclick = function(event) {
-    if (event.target === overlay) {
-        closePopup();
-    }
-};
+    // 2. INSTELLINGEN
+    else if (type === "instellingen") {
 
-overlay.classList.add("open");
-popup.classList.add("open");
+        popup.innerHTML = `
+            <div class="popup-title">⚙️ Instellingen</div>
+
+            <label>Privéles tarief (€)</label>
+            <input type="number" id="popupPriveTarief"
+                min="0" step="0.01" value="${priveTarief}">
+
+            <label>Groepsles tarief (€)</label>
+            <input type="number" id="popupGroepTarief"
+                min="0" step="0.01" value="${groepTarief}">
+
+            <label>BTW percentage (%)</label>
+            <input type="number" id="popupBtw"
+                min="0" step="0.1" value="${btwPercentage}">
+
+            <button class="registreren-button"
+                onclick="slaPopupInstellingenOp()">
+                💾 Instellingen opslaan
+            </button>
+
+            <button class="popup-close" onclick="closePopup()">
+                Sluiten
+            </button>
+        `;
+    }
+
+    // 3. LESBLOK
+    else if (type === "blok") {
+
+        popup.innerHTML = `
+            <div class="popup-title">📝 Lesblok registreren</div>
+
+            <label>Type</label>
+            <select id="popupBlokType"
+                onchange="updatePopupBlokType()">
+
+                <option value="prive">🎾 Privéles</option>
+                <option value="groep">👥 Groepsles</option>
+                <option value="weersomstandigheden">🌧️ Weersomstandigheden</option>
+                <option value="vakantie">🏖️ Vakantie</option>
+                <option value="afwezig">🤒 Leerling afwezig</option>
+            </select>
+
+            <label>Startdatum</label>
+            <input type="date" id="popupBlokStartDatum"
+                value="${vandaag()}">
+
+            <label>Einddatum</label>
+            <input type="date" id="popupBlokEindDatum"
+                value="${vandaag()}">
+
+            <div id="popupTijdBlok">
+
+                <label>Starttijd</label>
+                <input type="time" id="popupBlokStart" value="09:00">
+
+                <label>Eindtijd</label>
+                <input type="time" id="popupBlokEinde" value="17:00">
+
+                <label>Interval (minuten)</label>
+                <input type="number" id="popupBlokInterval"
+                    value="60" min="1">
+            </div>
+
+            <button class="registreren-button"
+                onclick="registreerPopupBlok()">
+                ✅ Blok registreren
+            </button>
+
+            <button class="popup-close" onclick="closePopup()">
+                Sluiten
+            </button>
+        `;
+    }
+
+    overlay.classList.add("open");
+    popup.classList.add("open");
 
 }
+
+
+// Instellingen opslaan vanuit popup
+function slaPopupInstellingenOp() {
+
+    const prive = Number(
+        document.getElementById("popupPriveTarief").value
+    );
+
+    const groep = Number(
+        document.getElementById("popupGroepTarief").value
+    );
+
+    const btw = Number(
+        document.getElementById("popupBtw").value
+    );
+
+    if (
+        !Number.isFinite(prive) || prive < 0 ||
+        !Number.isFinite(groep) || groep < 0 ||
+        !Number.isFinite(btw) || btw < 0
+    ) {
+        toonMelding("⚠️ Controleer de ingevulde bedragen");
+        return;
+    }
+
+    // Bestaande instellingen bijwerken
+    document.getElementById("priveTarief").value = prive;
+    document.getElementById("groepTarief").value = groep;
+    document.getElementById("btwPercentage").value = btw;
+
+    slaInstellingenOp();
+
+    closePopup();
+
+    toonMelding("✅ Instellingen opgeslagen");
+}
+
+
+// Tijdvelden tonen/verbergen bij lesblok
+function updatePopupBlokType() {
+
+    const type = document.getElementById("popupBlokType").value;
+
+    document.getElementById("popupTijdBlok").style.display =
+        type === "vakantie" ? "none" : "block";
+}
+
+// Lesblok registreren vanuit popup
+function registreerPopupBlok() {
+
+    const startDatum =
+        document.getElementById("popupBlokStartDatum").value;
+
+    const eindDatum =
+        document.getElementById("popupBlokEindDatum").value;
+
+    const type =
+        document.getElementById("popupBlokType").value;
+
+    if (!startDatum || !eindDatum || startDatum > eindDatum) {
+        toonMelding("⚠️ Controleer de start- en einddatum");
+        return;
+    }
+
+    if (type !== "vakantie") {
+
+        const start =
+            document.getElementById("popupBlokStart").value;
+
+        const einde =
+            document.getElementById("popupBlokEinde").value;
+
+        const interval = Number(
+            document.getElementById("popupBlokInterval").value
+        );
+
+        if (!start || !einde || start >= einde || interval <= 0) {
+            toonMelding("⚠️ Controleer tijden en interval");
+            return;
+        }
+    }
+
+    // Waarden doorgeven aan de bestaande registratie
+    document.getElementById("blokType").value = type;
+
+    document.getElementById("blokStartDatum").value = startDatum;
+    document.getElementById("blokEindDatum").value = eindDatum;
+
+    if (type !== "vakantie") {
+
+        document.getElementById("blokStart").value =
+            document.getElementById("popupBlokStart").value;
+
+        document.getElementById("blokEinde").value =
+            document.getElementById("popupBlokEinde").value;
+
+        document.getElementById("blokInterval").value =
+            document.getElementById("popupBlokInterval").value;
+    }
+
+    registreerBlok();
+
+    closePopup();
+}
+
 
 function openLesToevoegen() {
 
