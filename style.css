@@ -1566,22 +1566,43 @@ input[type="number"] {
     }
 }
 
-/* Vloeiende animatie van de menuopties */
-.fab-item {
+
+/* Professionele FAB-menu animatie */
+#fabMenu .fab-item {
     opacity: 0;
-    transform: translateY(10px) scale(0.98);
-    transition:
-        opacity 0.18s ease,
-        transform 0.18s ease;
-    will-change: opacity, transform;
+    transform: translateY(16px) scale(0.94);
     pointer-events: none;
+
+    transition:
+        opacity 0.25s ease,
+        transform 0.32s cubic-bezier(0.22, 1, 0.36, 1);
+
+    will-change: transform, opacity;
 }
 
-/* Menu geopend */
+/* Menu openen */
 #fabMenu.open .fab-item {
     opacity: 1;
     transform: translateY(0) scale(1);
     pointer-events: auto;
+}
+
+/* Menu sluiten */
+#fabMenu:not(.open) .fab-item {
+    opacity: 0;
+    transform: translateY(16px) scale(0.94);
+    pointer-events: none;
+}
+
+/* Plusknop soepel laten draaien */
+#fab {
+    transition:
+        transform 0.3s ease,
+        background 0.3s ease;
+}
+
+#fab.open {
+    transform: rotate(45deg);
 }
 
 /* Mobiele vormgeving */
