@@ -344,84 +344,37 @@ function toggleMenu() {
 
 }
 
-function openSubMenu(type) {
+if (type === "les") {
 
-    const popup =
-    document.getElementById("fabSubMenu");
+    popup.innerHTML = `
+    
+        <div class="popup-title">
+            🎾 Les toevoegen
+        </div>
 
-    const overlay =
-    document.getElementById("overlay");
+        <label>Tijd</label>
 
-    if (type === "les") {
+        <input
+            type="time"
+            id="popupTijd">
 
-        popup.innerHTML = `
+        <button
+            class="registreren-button"
+            onclick="testLesToevoegen()">
 
-            <div class="popup-title">
-                🎾 Les toevoegen
-            </div>
+            ➕ Les toevoegen
 
-            <label>Datum</label>
+        </button>
 
-            <input
-                type="date"
-                id="popupDatum"
-                value="${vandaag()}">
+        <button
+            class="popup-close"
+            onclick="closePopup()">
 
-            <label>Tijd</label>
+            Sluiten
 
-            <input
-                type="time"
-                id="popupTijd">
+        </button>
 
-            <label>Type les</label>
-
-            <select id="popupType">
-
-                <option value="prive">
-                    🎾 Privéles
-                </option>
-
-                <option value="groep">
-                    👥 Groepsles
-                </option>
-
-                <option value="weersomstandigheden">
-                    🌧️ Weer
-                </option>
-
-                <option value="vakantie">
-                    🏖️ Vakantie
-                </option>
-
-                <option value="afwezig">
-                    🤒 Leerling afwezig
-                </option>
-
-            </select>
-
-            <button
-                class="registreren-button"
-                onclick="registreerPopupLes()">
-
-                ➕ Les toevoegen
-
-            </button>
-
-            <button
-                class="popup-close"
-                onclick="closePopup()">
-
-                Sluiten
-
-            </button>
-
-        `;
-    }
-
-    overlay.classList.add("open");
-    popup.classList.add("open");
-
-    toggleMenu();
+    `;
 }
 
 function openLesToevoegen() {
@@ -1556,4 +1509,14 @@ function registreerPopupLes() {
 
     closePopup();
     
+}
+
+function testLesToevoegen() {
+
+    const tijd =
+    document.getElementById("popupTijd").value;
+
+    alert("Les toegevoegd om " + tijd);
+
+    closePopup();
 }
