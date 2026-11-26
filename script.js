@@ -1166,6 +1166,7 @@ lessenVandaag.forEach((les) => {
             : les.type === "vakantie"
             ? "🏖️ Vakantie"
             : "🤒 Leerling afwezig";
+            : "🚫 Trainer afwezig"
 
     vandaagHtml += `
 
@@ -1363,6 +1364,7 @@ if (!openDatums[les.datum]) {
                 : les.type === "vakantie"
                 ? "🏖️ Vakantie"
                 : "🤒 Leerling afwezig";
+                : "🚫 Trainer afwezig"
 
        alleLessenHtml += `
 
