@@ -1101,6 +1101,70 @@ input[type="number"] {
 
 }
 
+#fabMenu {
+
+    position: fixed;
+
+    bottom: 100px;
+
+    right: 24px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 12px;
+
+    opacity: 0;
+
+    pointer-events: none;
+
+    transform: translateY(20px);
+
+    transition: .25s ease;
+
+    z-index: 9998;
+
+}
+
+#fabMenu.open {
+
+    opacity: 1;
+
+    transform: translateY(0);
+
+    pointer-events: auto;
+
+}
+
+.fab-item {
+
+    width: 56px;
+
+    height: 56px;
+
+    border-radius: 50%;
+
+    border: none;
+
+    background: #24335F;
+
+    color: white;
+
+    font-size: 22px;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 8px 24px rgba(
+            0,
+            0,
+            0,
+            .25
+        );
+
+}
+
 @media (max-width: 768px) {
 
     .card h2 {
