@@ -316,21 +316,23 @@ function toggleDag(dag) {
 function toggleMenu() {
 
     const menu =
-        document.getElementById(
-            "fabMenu"
-        );
+        document.getElementById("fabMenu");
 
     const knop =
-        document.getElementById(
-            "fab"
-        );
+        document.getElementById("fab");
 
     menu.classList.toggle("open");
 
+    document
+        .querySelectorAll(".fab-label")
+        .forEach(label =>
+            label.classList.toggle("show")
+        );
+
     knop.textContent =
         menu.classList.contains("open")
-        ? "✕"
-        : "+";
+            ? "✕"
+            : "+";
 
 }
 
