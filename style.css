@@ -1807,5 +1807,14 @@ input[type="number"] {
 }
 
 
+#fabSubMenu .blok-datums {
+    gap: 10px;
+}
+
+#fabSubMenu .blok-datums input {
+    width: 100%;
+    box-sizing: border-box;
+}
+
 }
 
