@@ -487,7 +487,8 @@ else if (type === "blok") {
     `;
 }
 
-
+overlay.classList.add("open");
+popup.classList.add("open");
 
 // Instellingen opslaan vanuit popup
 function slaPopupInstellingenOp() {
