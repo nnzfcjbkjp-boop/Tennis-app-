@@ -1195,3 +1195,13 @@ hr {
         font-size: 13px;
     }
 }
+
+/* Starttijd en eindtijd compacter maken */
+#fabSubMenu .blok-tijden input[type="time"] {
+    height: 34px;
+    line-height: 34px;
+}
+
+#fabSubMenu .blok-tijden input[type="time"]::-webkit-date-and-time-value {
+    line-height: 34px;
+}
