@@ -1208,13 +1208,15 @@ input[type="number"] {
 
     flex-direction: column;
 
-    gap: 10px;
+    gap: 8px;
 
     opacity: 0;
 
     pointer-events: none;
 
     transition: .25s ease;
+
+    z-index: 9998;
 
 }
 
