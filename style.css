@@ -1101,28 +1101,6 @@ input[type="number"] {
 
 }
 
-#beheerContainer {
-
-    max-height: 0;
-
-    overflow: hidden;
-
-    opacity: 0;
-
-    transition:
-        max-height .35s ease,
-        opacity .25s ease;
-
-}
-
-#beheerContainer.open {
-
-    max-height: 2000px;
-
-    opacity: 1;
-
-}
-
 @media (max-width: 768px) {
 
     .card h2 {
