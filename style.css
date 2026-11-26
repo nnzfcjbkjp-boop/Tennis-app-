@@ -1205,3 +1205,10 @@ hr {
 #fabSubMenu .blok-tijden input[type="time"]::-webkit-date-and-time-value {
     line-height: 34px;
 }
+
+/* Voorkom automatisch inzoomen op iPhone */
+#fabSubMenu input,
+#fabSubMenu select,
+#fabSubMenu textarea {
+    font-size: 16px !important;
+}
