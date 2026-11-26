@@ -1605,3 +1605,25 @@ function updatePopupTarief() {
         : euro(groepTarief);
 
 }
+
+// Sluit het zwevende actiemenu bij een tik erbuiten
+document.addEventListener("click", function(event) {
+
+    const menu = document.getElementById("fabMenu");
+    const knop = document.getElementById("fab");
+
+    if (
+        menu.classList.contains("open") &&
+        !menu.contains(event.target) &&
+        !knop.contains(event.target)
+    ) {
+
+        menu.classList.remove("open");
+
+        document.querySelectorAll(".fab-label")
+            .forEach(label => label.classList.remove("show"));
+
+        knop.textContent = "+";
+    }
+
+});
