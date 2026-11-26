@@ -1475,5 +1475,13 @@ input[type="number"] {
     }
 }
 
+/* Datum- en tijdvelden iets smaller */
+#fabSubMenu input[type="date"],
+#fabSubMenu input[type="time"] {
+    width: 88%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
 
 }
