@@ -1425,6 +1425,52 @@ input[type="number"] {
         padding: 8px 12px;
 
     }
+    
+    /* Alle lessen: nette mobiele uitlijning */
+#alleLessenLijst .les-item-compact {
+    display: grid;
+    grid-template-columns: 90px minmax(0, 1fr) 64px;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+#alleLessenLijst .les-tijdstip {
+    min-width: 0;
+    white-space: nowrap;
+}
+
+#alleLessenLijst .les-info {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 6px;
+    min-width: 0;
+}
+
+#alleLessenLijst .les-naam {
+    min-width: 0;
+}
+
+#alleLessenLijst .les-bedrag {
+    white-space: nowrap;
+    font-size: 13px;
+}
+
+#alleLessenLijst .les-acties {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 3px;
+    min-width: 0;
+}
+
+#alleLessenLijst .les-acties button {
+    flex-shrink: 0;
+    padding: 2px;
+}
 
 
 /* Compactere popup op mobiele telefoons */
