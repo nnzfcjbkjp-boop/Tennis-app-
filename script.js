@@ -1743,6 +1743,7 @@ function registreerPopupLes() {
 
     const datum = document.getElementById("popupDatum").value;
     const tijd = document.getElementById("popupTijd").value;
+    
     const type = document.getElementById("popupType").value;
 
     if (!datum || !tijd) {
@@ -1801,6 +1802,12 @@ function registreerPopupLes() {
         String(volgendeTijd.getMinutes()).padStart(2, "0");
 
     document.getElementById("popupTijd").value = nieuweTijd;
+    
+    // Afwijkend tarief resetten voor de volgende les
+document.getElementById("afwijkendTariefContainer").style.display = "none";
+document.getElementById("popupAfwijkendTarief").value = "";
+document.getElementById("popupType").value = "prive";
+updatePopupTarief();
 
     toonMelding(
         isNormaleLes
@@ -1808,18 +1815,6 @@ function registreerPopupLes() {
             : "✅ Afwezigheid geregistreerd"
     );
 }
-
-    // Volgende hele uur instellen
-    const [uren, minuten] = tijd.split(":").map(Number);
-    const volgendeTijd = new Date();
-    volgendeTijd.setHours(uren, minuten + 60, 0, 0);
-
-    const nieuweTijd =
-        String(volgendeTijd.getHours()).padStart(2, "0") +
-        ":" +
-        String(volgendeTijd.getMinutes()).padStart(2, "0");
-
-    document.getElementById("popupTijd").value = nieuweTijd;
 
     // Melding tonen, popup open laten
     toonMelding(
