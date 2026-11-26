@@ -1086,9 +1086,10 @@ input[type="number"] {
 
     opacity: 1;
 
-    transform: scale(1);
+    pointer-events: auto;
 
 }
+
 
 #fabMenu.open .fab-les {
 
@@ -1108,7 +1109,7 @@ input[type="number"] {
 
  right: 28px;
 
- bottom: 180px;
+ bottom: 170px;
 
 }
 
@@ -1119,7 +1120,7 @@ input[type="number"] {
 
  right: 28px;
 
- bottom: 250px;
+ bottom: 240px;
 
 }
 
@@ -1172,6 +1173,7 @@ input[type="number"] {
  transition: .25s ease;
 
 }
+
 #fabMenu.open {
 
     opacity: 1;
@@ -1181,6 +1183,19 @@ input[type="number"] {
     pointer-events: auto;
 
 }
+
+#fabMenu {
+
+    position: fixed;
+
+    bottom: 24px;
+
+    right: 24px;
+
+    z-index: 9998;
+
+}
+
 
 @media (max-width: 768px) {
 
