@@ -1205,36 +1205,64 @@ input[type="number"] {
 
 }
 
-#fabSubMenu {
-
+#overlay {
     position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.65);
+    backdrop-filter: blur(4px);
+    opacity: 0;
+    pointer-events: none;
+    transition: .25s;
+    z-index: 10000;
+}
 
-    right: 230px;
+#overlay.open {
+    opacity: 1;
+    pointer-events: auto;
+}
 
-    bottom: 160px;
+#fabSubMenu {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%) scale(.9);
 
-    display: flex;
+    width: min(500px, 92vw);
+    max-height: 80vh;
 
-    flex-direction: column;
+    overflow-y: auto;
 
-    gap: 10px;
+    background: #19264A;
+    border-radius: 24px;
+    padding: 24px;
 
     opacity: 0;
-
     pointer-events: none;
 
-    transition: .25s ease;
-
-    z-index: 10001;
-
+    transition: .25s;
 }
 
 #fabSubMenu.open {
-
     opacity: 1;
-
     pointer-events: auto;
+    transform: translate(-50%, -50%) scale(1);
+}
 
+.popup-title {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.popup-close {
+    width: 100%;
+    margin-top: 16px;
+    height: 50px;
+    border: none;
+    border-radius: 14px;
+    background: #e0524c;
+    color: white;
+    font-weight: 700;
 }
 
 #fabSubMenu button {
