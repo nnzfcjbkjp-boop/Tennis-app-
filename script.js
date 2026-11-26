@@ -360,11 +360,18 @@ function openSubMenu(type) {
         🎾 Les toevoegen
     </div>
 
+<label>Datum</label>
+
+<input
+    type="date"
+    id="popupDatum"
+    value="${vandaag()}">
     <label>Tijd</label>
 
-    <input
-        type="time"
-        id="popupTijd">
+   <input
+    type="time"
+    id="popupTijd"
+    value="${huidigeTijd()}">
 
     <label>Type les</label>
 
@@ -1546,7 +1553,7 @@ function registreerPopupLes() {
     document.getElementById("popupType").value;
 
     lessen.push({
-        datum: vandaag(),
+    datum: document.getElementById("popupDatum").value,
         tijdstip: tijd,
         type: type,
         tarief:
