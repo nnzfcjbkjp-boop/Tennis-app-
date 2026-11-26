@@ -1531,6 +1531,8 @@ function formatteerDatum(datum) {
             }
         );
 
+}
+
 function closePopup() {
 
     document
