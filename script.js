@@ -1556,6 +1556,5 @@ function registreerPopupLes() {
     registreerLes();
 
     closePopup();
-}
-
+    
 }
