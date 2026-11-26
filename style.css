@@ -1846,39 +1846,31 @@ input[type="number"] {
 }
 
 
-/* Registratietekst op één regel */
-.vandaag-info {
-    white-space: nowrap;
-    display: inline-flex;
-    align-items: center;
-    gap: 5px;
-    flex: 1;
-    min-width: 0;
-    font-size: 0.9em;
-}
-
-/* Registratieregel */
+/* Vandaag geregistreerd - uitlijning mobiel */
 .les-item-compact {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-/* Vandaag geregistreerd op mobiel */
-.les-item-compact {
-    display: flex;
+    display: grid;
+    grid-template-columns: 112px minmax(0, 1fr) 32px;
     align-items: center;
     gap: 8px;
+    width: 100%;
 }
 
-.vandaag-info {
+.vandaag-tijd {
     white-space: nowrap;
     font-size: 14px;
-    flex: 1;
+}
+
+.vandaag-type {
+    white-space: nowrap;
+    font-size: 14px;
     min-width: 0;
+}
+
+.vandaag-bedrag {
+    display: none;
 }
 
 .verwijder-klein {
+    width: 32px;
     flex-shrink: 0;
 }
-
