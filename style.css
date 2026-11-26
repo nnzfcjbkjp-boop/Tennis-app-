@@ -1824,3 +1824,40 @@ input[type="number"] {
     z-index: 20000 !important;
 }
 
+
+/* Registratietekst op één regel */
+.vandaag-info {
+    white-space: nowrap;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    flex: 1;
+    min-width: 0;
+    font-size: 0.9em;
+}
+
+/* Registratieregel */
+.les-item-compact {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Vandaag geregistreerd op mobiel */
+.les-item-compact {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.vandaag-info {
+    white-space: nowrap;
+    font-size: 14px;
+    flex: 1;
+    min-width: 0;
+}
+
+.verwijder-klein {
+    flex-shrink: 0;
+}
+
