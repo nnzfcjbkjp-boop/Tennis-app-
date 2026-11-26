@@ -315,9 +315,9 @@ function toggleDag(dag) {
 
 function toggleMenu() {
 
-    const beheer =
+    const menu =
         document.getElementById(
-            "beheerContainer"
+            "fabMenu"
         );
 
     const knop =
@@ -325,23 +325,48 @@ function toggleMenu() {
             "fab"
         );
 
-    beheer.classList.toggle(
-        "open"
-    );
+    menu.classList.toggle("open");
 
     knop.textContent =
-        beheer.classList.contains(
-            "open"
-        )
-            ? "✕"
-            : "+";
+        menu.classList.contains("open")
+        ? "✕"
+        : "+";
 
-    knop.style.transform =
-        beheer.classList.contains(
-            "open"
+}
+
+function openLesToevoegen() {
+
+    document
+        .getElementById(
+            "beheerContainer"
         )
-            ? "rotate(90deg)"
-            : "rotate(0deg)";
+        .scrollIntoView({
+            behavior: "smooth"
+        });
+
+}
+
+function openTarieven() {
+
+    document
+        .getElementById(
+            "priveTarief"
+        )
+        .scrollIntoView({
+            behavior: "smooth"
+        });
+
+}
+
+function openLesblok() {
+
+    document
+        .getElementById(
+            "blokType"
+        )
+        .scrollIntoView({
+            behavior: "smooth"
+        });
 
 }
 
