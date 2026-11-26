@@ -1283,6 +1283,11 @@ input[type="number"] {
 }
 
 @media (max-width: 768px) {
+    
+    h1 {
+    font-size: 30px;
+    line-height: 1.15;
+}
 
     .card h2 {
 
@@ -1378,6 +1383,22 @@ input[type="number"] {
         gap: 10px;
 
     }
+    
+    .vandaag-info {
+    display: grid;
+    grid-template-columns: 105px minmax(0, 1fr);
+    align-items: center;
+    gap: 0;
+    white-space: nowrap;
+    flex: 1;
+    min-width: 0;
+}
+
+.vandaag-tijd,
+.vandaag-type {
+    white-space: nowrap;
+}
+    
 
 }
 
