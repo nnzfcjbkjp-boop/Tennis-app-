@@ -1678,90 +1678,109 @@ input[type="number"] {
 }
 
 
-/* =================================
-   LESBLOK POPUP - VERFIJNING
-================================= */
+/* COMPACTE LESBLOK POPUP */
+
+#fabSubMenu:has(.blok-form) {
+    height: auto;
+    max-height: 90dvh;
+    overflow-y: auto;
+    padding: 16px;
+    box-sizing: border-box;
+}
+
+#fabSubMenu .popup-title {
+    font-size: 21px;
+    margin: 0 0 14px;
+}
 
 #fabSubMenu .blok-form {
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 9px;
     width: 100%;
 }
 
 #fabSubMenu .blok-field {
     display: flex;
     flex-direction: column;
-    gap: 7px;
+    gap: 3px;
+    min-width: 0;
     width: 100%;
 }
 
 #fabSubMenu .blok-field label {
-    font-size: 15px;
-    font-weight: 700;
-    color: #B9C7E5;
+    font-size: 13px;
+    line-height: 1.2;
+    margin: 0;
 }
 
 #fabSubMenu .blok-field input,
 #fabSubMenu .blok-field select {
     width: 100%;
     min-width: 0;
-    height: 48px;
+    height: 39px;
+    padding: 0 10px;
     box-sizing: border-box;
-    padding: 0 14px;
-    border-radius: 14px;
-    font-size: 16px;
-    background: #263762;
-    color: #FFFFFF;
-    border: 1px solid rgba(255,255,255,0.10);
+    border-radius: 11px;
+    font-size: 14px;
 }
 
 #fabSubMenu .blok-datums {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 12px;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 8px;
+    width: 100%;
+}
+
+#fabSubMenu .blok-datums input {
+    min-width: 0;
+    width: 100%;
+    font-size: 12px;
+    padding: 0 5px;
 }
 
 #fabSubMenu .blok-tijden {
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 9px;
 }
 
 #fabSubMenu .blok-actions {
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    margin-top: 4px;
+    gap: 7px;
+    margin-top: 3px;
 }
 
 #fabSubMenu .blok-actions button {
     width: 100%;
-    min-height: 46px;
-    box-sizing: border-box;
-    border-radius: 14px;
-    font-size: 17px;
-    font-weight: 800;
+    min-height: 39px;
+    padding: 6px 10px;
+    font-size: 15px;
+    border-radius: 11px;
 }
 
 @media (max-width: 480px) {
+    #fabSubMenu:has(.blok-form) {
+        width: 94%;
+        max-height: 82dvh;
+        padding: 14px;
+    }
+
+    #fabSubMenu .popup-title {
+        font-size: 19px;
+        margin-bottom: 10px;
+    }
+
     #fabSubMenu .blok-form {
-        gap: 12px;
+        gap: 7px;
     }
 
-    #fabSubMenu .blok-field input,
-    #fabSubMenu .blok-field select {
-        height: 44px;
-        font-size: 15px;
+    #fabSubMenu .blok-tijden {
+        gap: 7px;
     }
+}
 
-    #fabSubMenu .blok-field label {
-        font-size: 14px;
-    }
-
-    #fabSubMenu .blok-datums {
-        gap: 8px;
-    }
 }
 
 
