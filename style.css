@@ -1662,5 +1662,20 @@ input[type="number"] {
         bottom: 222px !important;
     }
 
+/* Uniform formaat voor alle popupvensters */
+#fabSubMenu {
+    width: 92%;
+    max-width: 420px;
+
+    height: min(620px, 82dvh);
+    max-height: 82dvh;
+
+    box-sizing: border-box;
+    overflow-y: auto;
+
+    display: flex;
+    flex-direction: column;
+}
+
 }
 
