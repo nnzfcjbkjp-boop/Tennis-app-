@@ -1183,11 +1183,13 @@ const naam =
     ${naam}
 </span>
 
+<span class="vandaag-bedrag">
+    ${les.tarief > 0 ? euro(les.tarief) : ""}
+</span>
+
     <span class="vandaag-bedrag">
 
-        ${les.tarief > 0
-            ? euro(les.tarief)
-            : ""}
+        ${les.tarief > 0 ? "€" + Math.round(les.tarief) : ""}
 
     </span>
 
