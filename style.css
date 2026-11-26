@@ -1077,35 +1077,6 @@ input[type="number"] {
 
 }
 
-#fabMenu.open .fab-item {
-
-    opacity: 1;
-
-    pointer-events: auto;
-
-}
-
-
-#fabMenu.open .fab-les {
-
-    bottom: 100px;
-
-    opacity: 1;
-
-    pointer-events: auto;
-
-}
-
-#fabMenu.open .fab-tarieven {
-
-    bottom: 170px;
-
-    opacity: 1;
-
-    pointer-events: auto;
-
-}
-
 #fabMenu.open .fab-blok {
 
     bottom: 240px;
@@ -1507,19 +1478,92 @@ input[type="number"] {
     text-align: center;
 }
 
+/* =================================
+   FLOATING ACTION MENU
+================================= */
 
+/* Basispositie van de knoppen */
+.fab-item {
+    position: fixed;
+    right: 24px;
 
-/* Vaste posities voor het zwevende menu */
+    width: 180px;
+    height: 56px;
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    padding: 0 16px;
+
+    border-radius: 22px;
+    background: #24335F;
+    color: white;
+
+    font-size: 14px;
+    font-weight: 700;
+
+    opacity: 0;
+    transform: translateY(10px) scale(0.98);
+
+    pointer-events: none;
+
+    transition:
+        opacity 0.18s ease,
+        transform 0.18s ease;
+
+    box-sizing: border-box;
+}
+
+/* Posities */
 .fab-les {
     bottom: 100px;
 }
 
 .fab-tarieven {
-    bottom: 190px;
+    bottom: 176px;
 }
 
 .fab-blok {
-    bottom: 280px;
+    bottom: 252px;
+}
+
+/* Menu geopend */
+#fabMenu.open .fab-item {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    pointer-events: auto;
+}
+
+/* Mobiele vormgeving */
+@media (max-width: 768px) {
+
+    .fab-item {
+        width: 220px;
+        max-width: calc(100vw - 110px);
+        height: 64px;
+
+        padding: 0 18px;
+
+        font-size: 16px;
+        border-radius: 22px;
+
+        border: 1px solid rgba(168, 240, 68, 0.35);
+
+        box-sizing: border-box;
+    }
+
+    .fab-les {
+        bottom: 100px;
+    }
+
+    .fab-tarieven {
+        bottom: 176px;
+    }
+
+    .fab-blok {
+        bottom: 252px;
+    }
 }
 
 /* Vloeiende animatie van de menuopties */
