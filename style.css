@@ -1912,9 +1912,9 @@ input[type="number"] {
     grid-row: 1;
     background: #263761;
     border-radius: 30px;
-    padding: 6px 4px;
+    padding: 4px 4px;
     text-align: center;
-    font-size: 12px;
+    font-size: 10px;
     font-weight: 700;
     white-space: nowrap;
 }
@@ -1922,7 +1922,7 @@ input[type="number"] {
 #lessenLijst .vandaag-type {
     grid-column: 2;
     grid-row: 1;
-    font-size: 13px;
+    font-size: 12px;
     white-space: nowrap;
     overflow: hidden;
 }
