@@ -387,6 +387,20 @@ function openSubMenu(type) {
 
     </select>
 
+<div
+    id="popupTarief"
+    style="
+        text-align:center;
+        font-size:24px;
+        font-weight:700;
+        color:#A8F044;
+        margin:16px 0;
+    ">
+
+   ${euro(priveTarief)}
+
+</div>
+
     <button
         class="registreren-button"
         onclick="registreerPopupLes()">
@@ -1568,4 +1582,16 @@ function registreerPopupLes() {
     closePopup();
 
     toonMelding("✅ Les toegevoegd");
+}
+
+function updatePopupTarief() {
+
+    const type =
+    document.getElementById("popupType").value;
+
+    document.getElementById("popupTarief").innerHTML =
+        type === "prive"
+        ? euro(priveTarief)
+        : euro(groepTarief);
+
 }
