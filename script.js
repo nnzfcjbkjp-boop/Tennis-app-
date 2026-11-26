@@ -1175,13 +1175,13 @@ const naam =
 
  <div class="les-item-compact">
 
-    <span class="vandaag-info">
+    <span class="vandaag-tijd">
+    🕒 ${les.tijdstip}
+</span>
 
-        🕒 ${les.tijdstip}
-        ·
-        ${naam}
-
-    </span>
+<span class="vandaag-type">
+    ${naam}
+</span>
 
     <span class="vandaag-bedrag">
 
