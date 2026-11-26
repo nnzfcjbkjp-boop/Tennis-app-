@@ -432,7 +432,7 @@ else if (type === "blok") {
                     onchange="updatePopupBlokType()">
                     <option value="prive">🎾 Privéles</option>
                     <option value="groep">👥 Groepsles</option>
-                    <option value="weersomstandigheden">🌧️ Weersomstandigheden</option>
+                    <option value="weersomstandigheden">🌧️ Weer</option>
                     <option value="vakantie">🏖️ Vakantie</option>
                     <option value="afwezig">🤒 Leerling afwezig</option>
                 </select>
