@@ -349,15 +349,23 @@ function openSubMenu(type) {
     const popup =
     document.getElementById("fabSubMenu");
 
+    const overlay =
+    document.getElementById("overlay");
+
     popup.innerHTML = `
-        <h1>TEST POPUP</h1>
+        <div class="popup-title">
+            🎾 Les toevoegen
+        </div>
+
+        <button onclick="closePopup()">
+            Sluiten
+        </button>
     `;
 
+    overlay.classList.add("open");
     popup.classList.add("open");
-    document.getElementById("overlay")
-        .classList.add("open");
-}
 
+}
 function openLesToevoegen() {
 
     document
