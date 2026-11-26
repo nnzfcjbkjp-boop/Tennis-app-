@@ -1781,6 +1781,29 @@ input[type="number"] {
     }
 }
 
+/* Invoervelden lesblok iets smaller maken */
+
+#fabSubMenu .blok-field input,
+#fabSubMenu .blok-field select {
+    width: 92%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#fabSubMenu .blok-datums {
+    width: 92%;
+    margin-left: auto;
+    margin-right: auto;
+    gap: 10px;
+}
+
+#fabSubMenu .blok-datums .blok-field {
+    width: 100%;
+    min-width: 0;
+}
+
+#fabSubMenu .blok-datums input {
+    width: 100%;
 }
 
 
