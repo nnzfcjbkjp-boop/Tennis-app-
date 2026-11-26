@@ -346,43 +346,79 @@ function toggleMenu() {
 
 function openSubMenu(type) {
 
-    const beheer =
-        document.getElementById(
-            "beheerContainer"
-        );
+    const popup =
+    document.getElementById("fabSubMenu");
 
-    beheer.style.display = "block";
+    const overlay =
+    document.getElementById("overlay");
 
     if (type === "les") {
 
-        document
-            .getElementById("lesType")
-            .scrollIntoView({
-                behavior: "smooth"
-            });
+        popup.innerHTML = `
+            <div class="popup-title">
+                🎾 Les toevoegen
+            </div>
 
+            <input type="date"
+                   id="popupDatum"
+                   value="${vandaag()}">
+
+            <br><br>
+
+            <input type="time"
+                   id="popupTijd"
+                   value="${huidigeTijd()}">
+
+            <br><br>
+
+            <select id="popupType">
+
+                <option value="prive">
+                    🎾 Privéles
+                </option>
+
+                <option value="groep">
+                    👥 Groepsles
+                </option>
+
+                <option value="weersomstandigheden">
+                    🌧️ Weer
+                </option>
+
+                <option value="vakantie">
+                    🏖️ Vakantie
+                </option>
+
+                <option value="afwezig">
+                    🤒 Afwezig
+                </option>
+
+            </select>
+
+            <br><br>
+
+            <button
+                class="registreren-button"
+                onclick="registreerPopupLes()">
+
+                ➕ Les toevoegen
+
+            </button>
+
+            <button
+                class="popup-close"
+                onclick="closePopup()">
+
+                Sluiten
+
+            </button>
+        `;
     }
 
-    if (type === "instellingen") {
+    overlay.classList.add("open");
+    popup.classList.add("open");
 
-        document
-            .getElementById("priveTarief")
-            .scrollIntoView({
-                behavior: "smooth"
-            });
-
-    }
-
-    if (type === "blok") {
-
-        document
-            .getElementById("blokType")
-            .scrollIntoView({
-                behavior: "smooth"
-            });
-
-    }
-
+    toggleMenu();
 }
 
 function openLesToevoegen() {
@@ -1488,5 +1524,32 @@ function formatteerDatum(datum) {
                 year: "numeric"
             }
         );
+
+function closePopup() {
+
+    document
+    .getElementById("overlay")
+    .classList.remove("open");
+
+    document
+    .getElementById("fabSubMenu")
+    .classList.remove("open");
+}
+
+function registreerPopupLes() {
+
+    document.getElementById("lesDatum").value =
+    document.getElementById("popupDatum").value;
+
+    document.getElementById("lesTijd").value =
+    document.getElementById("popupTijd").value;
+
+    document.getElementById("lesType").value =
+    document.getElementById("popupType").value;
+
+    registreerLes();
+
+    closePopup();
+}
 
 }
