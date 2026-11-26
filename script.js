@@ -1156,17 +1156,20 @@ let vandaagHtml = "";
 
 lessenVandaag.forEach((les) => {
 
-    const naam =
-        les.type === "prive"
-            ? "🎾 Privéles"
-            : les.type === "groep"
-            ? "👥 Groepsles"
-            : les.type === "weersomstandigheden"
-            ? "🌧️ Weer"
-            : les.type === "vakantie"
-            ? "🏖️ Vakantie"
-            : "🤒 Leerling afwezig"
-            : "🚫 Trainer afwezig";
+    
+const naam =
+    les.type === "prive"
+        ? "🎾 Privéles"
+        : les.type === "groep"
+        ? "👥 Groepsles"
+        : les.type === "weersomstandigheden"
+        ? "🌧️ Weer"
+        : les.type === "vakantie"
+        ? "🏖️ Vakantie"
+        : les.type === "trainer_afwezig"
+        ? "🚫 Trainer afwezig"
+        : "🤒 Leerling afwezig";
+
 
     vandaagHtml += `
 
@@ -1354,17 +1357,20 @@ if (!openDatums[les.datum]) {
     return;
 
 }
-        const naam =
-            les.type === "prive"
-                ? "🎾 Privéles"
-                : les.type === "groep"
-                ? "🎾 Groepsles"
-                : les.type === "weersomstandigheden"
-                ? "🌧️ Weer"
-                : les.type === "vakantie"
-                ? "🏖️ Vakantie"
-                : "🤒 Leerling afwezig"
-                : "🚫 Trainer afwezig";
+        
+const naam =
+    les.type === "prive"
+        ? "🎾 Privéles"
+        : les.type === "groep"
+        ? "👥 Groepsles"
+        : les.type === "weersomstandigheden"
+        ? "🌧️ Weer"
+        : les.type === "vakantie"
+        ? "🏖️ Vakantie"
+        : les.type === "trainer_afwezig"
+        ? "🚫 Trainer afwezig"
+        : "🤒 Leerling afwezig";
+
 
        alleLessenHtml += `
 
