@@ -375,10 +375,11 @@ function openSubMenu(type) {
 
     <label>Type les</label>
 
-    <select id="popupType">
-    onchange="updatePopupTarief()">
-    
-        <option value="prive">
+    <select
+ id="popupType"
+ onchange="updatePopupTarief()">
+
+ <option value="prive">
             🎾 Privéles
         </option>
 
