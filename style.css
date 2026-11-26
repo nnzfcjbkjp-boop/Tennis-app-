@@ -1073,7 +1073,7 @@ input[type="number"] {
 
     z-index: 9999;
 
-    transition: .25s ease;
+    transition: transform .16s ease-out, opacity .16s ease-out;
 
 }
 
@@ -1175,7 +1175,8 @@ input[type="number"] {
 
     pointer-events: none;
 
-    transition: .25s ease;
+    transition: opacity .16s ease-out, transform .16s ease-out;
+     will-change: opacity, transform;
 
 }
 #fabMenu.open {
