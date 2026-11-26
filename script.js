@@ -417,59 +417,76 @@ function openSubMenu(type) {
         `;
     }
 
-    // 3. LESBLOK
-    else if (type === "blok") {
+  
+// 3. LESBLOK
+else if (type === "blok") {
 
-        popup.innerHTML = `
-            <div class="popup-title">📝 Lesblok registreren</div>
+    popup.innerHTML = `
+        <div class="popup-title">📝 Lesblok registreren</div>
 
-            <label>Type</label>
-            <select id="popupBlokType"
-                onchange="updatePopupBlokType()">
+        <div class="blok-form">
 
-                <option value="prive">🎾 Privéles</option>
-                <option value="groep">👥 Groepsles</option>
-                <option value="weersomstandigheden">🌧️ Weersomstandigheden</option>
-                <option value="vakantie">🏖️ Vakantie</option>
-                <option value="afwezig">🤒 Leerling afwezig</option>
-            </select>
-
-            <label>Startdatum</label>
-            <input type="date" id="popupBlokStartDatum"
-                value="${vandaag()}">
-
-            <label>Einddatum</label>
-            <input type="date" id="popupBlokEindDatum"
-                value="${vandaag()}">
-
-            <div id="popupTijdBlok">
-
-                <label>Starttijd</label>
-                <input type="time" id="popupBlokStart" value="09:00">
-
-                <label>Eindtijd</label>
-                <input type="time" id="popupBlokEinde" value="17:00">
-
-                <label>Interval (minuten)</label>
-                <input type="number" id="popupBlokInterval"
-                    value="60" min="1">
+            <div class="blok-field">
+                <label>Type</label>
+                <select id="popupBlokType"
+                    onchange="updatePopupBlokType()">
+                    <option value="prive">🎾 Privéles</option>
+                    <option value="groep">👥 Groepsles</option>
+                    <option value="weersomstandigheden">🌧️ Weersomstandigheden</option>
+                    <option value="vakantie">🏖️ Vakantie</option>
+                    <option value="afwezig">🤒 Leerling afwezig</option>
+                </select>
             </div>
 
-            <button class="registreren-button"
-                onclick="registreerPopupBlok()">
-                ✅ Blok registreren
-            </button>
+            <div class="blok-datums">
+                <div class="blok-field">
+                    <label>Startdatum</label>
+                    <input type="date" id="popupBlokStartDatum"
+                        value="${vandaag()}">
+                </div>
 
-            <button class="popup-close" onclick="closePopup()">
-                Sluiten
-            </button>
-        `;
-    }
+                <div class="blok-field">
+                    <label>Einddatum</label>
+                    <input type="date" id="popupBlokEindDatum"
+                        value="${vandaag()}">
+                </div>
+            </div>
 
-    overlay.classList.add("open");
-    popup.classList.add("open");
+            <div id="popupTijdBlok" class="blok-tijden">
 
+                <div class="blok-field">
+                    <label>Starttijd</label>
+                    <input type="time" id="popupBlokStart" value="09:00">
+                </div>
+
+                <div class="blok-field">
+                    <label>Eindtijd</label>
+                    <input type="time" id="popupBlokEinde" value="17:00">
+                </div>
+
+                <div class="blok-field">
+                    <label>Interval (minuten)</label>
+                    <input type="number" id="popupBlokInterval"
+                        value="60" min="1">
+                </div>
+
+            </div>
+
+            <div class="blok-actions">
+                <button class="registreren-button"
+                    onclick="registreerPopupBlok()">
+                    ✅ Blok registreren
+                </button>
+
+                <button class="popup-close" onclick="closePopup()">
+                    Sluiten
+                </button>
+            </div>
+
+        </div>
+    `;
 }
+
 
 
 // Instellingen opslaan vanuit popup
