@@ -377,6 +377,49 @@ if (type === "les") {
     `;
 }
 
+function openSubMenu(type) {
+
+    const popup =
+    document.getElementById("fabSubMenu");
+
+    const overlay =
+    document.getElementById("overlay");
+
+    if (type === "les") {
+
+        popup.innerHTML = `
+            <div class="popup-title">
+                🎾 Les toevoegen
+            </div>
+
+            <label>Tijd</label>
+
+            <input
+                type="time"
+                id="popupTijd">
+
+            <button
+                class="registreren-button"
+                onclick="testLesToevoegen()">
+
+                ➕ Les toevoegen
+
+            </button>
+
+            <button
+                class="popup-close"
+                onclick="closePopup()">
+
+                Sluiten
+
+            </button>
+        `;
+    }
+
+    overlay.classList.add("open");
+    popup.classList.add("open");
+}
+
 function openLesToevoegen() {
 
     document
