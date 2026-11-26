@@ -1222,30 +1222,64 @@ input[type="number"] {
 }
 
 #fabSubMenu {
+
     position: fixed;
-    left: 50%;
+
     top: 50%;
+    left: 50%;
+
     transform: translate(-50%, -50%);
+
     width: 90%;
-    max-width: 500px;
+    max-width: 420px;
+
+    max-height: 80vh;
+    overflow-y: auto;
+
     background: #19264A;
+
     border-radius: 24px;
+
     padding: 24px;
-    z-index: 10001;
+
+    box-sizing: border-box;
 
     opacity: 0;
     pointer-events: none;
+
+    z-index: 10001;
+
+    transition: all .25s ease;
+
 }
 
 #fabSubMenu.open {
+
     opacity: 1;
+
     pointer-events: auto;
+
+    transform: translate(-50%, -50%);
+
+}
+
+#fabSubMenu input,
+#fabSubMenu select {
+
+    width: 100%;
+    margin-bottom: 12px;
+
 }
 
 .popup-title {
-    font-size: 24px;
-    font-weight: 700;
+
+    font-size: 22px;
+    font-weight: 800;
+
     margin-bottom: 20px;
+
+    text-align: center;
+
 }
 
 .popup-close {
