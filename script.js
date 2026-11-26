@@ -352,6 +352,9 @@ function openSubMenu(type) {
     const overlay =
     document.getElementById("overlay");
 
+    return;
+}
+
     if (type === "les") {
 
         popup.innerHTML = `
