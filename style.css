@@ -1403,7 +1403,7 @@ hr {
 }
 
 .kalender-dot-afwezig {
-    background: var(--blue);
+    background: var(--red);
 }
 
 .kalender-dot-activiteit {
