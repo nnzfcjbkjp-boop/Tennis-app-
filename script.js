@@ -25,7 +25,7 @@ let lessen =
     let activiteiten =
     JSON.parse(localStorage.getItem("activiteiten")) || [];
     
-    // Kalender
+// Kalender
 const kalenderNu = new Date();
 
 let kalenderJaar = kalenderNu.getFullYear();
