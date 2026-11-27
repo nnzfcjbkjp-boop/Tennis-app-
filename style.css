@@ -1947,7 +1947,7 @@ hr {
 
 /* Dashboard: aantal lessen deze maand kleiner */
 #dashboardLessen {
-    font-size: 20px !important;
+    font-size: 26px !important;
     line-height: 1.1;
 }
 
@@ -1988,5 +1988,11 @@ hr {
 
 .alle-lessen-card .bewerk-paneel {
     font-size: 12px;
+}
+
+/* Kleinere teksten onder de dashboardcijfers */
+.dashboard-stats-grid .dashboard-stat-label {
+    font-size: 15px !important;
+    line-height: 1.3;
 }
 
