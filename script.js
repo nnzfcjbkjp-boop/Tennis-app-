@@ -1494,7 +1494,6 @@ function tekenKalenderDagoverzicht() {
                         ${tijdTekst || ""}
                     </span>
                     <span class="kalender-activiteit-omschrijving">
-    <i class="kalender-dot kalender-dot-activiteit"></i>
     ${activiteit.omschrijving}
 </span>
 
