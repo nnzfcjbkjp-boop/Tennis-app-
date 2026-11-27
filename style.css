@@ -1557,3 +1557,44 @@ hr {
     justify-content: space-between;
     gap: 8px;
 }
+
+
+/* Activiteiten in agenda gelijk uitlijnen met lessen */
+
+.kalender-activiteit-regel {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 9px 0;
+}
+
+.kalender-activiteit-info {
+    display: grid;
+    grid-template-columns: 68px minmax(0, 1fr);
+    align-items: center;
+    gap: 10px;
+    flex: 1;
+    min-width: 0;
+}
+
+.kalender-activiteit-tijd {
+    color: var(--text-secondary);
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+}
+
+.kalender-activiteit-omschrijving {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    min-width: 0;
+    text-align: left;
+    overflow-wrap: anywhere;
+}
+
+.kalender-activiteit-regel .kalender-verwijder-knop {
+    flex-shrink: 0;
+}
