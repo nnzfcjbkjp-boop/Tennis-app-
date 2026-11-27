@@ -1831,9 +1831,9 @@ Object.entries(dagen)
 dagLessen.sort((a, b) => {
 
     return new Date(
-        a.datum + " " + a.tijdstip
+        b.datum + "T" + (b.tijdstip || "00:00")
     ) - new Date(
-        b.datum + " " + b.tijdstip
+        a.datum + "T" + (a.tijdstip || "00:00")
     );
 
 });
