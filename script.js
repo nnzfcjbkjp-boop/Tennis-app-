@@ -1176,7 +1176,9 @@ function updateDashboard() {
 
 let vandaagHtml = "";
 
-lessenVandaag.forEach((les) => {
+[...lessenVandaag]
+    .sort((a, b) => a.tijdstip.localeCompare(b.tijdstip))
+    .forEach((les) => {
 
     const naam =
         les.type === "prive"
