@@ -633,14 +633,14 @@ hr {
     align-items: center;
     justify-content: flex-start;
     box-sizing: border-box;
-    width: 180px;
-    height: 56px;
-    padding: 0 16px;
+    width: 190px;
+    height: 44px;
+    padding: 0 12px;
     border: 1px solid rgba(168, 240, 68, .35);
-    border-radius: 22px;
+    border-radius: 16px;
     background: #24335F;
     color: white;
-    font-size: 14px;
+    font-size: 13px;
     font-weight: 700;
     box-shadow: 0 8px 24px rgba(0, 0, 0, .25);
     opacity: 0;
@@ -651,19 +651,19 @@ hr {
 }
 
 #fabMenu .fab-les {
-    bottom: 100px;
+    bottom: 94px;
 }
 
 #fabMenu .fab-tarieven {
-    bottom: 168px;
+    bottom: 148px;
 }
 
 #fabMenu .fab-blok {
-    bottom: 236px;
+    bottom: 202px;
 }
 
 #fabMenu .fab-activiteit {
-    bottom: 304px;
+    bottom: 256px;
 }
 
 #fabMenu.open .fab-item {
