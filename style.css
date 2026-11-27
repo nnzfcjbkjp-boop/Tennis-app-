@@ -1119,30 +1119,36 @@ hr {
         gap: 7px;
     }
 
-    /* FAB-menu op mobiel */
-    #fabMenu .fab-item {
-        right: 24px;
-        width: 190px;
-        max-width: calc(100vw - 105px);
-        height: 54px;
-        min-height: 54px;
-        padding: 0 14px;
-        border: 1px solid rgba(168, 240, 68, .35);
-        border-radius: 18px;
-        font-size: 14px;
-    }
+ 
+/* FAB-menu op mobiel */
+#fabMenu .fab-item {
+    right: 24px;
+    width: 190px;
+    max-width: calc(100vw - 105px);
+    height: 44px;
+    min-height: 44px;
+    padding: 0 12px;
+    border: 1px solid rgba(168, 240, 68, .35);
+    border-radius: 15px;
+    font-size: 13px;
+}
 
-    #fabMenu .fab-les {
-        bottom: 90px;
-    }
+#fabMenu .fab-les {
+    bottom: 90px;
+}
 
-    #fabMenu .fab-tarieven {
-        bottom: 156px;
-    }
+#fabMenu .fab-tarieven {
+    bottom: 142px;
+}
 
-    #fabMenu .fab-blok {
-        bottom: 222px;
-    }
+#fabMenu .fab-blok {
+    bottom: 194px;
+}
+
+#fabMenu .fab-activiteit {
+    bottom: 246px;
+}
+
 }
 
 /* Extra compacte lesblokweergave op kleine telefoons */
