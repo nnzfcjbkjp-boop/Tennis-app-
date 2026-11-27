@@ -295,77 +295,67 @@ function toggleBewerken(index) {
 
 function opslaanLes(index) {
 
-    const nieuwType =
+    const datum = document.getElementById(
+        `edit-datum-${index}`
+    ).value;
+
+    const tijdstip = document.getElementById(
+        `edit-tijd-${index}`
+    ).value;
+
+    const type = document.getElementById(
+        `edit-type-${index}`
+    ).value;
+
+    const tarief = Number(
         document.getElementById(
-            `edit-type-${index}`
-        ).value;
+            `edit-tarief-${index}`
+        ).value
+    );
 
-    const nieuwTarief =
-        Number(
-            document.getElementById(
-                `edit-tarief-${index}`
-            ).value
-        );
+    if (!datum) {
+        toonMelding("⚠️ Vul een datum in");
+        return;
+    }
 
-    const nieuwTijdstip =
-        document.getElementById(
-            `edit-tijd-${index}`
-        ).value;
+    if (!Number.isFinite(tarief) || tarief < 0) {
+        toonMelding("⚠️ Controleer het tarief");
+        return;
+    }
 
-    lessen[index].datum =
-        document.getElementById(
-            `edit-datum-${index}`
-        ).value;
-
-    lessen[index].tijdstip =
-        nieuwTijdstip || "Uitval";
-
-    lessen[index].type =
-        nieuwType;
-
-    lessen[index].tarief =
-        nieuwTarief;
+    lessen[index].datum = datum;
+    lessen[index].tijdstip = tijdstip || "Uitval";
+    lessen[index].type = type;
+    lessen[index].tarief = tarief;
 
     openBewerkLes = null;
 
     opslaan();
-
     updateDashboard();
 
-    toonMelding(
-        "✅ Les bijgewerkt"
-    );
+    toonMelding("✅ Les bijgewerkt");
 }
 
 function updateEditTarief(index) {
 
-    const type =
-        document.getElementById(
-            `edit-type-${index}`
-        ).value;
+    const type = document.getElementById(
+        `edit-type-${index}`
+    ).value;
 
-    const tariefVeld =
-        document.getElementById(
-            `edit-tarief-${index}`
-        );
+    const tariefVeld = document.getElementById(
+        `edit-tarief-${index}`
+    );
 
     if (type === "prive") {
-
-        tariefVeld.value =
-            priveTarief;
+        tariefVeld.value = priveTarief;
 
     } else if (type === "groep") {
-
-        tariefVeld.value =
-            groepTarief;
+        tariefVeld.value = groepTarief;
 
     } else {
-
-        tariefVeld.value =
-            0;
+        tariefVeld.value = 0;
     }
 }
-
 
 function toggleDag(dag) {
 
@@ -1987,48 +1977,39 @@ if (
     id="edit-type-${lessen.indexOf(les)}"
     onchange="updateEditTarief(${lessen.indexOf(les)})">
 
-    <option
-        value="prive"
-                    ${les.type === "prive" ? "selected" : ""}>
+    <option value="prive" ${les.type === "prive" ? "selected" : ""}>
+        🎾 Privéles
+    </option>
 
-                    🎾 Privéles
+    <option value="groep" ${les.type === "groep" ? "selected" : ""}>
+        👥 Groepsles
+    </option>
 
-                </option>
+    <option value="weersomstandigheden" ${les.type === "weersomstandigheden" ? "selected" : ""}>
+        🌧️ Weersomstandigheden
+    </option>
 
-                <option
-                    value="groep"
-                    ${les.type === "groep" ? "selected" : ""}>
+    <option value="vakantie" ${les.type === "vakantie" ? "selected" : ""}>
+        🏖️ Vakantie
+    </option>
 
-                    🎾 Groepsles
+    <option value="afwezig" ${les.type === "afwezig" ? "selected" : ""}>
+        🤒 Leerling afwezig
+    </option>
 
-                </option>
+    <option value="trainer_afwezig" ${les.type === "trainer_afwezig" ? "selected" : ""}>
+        🚫 Trainer afwezig
+    </option>
 
-                <option
-                    value="weersomstandigheden"
-                    ${les.type === "weersomstandigheden" ? "selected" : ""}>
+    <option value="uitgevallen" ${les.type === "uitgevallen" ? "selected" : ""}>
+        ❌ Uitgevallen
+    </option>
 
-                    🌧️ Weer
+    <option value="uitval" ${les.type === "uitval" ? "selected" : ""}>
+        ❌ Uitval
+    </option>
 
-                </option>
-
-                <option
-                    value="vakantie"
-                    ${les.type === "vakantie" ? "selected" : ""}>
-
-                    🏖️ Vakantie
-
-                </option>
-
-                <option
-                    value="afwezig"
-                    ${les.type === "afwezig" ? "selected" : ""}>
-
-                    🤒 Leerling afwezig
-
-                </option>
-
-            </select>
-
+</select>
             <label>Tarief</label>
 
             <input
