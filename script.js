@@ -1399,6 +1399,61 @@ const heeftActiviteiten = activiteiten.some(
     tekenKalenderDagoverzicht();
 }
 
+// =========================
+// KALENDER LES BEWERKEN
+// =========================
+
+function toggleKalenderBewerken(index) {
+    openKalenderBewerkLes =
+        openKalenderBewerkLes === index ? null : index;
+
+    tekenKalenderDagoverzicht();
+}
+
+function updateKalenderEditTarief(index) {
+    const type = document.getElementById(
+        `kalender-edit-type-${index}`
+    ).value;
+
+    const tariefVeld = document.getElementById(
+        `kalender-edit-tarief-${index}`
+    );
+
+    if (type === "prive") {
+        tariefVeld.value = priveTarief;
+    } else if (type === "groep") {
+        tariefVeld.value = groepTarief;
+    } else {
+        tariefVeld.value = 0;
+    }
+}
+
+function opslaanKalenderLes(index) {
+    if (!lessen[index]) return;
+
+    const type = document.getElementById(
+        `kalender-edit-type-${index}`
+    ).value;
+
+    const tarief = Number(document.getElementById(
+        `kalender-edit-tarief-${index}`
+    ).value);
+
+    if (!Number.isFinite(tarief) || tarief < 0) {
+        toonMelding("Controleer het tarief");
+        return;
+    }
+
+    lessen[index].type = type;
+    lessen[index].tarief = tarief;
+
+    openKalenderBewerkLes = null;
+
+    opslaan();
+    updateDashboard();
+
+    toonMelding("Registratie bijgewerkt");
+}
 
 function tekenKalenderDagoverzicht() {
     const overzicht = document.getElementById("kalenderDagoverzicht");
@@ -1453,60 +1508,6 @@ function tekenKalenderDagoverzicht() {
         overzicht.innerHTML = html;
         return;
     }
-
-function toggleKalenderBewerken(index) {
-    console.log("Bewerkknop aangeklikt:", index);
-
-    openKalenderBewerkLes =
-        openKalenderBewerkLes === index ? null : index;
-
-    tekenKalenderDagoverzicht();
-}
-
-function updateKalenderEditTarief(index) {
-    const type = document.getElementById(
-        `kalender-edit-type-${index}`
-    ).value;
-
-    const tariefVeld = document.getElementById(
-        `kalender-edit-tarief-${index}`
-    );
-
-    if (type === "prive") {
-        tariefVeld.value = priveTarief;
-    } else if (type === "groep") {
-        tariefVeld.value = groepTarief;
-    } else {
-        tariefVeld.value = 0;
-    }
-}
-
-function opslaanKalenderLes(index) {
-    if (!lessen[index]) return;
-
-    const type = document.getElementById(
-        `kalender-edit-type-${index}`
-    ).value;
-
-    const tarief = Number(document.getElementById(
-        `kalender-edit-tarief-${index}`
-    ).value);
-
-    if (!Number.isFinite(tarief) || tarief < 0) {
-        toonMelding("Controleer het tarief");
-        return;
-    }
-
-    lessen[index].type = type;
-    lessen[index].tarief = tarief;
-
-    openKalenderBewerkLes = null;
-
-    opslaan();
-    updateDashboard();
-
-    toonMelding("Registratie bijgewerkt");
-}
 
     // Lessen weergeven
     let dagTotaal = 0;
