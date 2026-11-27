@@ -589,9 +589,9 @@ else if (type === "activiteit") {
             id="activiteitEindtijd">
 
         <button class="registreren-button"
-            onclick="registreerActiviteit()">
-            📌 Activiteit opslaan
-        </button>
+        <button class="registreren-button actie-toevoegen-button" onclick="registreerActiviteit()">
+    📌 Activiteit opslaan
+</button>
 
         <button class="popup-close" onclick="closePopup()">
             Sluiten
