@@ -13,6 +13,14 @@ let btwPercentage =
 
 let lessen =
     JSON.parse(localStorage.getItem("lessen")) || [];
+    
+    // Kalender
+const kalenderNu = new Date();
+
+let kalenderJaar = kalenderNu.getFullYear();
+let kalenderMaand = kalenderNu.getMonth();
+let geselecteerdeKalenderDatum = datumNaarString(kalenderNu);
+let kalenderOpen = true;
 
 const seizoenTotaal = 16;
 
@@ -1132,6 +1140,254 @@ function slaInstellingenOp() {
     updateTariefPreview();
 }
 
+// =========================
+// KALENDERFUNCTIES
+// =========================
+
+const kalenderMaanden = [
+    "Januari", "Februari", "Maart", "April",
+    "Mei", "Juni", "Juli", "Augustus",
+    "September", "Oktober", "November", "December"
+];
+
+function datumNaarString(datum) {
+    const jaar = datum.getFullYear();
+    const maand = String(datum.getMonth() + 1).padStart(2, "0");
+    const dag = String(datum.getDate()).padStart(2, "0");
+
+    return `${jaar}-${maand}-${dag}`;
+}
+
+function stringNaarDatum(datumString) {
+    const [jaar, maand, dag] = datumString.split("-").map(Number);
+    return new Date(jaar, maand - 1, dag);
+}
+
+function veranderKalenderMaand(richting) {
+    const nieuweDatum = new Date(
+        kalenderJaar,
+        kalenderMaand + richting,
+        1
+    );
+
+    kalenderJaar = nieuweDatum.getFullYear();
+    kalenderMaand = nieuweDatum.getMonth();
+
+    geselecteerdeKalenderDatum = datumNaarString(nieuweDatum);
+
+    tekenKalender();
+}
+
+function kiesKalenderMaand() {
+    kalenderMaand = Number(
+        document.getElementById("kalenderMaandKeuze").value
+    );
+
+    kalenderJaar = Number(
+        document.getElementById("kalenderJaarKeuze").value
+    );
+
+    geselecteerdeKalenderDatum = datumNaarString(
+        new Date(kalenderJaar, kalenderMaand, 1)
+    );
+
+    tekenKalender();
+}
+
+function selecteerKalenderDatum(datumString) {
+    geselecteerdeKalenderDatum = datumString;
+
+    const datum = stringNaarDatum(datumString);
+
+    kalenderJaar = datum.getFullYear();
+    kalenderMaand = datum.getMonth();
+
+    tekenKalender();
+}
+
+function toggleKalender() {
+    kalenderOpen = !kalenderOpen;
+
+    document.getElementById("kalenderInhoud").style.display =
+        kalenderOpen ? "block" : "none";
+
+    document.getElementById("kalenderToggle").textContent =
+        kalenderOpen ? "▲" : "▼";
+}
+
+function tekenKalender() {
+    const grid = document.getElementById("kalenderGrid");
+    const maandKeuze = document.getElementById("kalenderMaandKeuze");
+    const jaarKeuze = document.getElementById("kalenderJaarKeuze");
+
+    if (!grid || !maandKeuze || !jaarKeuze) return;
+
+    // Maandkeuze vullen
+    maandKeuze.innerHTML = kalenderMaanden.map((maand, index) =>
+        `<option value="${index}" ${index === kalenderMaand ? "selected" : ""}>
+            ${maand}
+        </option>`
+    ).join("");
+
+    // Jaren bepalen op basis van huidige datum en opgeslagen lessen
+    const lesJaren = lessen
+        .map(les => Number(String(les.datum).slice(0, 4)))
+        .filter(jaar => Number.isFinite(jaar));
+
+    const huidigJaar = new Date().getFullYear();
+    const eersteJaar = Math.min(huidigJaar - 5, ...lesJaren);
+    const laatsteJaar = Math.max(huidigJaar + 5, kalenderJaar);
+
+    const jaren = [];
+    for (let jaar = eersteJaar; jaar <= laatsteJaar; jaar++) {
+        jaren.push(jaar);
+    }
+
+    jaarKeuze.innerHTML = jaren.map(jaar =>
+        `<option value="${jaar}" ${jaar === kalenderJaar ? "selected" : ""}>
+            ${jaar}
+        </option>`
+    ).join("");
+
+    // Eerste dag en aantal dagen bepalen
+    const eersteDag = new Date(kalenderJaar, kalenderMaand, 1);
+    const aantalDagen = new Date(kalenderJaar, kalenderMaand + 1, 0).getDate();
+
+    // Maandag is de eerste dag van de week
+    const startOffset = (eersteDag.getDay() + 6) % 7;
+    const aantalVakjes = Math.ceil((startOffset + aantalDagen) / 7) * 7;
+
+    const vandaagString = datumNaarString(new Date());
+
+    let html = "";
+
+    for (let i = 0; i < aantalVakjes; i++) {
+        const dagNummer = i - startOffset + 1;
+        const datum = new Date(kalenderJaar, kalenderMaand, dagNummer);
+        const datumString = datumNaarString(datum);
+
+        const buitenMaand = datum.getMonth() !== kalenderMaand;
+        const dagLessen = lessen.filter(les => les.datum === datumString);
+
+        const heeftLessen = dagLessen.some(les =>
+            ["prive", "groep"].includes(les.type)
+        );
+
+        const heeftAfwezigheid = dagLessen.some(les =>
+            [
+                "weersomstandigheden",
+                "vakantie",
+                "afwezig",
+                "trainer_afwezig",
+                "uitgevallen",
+                "uitval"
+            ].includes(les.type)
+        );
+
+        const classes = [
+            "kalender-dag",
+            buitenMaand ? "buiten-maand" : "",
+            datumString === vandaagString ? "vandaag" : "",
+            datumString === geselecteerdeKalenderDatum ? "geselecteerd" : ""
+        ].filter(Boolean).join(" ");
+
+        html += `
+            <button type="button"
+                class="${classes}"
+                onclick="selecteerKalenderDatum('${datumString}')"
+                aria-label="${datumString}">
+                <span class="kalender-dagnummer">${datum.getDate()}</span>
+                <span class="kalender-indicatoren">
+                    ${heeftLessen ? '<i class="kalender-dot kalender-dot-les"></i>' : ""}
+                    ${heeftAfwezigheid ? '<i class="kalender-dot kalender-dot-afwezig"></i>' : ""}
+                </span>
+            </button>
+        `;
+    }
+
+    grid.innerHTML = html;
+
+    tekenKalenderDagoverzicht();
+}
+
+function tekenKalenderDagoverzicht() {
+    const overzicht = document.getElementById("kalenderDagoverzicht");
+
+    if (!overzicht) return;
+
+    const datum = stringNaarDatum(geselecteerdeKalenderDatum);
+
+    const datumTekst = datum.toLocaleDateString("nl-NL", {
+        weekday: "long",
+        day: "numeric",
+        month: "long",
+        year: "numeric"
+    });
+
+    const dagLessen = lessen
+        .filter(les => les.datum === geselecteerdeKalenderDatum)
+        .sort((a, b) =>
+            String(a.tijdstip || "").localeCompare(String(b.tijdstip || ""))
+        );
+
+    const typeNamen = {
+        prive: "Privéles",
+        groep: "Groepsles",
+        weersomstandigheden: "Weersomstandigheden",
+        vakantie: "Vakantie",
+        afwezig: "Afwezig",
+        trainer_afwezig: "Trainer afwezig",
+        uitgevallen: "Uitgevallen",
+        uitval: "Uitval"
+    };
+
+    const euroFormatter = new Intl.NumberFormat("nl-NL", {
+        style: "currency",
+        currency: "EUR"
+    });
+
+    let html = `
+        <div class="kalender-dag-kop">
+            ${datumTekst.charAt(0).toUpperCase() + datumTekst.slice(1)}
+        </div>
+    `;
+
+    if (dagLessen.length === 0) {
+        html += `<div class="kalender-leeg">Geen registraties op deze dag.</div>`;
+        overzicht.innerHTML = html;
+        return;
+    }
+
+    let dagTotaal = 0;
+
+    dagLessen.forEach(les => {
+        const typeNaam = typeNamen[les.type] || les.type || "Registratie";
+        const bedrag = Number(les.tarief) || 0;
+
+        dagTotaal += bedrag;
+
+        html += `
+            <div class="kalender-les-regel">
+                <div class="kalender-les-info">
+                    <span class="kalender-les-tijd">${les.tijdstip || ""}</span>
+                    <span>${typeNaam}</span>
+                </div>
+                <span class="kalender-les-bedrag">
+                    ${bedrag > 0 ? euroFormatter.format(bedrag) : "—"}
+                </span>
+            </div>
+        `;
+    });
+
+    html += `
+        <div class="kalender-dag-totaal">
+            <span>Dagomzet</span>
+            <span>${euroFormatter.format(dagTotaal)}</span>
+        </div>
+    `;
+
+    overzicht.innerHTML = html;
+}
 
 // =========================
 // Dashboard
@@ -1642,12 +1898,11 @@ if (!openSeizoensDagen[dag]) {
 
     });
 
-document.getElementById(
-    "seizoensMonitor"
-).innerHTML =
-    seizoenHtml;
+document.getElementById("seizoensMonitor").innerHTML = seizoenHtml;
 
+tekenKalender();
 }
+
     
 // =========================
 // Helpers
@@ -1662,10 +1917,7 @@ function opslaan() {
 }
 
 function vandaag() {
-
-    return new Date()
-        .toISOString()
-        .split("T")[0];
+    return datumNaarString(new Date());
 }
 
 function huidigeTijd() {
