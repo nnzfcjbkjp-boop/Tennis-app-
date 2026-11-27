@@ -1445,12 +1445,18 @@ hr {
 }
 
 .kalender-les-info {
+    display: grid;
+    grid-template-columns: 68px minmax(0, 1fr);
+    align-items: center;
+    gap: 10px;
+    flex: 1;
     min-width: 0;
 }
 
 .kalender-les-tijd {
     color: var(--text-secondary);
-    margin-right: 8px;
+    margin-right: 0;
+    font-variant-numeric: tabular-nums;
 }
 
 .kalender-les-bedrag {
