@@ -1945,4 +1945,15 @@ hr {
     text-align: center;
 }
 
+/* Dashboard: aantal lessen deze maand kleiner */
+#dashboardLessen {
+    font-size: 38px !important;
+    line-height: 1.1;
+}
+
+/* Dashboard: bedrag af te dragen btw kleiner */
+#dashboardBtw {
+    font-size: 26px !important;
+    line-height: 1.2;
+}
 
