@@ -2014,3 +2014,6 @@ hr {
     }
 }
 
+html.standalone-mode body {
+    outline: 5px solid red !important;
+}
