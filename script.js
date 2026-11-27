@@ -1996,7 +1996,7 @@ const naam =
         : "🙃 Leerling afwezig";
 
 
-       alleLessenHtml += `
+      alleLessenHtml += `
 
 <div class="les-item-compact">
 
@@ -2008,12 +2008,6 @@ const naam =
 
         <span class="les-naam">
             ${naam}
-        </span>
-
-        <span class="les-bedrag">
-            ${les.tarief > 0
-                ? `€${les.tarief}`
-                : ""}
         </span>
 
     </div>
