@@ -478,8 +478,7 @@ function openSubMenu(type) {
             <input type="number" id="popupBtw"
                 min="0" step="0.1" value="${btwPercentage}">
 
-            <button class="registreren-button"
-                onclick="slaPopupInstellingenOp()">
+           <button class="registreren-button actie-toevoegen-button" onclick="slaInstellingenOp()">
                 💾 Instellingen opslaan
             </button>
 
