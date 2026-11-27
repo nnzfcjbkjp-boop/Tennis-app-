@@ -163,7 +163,7 @@ if (type === "prive") {
 } else {
 
     toonMelding(
-        "🤒 Leerling afwezig"
+        "🙃 Leerling afwezig"
     );
 }
 
@@ -421,7 +421,7 @@ function openSubMenu(type) {
             <option value="prive">🎾 Privéles</option>
             <option value="groep">👥 Groepsles</option>
             <option value="weersomstandigheden">🌧️ Weer</option>
-            <option value="afwezig">🤒 Leerling afwezig</option>
+            <option value="afwezig">🙃 Leerling afwezig</option>
             <option value="trainer_afwezig">🚫 Trainer afwezig</option>
         </select>
 
@@ -511,7 +511,7 @@ else if (type === "blok") {
                     <option value="groep">👥 Groepsles</option>
                     <option value="weersomstandigheden">🌧️ Weer</option>
                     <option value="vakantie">🏖️ Vakantie</option>
-                    <option value="afwezig">🤒 Leerling afwezig</option>
+                    <option value="afwezig">🙃 Leerling afwezig</option>
                 </select>
             </div>
 
@@ -1484,7 +1484,7 @@ function tekenKalenderDagoverzicht() {
     const typeNamen = {
         prive: "Privéles",
         groep: "Groepsles",
-        weersomstandigheden: "Weersomstandigheden",
+        weersomstandigheden: "Weer",
         vakantie: "Vakantie",
         afwezig: "Afwezig",
         trainer_afwezig: "Trainer afwezig",
@@ -1555,9 +1555,9 @@ dagLessen.forEach(les => {
 
                     <option value="prive" ${les.type === "prive" ? "selected" : ""}>🎾 Privéles</option>
                     <option value="groep" ${les.type === "groep" ? "selected" : ""}>👥 Groepsles</option>
-                    <option value="weersomstandigheden" ${les.type === "weersomstandigheden" ? "selected" : ""}>🌧️ Weersomstandigheden</option>
+                    <option value="weersomstandigheden" ${les.type === "weersomstandigheden" ? "selected" : ""}>🌧️ Weer</option>
                     <option value="vakantie" ${les.type === "vakantie" ? "selected" : ""}>🏖️ Vakantie</option>
-                    <option value="afwezig" ${les.type === "afwezig" ? "selected" : ""}>🤒 Leerling afwezig</option>
+                    <option value="afwezig" ${les.type === "afwezig" ? "selected" : ""}>🙃 Leerling afwezig</option>
                     <option value="trainer_afwezig" ${les.type === "trainer_afwezig" ? "selected" : ""}>🚫 Trainer afwezig</option>
 
                 </select>
@@ -1768,7 +1768,7 @@ let vandaagHtml = "";
             ? "🏖️ Vakantie"
             : les.type === "trainer_afwezig"
             ? "🚫 Trainer afwezig"
-            : "🤒 Leerling afwezig";
+            : "🙃 Leerling afwezig";
 
     vandaagHtml += `
         <div class="les-item-compact">
@@ -1993,7 +1993,7 @@ const naam =
         ? "🏖️ Vakantie"
         : les.type === "trainer_afwezig"
         ? "🚫 Trainer afwezig"
-        : "🤒 Leerling afwezig";
+        : "🙃 Leerling afwezig";
 
 
        alleLessenHtml += `
@@ -2082,7 +2082,7 @@ if (
     </option>
 
     <option value="weersomstandigheden" ${les.type === "weersomstandigheden" ? "selected" : ""}>
-        🌧️ Weersomstandigheden
+        🌧️ Weer
     </option>
 
     <option value="vakantie" ${les.type === "vakantie" ? "selected" : ""}>
@@ -2090,7 +2090,7 @@ if (
     </option>
 
     <option value="afwezig" ${les.type === "afwezig" ? "selected" : ""}>
-        🤒 Leerling afwezig
+        🙃 Leerling afwezig
     </option>
 
     <option value="trainer_afwezig" ${les.type === "trainer_afwezig" ? "selected" : ""}>
