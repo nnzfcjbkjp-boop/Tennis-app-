@@ -1998,45 +1998,25 @@ const naam =
 
        alleLessenHtml += `
 
+alleLessenHtml += `
+
 <div class="les-item-compact">
 
     <span class="les-tijdstip">
-
         ${les.tijdstip}
-
     </span>
 
-   <div class="les-info">
+    <div class="les-info">
 
-    <span class="les-naam">
-        ${naam}
-    </span>
+        <span class="les-naam">
+            ${naam}
+        </span>
 
-    <span class="les-bedrag">
-        ${les.tarief > 0
-            ? `€${les.tarief}`
-            : ""}
-    </span>
-
-</div>
-
-    <div class="les-acties">
-
-        <button
-            class="bewerk-knop"
-            onclick="toggleBewerken(${lessen.indexOf(les)})">
-
-            ✏️
-
-        </button>
-
-        <button
-            class="verwijder-klein"
-            onclick="verwijderHistorischeLes(${lessen.indexOf(les)})">
-
-            🗑️
-
-        </button>
+        <span class="les-bedrag">
+            ${les.tarief > 0
+                ? `€${les.tarief}`
+                : ""}
+        </span>
 
     </div>
 
@@ -2044,84 +2024,6 @@ const naam =
 
 `;
         
-if (
-    openBewerkLes ===
-    lessen.indexOf(les)
-) {
-
-    alleLessenHtml += `
-
-        <div class="bewerk-paneel">
-
-            <label>Datum</label>
-
-            <input
-                type="date"
-                id="edit-datum-${lessen.indexOf(les)}"
-                value="${les.datum}">
-
-            <label>Tijdstip</label>
-
-            <input
-                type="time"
-                id="edit-tijd-${lessen.indexOf(les)}"
-                value="${les.tijdstip !== "Uitval" ? les.tijdstip : ""}">
-
-<label>Type</label>
-
-<select
-    id="edit-type-${lessen.indexOf(les)}"
-    onchange="updateEditTarief(${lessen.indexOf(les)})">
-
-    <option value="prive" ${les.type === "prive" ? "selected" : ""}>
-        🎾 Privéles
-    </option>
-
-    <option value="groep" ${les.type === "groep" ? "selected" : ""}>
-        👥 Groepsles
-    </option>
-
-    <option value="weersomstandigheden" ${les.type === "weersomstandigheden" ? "selected" : ""}>
-        🌧️ Weer
-    </option>
-
-    <option value="vakantie" ${les.type === "vakantie" ? "selected" : ""}>
-        🏖️ Vakantie
-    </option>
-
-    <option value="afwezig" ${les.type === "afwezig" ? "selected" : ""}>
-        🙃 Leerling afwezig
-    </option>
-
-    <option value="trainer_afwezig" ${les.type === "trainer_afwezig" ? "selected" : ""}>
-        🚫 Trainer afwezig
-    </option>
-
-    <option value="uitgevallen" ${les.type === "uitgevallen" ? "selected" : ""}>
-        ❌ Uitgevallen
-    </option>
-
-</select>
-            <label>Tarief</label>
-
-            <input
-                type="number"
-                id="edit-tarief-${lessen.indexOf(les)}"
-                value="${les.tarief}">
-
-            <button
-                class="opslaan-button"
-                onclick="opslaanLes(${lessen.indexOf(les)})">
-
-                💾 Opslaan
-
-            </button>
-
-        </div>
-
-    `;
-}
-
     });
 
 });
