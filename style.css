@@ -1538,15 +1538,23 @@ hr {
 }
 
 .kalender-verwijder-knop {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     flex-shrink: 0;
     width: 22px;
     height: 22px;
+    min-width: 22px;
+    min-height: 22px;
+    padding: 0;
+    box-sizing: border-box;
     border: none;
-    border-radius: 8px;
+    border-radius: 6px;
     background: rgba(239, 83, 80, 0.15);
     color: #EF5350;
-    font-size: 18px;
+    font-size: 15px;
     font-weight: 600;
+    line-height: 1;
     cursor: pointer;
 }
 
@@ -2014,14 +2022,22 @@ html.standalone-mode {
 }
 
 .kalender-bewerk-knop {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     flex-shrink: 0;
     width: 22px;
     height: 22px;
+    min-width: 22px;
+    min-height: 22px;
+    padding: 0;
+    box-sizing: border-box;
     border: none;
-    border-radius: 8px;
+    border-radius: 6px;
     background: rgba(168, 240, 68, 0.12);
     color: var(--lime);
     font-size: 12px;
+    line-height: 1;
     cursor: pointer;
 }
 
