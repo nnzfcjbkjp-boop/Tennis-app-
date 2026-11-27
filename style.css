@@ -1957,3 +1957,36 @@ hr {
     line-height: 1.2;
 }
 
+/* Compactere teksten binnen Alle lessen */
+
+.alle-lessen-card .dag-header {
+    font-size: 15px;
+    padding: 12px 14px;
+}
+
+.alle-lessen-card .datum-header {
+    font-size: 13px;
+    padding: 9px 12px;
+}
+
+.alle-lessen-card .les-item-compact {
+    font-size: 12px;
+    padding: 8px 10px;
+    min-height: 38px;
+}
+
+.alle-lessen-card .les-tijdstip,
+.alle-lessen-card .les-naam,
+.alle-lessen-card .les-bedrag {
+    font-size: 12px;
+}
+
+.alle-lessen-card .les-acties button {
+    font-size: 12px;
+    padding: 5px;
+}
+
+.alle-lessen-card .bewerk-paneel {
+    font-size: 12px;
+}
+
