@@ -1627,10 +1627,3 @@ hr {
 .actie-toevoegen-button:hover {
     background-color: #91D52B !important;
 }
-
-/* Alle knoppen in het plusmenu */
-#fabMenu .fab-item {
-    background-color: #A3E635 !important;
-    color: #10182F !important;
-    border-color: #A3E635 !important;
-}
