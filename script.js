@@ -449,10 +449,10 @@ function openSubMenu(type) {
                 oninput="updateAfwijkendPreview()">
         </div>
 
-        <button class="registreren-button"
-            onclick="registreerPopupLes()">
-            ➕ Les toevoegen
-        </button>
+       <button class="registreren-button actie-toevoegen-button"
+    onclick="registreerPopupLes()">
+    ➕ Les toevoegen
+</button>
 
         <button class="popup-close" onclick="closePopup()">
             Sluiten
@@ -544,10 +544,10 @@ else if (type === "blok") {
             </div>
 
             <div class="blok-actions">
-                <button class="registreren-button"
-                    onclick="registreerPopupBlok()">
-                    ✅ Blok registreren
-                </button>
+                <button class="registreren-button actie-toevoegen-button"
+    onclick="registreerPopupBlok()">
+    ✅ Blok registreren
+</button>
 
                 <button class="popup-close" onclick="closePopup()">
                     Sluiten
@@ -587,8 +587,8 @@ else if (type === "activiteit") {
             type="time"
             id="activiteitEindtijd">
 
-        <button class="registreren-button"
-        <button class="registreren-button actie-toevoegen-button" onclick="registreerActiviteit()">
+      <button class="registreren-button actie-toevoegen-button"
+    onclick="registreerActiviteit()">
     📌 Activiteit opslaan
 </button>
 
