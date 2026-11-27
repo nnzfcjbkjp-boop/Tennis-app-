@@ -1539,13 +1539,13 @@ hr {
 
 .kalender-verwijder-knop {
     flex-shrink: 0;
-    width: 28px;
-    height: 28px;
+    width: 22px;
+    height: 22px;
     border: none;
     border-radius: 8px;
     background: rgba(239, 83, 80, 0.15);
     color: #EF5350;
-    font-size: 21px;
+    font-size: 12px;
     font-weight: 600;
     cursor: pointer;
 }
@@ -2015,13 +2015,13 @@ html.standalone-mode {
 
 .kalender-bewerk-knop {
     flex-shrink: 0;
-    width: 28px;
-    height: 28px;
+    width: 22px;
+    height: 22px;
     border: none;
     border-radius: 8px;
     background: rgba(168, 240, 68, 0.12);
     color: var(--lime);
-    font-size: 15px;
+    font-size: 12px;
     cursor: pointer;
 }
 
