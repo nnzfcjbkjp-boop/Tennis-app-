@@ -1911,24 +1911,38 @@ hr {
 }
 
 
-/* Maandkeuze dashboard beter passend maken */
+
+/* Compacte en gecentreerde maandnavigatie */
 
 .dashboard-maand-navigatie {
-    display: grid;
-    grid-template-columns: 48px minmax(0, 1fr) 48px;
-    gap: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
     width: 100%;
 }
 
+.dashboard-maand-navigatie button {
+    width: 44px;
+    min-width: 44px;
+    height: 44px;
+    min-height: 44px;
+    padding: 0;
+    flex-shrink: 0;
+    border-radius: 13px;
+    font-size: 24px;
+}
+
 .dashboard-maand-navigatie select {
-    width: 100%;
+    flex: 0 1 260px;
+    width: 260px;
+    max-width: calc(100% - 112px);
     min-width: 0;
-    height: 46px;
+    height: 44px;
     padding: 0 8px;
     box-sizing: border-box;
     font-size: 15px;
     text-align: center;
-    text-overflow: clip;
 }
 
 
