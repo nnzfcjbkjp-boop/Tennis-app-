@@ -1617,13 +1617,15 @@ hr {
 }
 
 /* Primaire toevoegknoppen */
-.actie-toevoegen-button {
-    background-color: #A3E635 !important;
-    color: #10182F !important;
+#fabSubMenu .actie-toevoegen-button {
+    background: #A8F044 !important;
+    background-color: #A8F044 !important;
+    color: #0B1230 !important;
     border: none !important;
-    font-weight: 800;
+    font-weight: 800 !important;
 }
 
-.actie-toevoegen-button:hover {
-    background-color: #91D52B !important;
+/* Hover */
+#fabSubMenu .actie-toevoegen-button:hover {
+    background: #91D52B !important;
 }
