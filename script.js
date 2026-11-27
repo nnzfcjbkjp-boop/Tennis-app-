@@ -1312,9 +1312,9 @@ Object.entries(dagen)
 dagLessen.sort((a, b) => {
 
     return new Date(
-        b.datum + " " + b.tijdstip
-    ) - new Date(
         a.datum + " " + a.tijdstip
+    ) - new Date(
+        b.datum + " " + b.tijdstip
     );
 
 });
