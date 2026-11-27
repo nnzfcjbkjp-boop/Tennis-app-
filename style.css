@@ -1829,7 +1829,7 @@ hr {
 
 .dashboard-stat-getal {
     color: var(--lime);
-    font-size: 30px;
+    font-size: 26px;
     line-height: 1.1;
     font-weight: 800;
     font-variant-numeric: tabular-nums;
@@ -1947,7 +1947,7 @@ hr {
 
 /* Dashboard: aantal lessen deze maand kleiner */
 #dashboardLessen {
-    font-size: 30px !important;
+    font-size: 26px !important;
     line-height: 1.1;
 }
 
