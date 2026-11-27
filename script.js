@@ -182,6 +182,43 @@ function verwijderLes(index) {
     }
 }
 
+
+function verwijderLesUitKalender(index) {
+
+    const bevestiging = confirm(
+        "Weet je zeker dat je deze les wilt verwijderen?"
+    );
+
+    if (!bevestiging) return;
+
+    if (index < 0 || index >= lessen.length) return;
+
+    lessen.splice(index, 1);
+
+    opslaan();
+    updateDashboard();
+
+    toonMelding("Les verwijderd");
+}
+
+function verwijderActiviteitUitKalender(index) {
+
+    const bevestiging = confirm(
+        "Weet je zeker dat je deze activiteit wilt verwijderen?"
+    );
+
+    if (!bevestiging) return;
+
+    if (index < 0 || index >= activiteiten.length) return;
+
+    activiteiten.splice(index, 1);
+
+    opslaanActiviteiten();
+    updateDashboard();
+
+    toonMelding("Activiteit verwijderd");
+}
+
 function toonMelding(tekst) {
 
     const melding =
@@ -1416,6 +1453,7 @@ function tekenKalenderDagoverzicht() {
     let dagTotaal = 0;
 
     dagLessen.forEach(les => {
+        const lesIndex = lessen.indexOf(les);
         const typeNaam = typeNamen[les.type] || les.type || "Registratie";
         const bedrag = Number(les.tarief) || 0;
 
@@ -1428,14 +1466,23 @@ function tekenKalenderDagoverzicht() {
                     <span>${typeNaam}</span>
                 </div>
                 <span class="kalender-les-bedrag">
-                    ${bedrag > 0 ? euroFormatter.format(bedrag) : "—"}
-                </span>
+    ${bedrag > 0 ? euroFormatter.format(bedrag) : "—"}
+</span>
+
+<button
+    type="button"
+    class="kalender-verwijder-knop"
+    onclick="verwijderLesUitKalender(${lesIndex})"
+    aria-label="Les verwijderen">
+    ×
+</button>
             </div>
         `;
     });
 
     // Activiteiten weergeven
     dagActiviteiten.forEach(activiteit => {
+        const activiteitIndex = activiteiten.indexOf(activiteit);
         const tijdTekst = activiteit.eindtijd
             ? `${activiteit.starttijd} - ${activiteit.eindtijd}`
             : activiteit.starttijd;
@@ -1447,9 +1494,17 @@ function tekenKalenderDagoverzicht() {
                         ${tijdTekst || ""}
                     </span>
                     <span class="kalender-activiteit-omschrijving">
-                        <i class="kalender-dot kalender-dot-activiteit"></i>
-                        ${activiteit.omschrijving}
-                    </span>
+    <i class="kalender-dot kalender-dot-activiteit"></i>
+    ${activiteit.omschrijving}
+</span>
+
+<button
+    type="button"
+    class="kalender-verwijder-knop"
+    onclick="verwijderActiviteitUitKalender(${activiteitIndex})"
+    aria-label="Activiteit verwijderen">
+    ×
+</button>
                 </div>
             </div>
         `;
