@@ -1227,3 +1227,32 @@ hr {
     bottom: 0;
     z-index: 5;
 }
+
+/* Alle lessen: dezelfde compacte weergave als Vandaag */
+
+#alleLessenLijst .les-item-compact {
+    padding: 6px 0;
+    min-height: 0;
+    column-gap: 8px;
+}
+
+/* Tijdvak compacter maken */
+#alleLessenLijst .les-tijdstip {
+    padding: 6px 0;
+    font-size: 14px;
+    line-height: 1.2;
+}
+
+/* Bewerk- en verwijderknoppen verkleinen */
+#alleLessenLijst .les-acties {
+    gap: 3px;
+}
+
+#alleLessenLijst .les-acties button {
+    width: 28px;
+    height: 28px;
+    min-width: 28px;
+    padding: 0;
+    font-size: 16px;
+    line-height: 1;
+}
