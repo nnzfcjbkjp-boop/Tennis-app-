@@ -71,6 +71,8 @@ let bewerkIndex = null;
 
 let openBewerkLes = null;
 
+let openKalenderBewerkLes = null;
+
 // =========================
 // Opstarten
 // =========================
@@ -1452,36 +1454,126 @@ function tekenKalenderDagoverzicht() {
         return;
     }
 
+function toggleKalenderBewerken(index) {
+    openKalenderBewerkLes =
+        openKalenderBewerkLes === index ? null : index;
+
+    tekenKalenderDagoverzicht();
+}
+
+function updateKalenderEditTarief(index) {
+    const type = document.getElementById(
+        `kalender-edit-type-${index}`
+    ).value;
+
+    const tariefVeld = document.getElementById(
+        `kalender-edit-tarief-${index}`
+    );
+
+    if (type === "prive") {
+        tariefVeld.value = priveTarief;
+    } else if (type === "groep") {
+        tariefVeld.value = groepTarief;
+    } else {
+        tariefVeld.value = 0;
+    }
+}
+
+function opslaanKalenderLes(index) {
+    if (!lessen[index]) return;
+
+    const type = document.getElementById(
+        `kalender-edit-type-${index}`
+    ).value;
+
+    const tarief = Number(document.getElementById(
+        `kalender-edit-tarief-${index}`
+    ).value);
+
+    if (!Number.isFinite(tarief) || tarief < 0) {
+        toonMelding("Controleer het tarief");
+        return;
+    }
+
+    lessen[index].type = type;
+    lessen[index].tarief = tarief;
+
+    openKalenderBewerkLes = null;
+
+    opslaan();
+    updateDashboard();
+
+    toonMelding("Registratie bijgewerkt");
+}
+
     // Lessen weergeven
     let dagTotaal = 0;
 
-    dagLessen.forEach(les => {
-        const lesIndex = lessen.indexOf(les);
-        const typeNaam = typeNamen[les.type] || les.type || "Registratie";
-        const bedrag = Number(les.tarief) || 0;
+dagLessen.forEach(les => {
+    const lesIndex = lessen.indexOf(les);
+    const typeNaam = typeNamen[les.type] || les.type || "Registratie";
+    const bedrag = Number(les.tarief) || 0;
 
-        dagTotaal += bedrag;
+    dagTotaal += bedrag;
 
+    html += `
+        <div class="kalender-les-regel">
+            <div class="kalender-les-info">
+                <span class="kalender-les-tijd">${les.tijdstip || ""}</span>
+                <span>${typeNaam}</span>
+            </div>
+
+            <span class="kalender-les-bedrag">
+                ${bedrag > 0 ? euroFormatter.format(bedrag) : "—"}
+            </span>
+
+            <button type="button"
+                class="kalender-bewerk-knop"
+                onclick="toggleKalenderBewerken(${lesIndex})">
+                ✏️
+            </button>
+
+            <button type="button"
+                class="kalender-verwijder-knop"
+                onclick="verwijderLesUitKalender(${lesIndex})">
+                ×
+            </button>
+        </div>
+    `;
+
+    if (openKalenderBewerkLes === lesIndex) {
         html += `
-            <div class="kalender-les-regel">
-                <div class="kalender-les-info">
-                    <span class="kalender-les-tijd">${les.tijdstip || ""}</span>
-                    <span>${typeNaam}</span>
-                </div>
-                <span class="kalender-les-bedrag">
-    ${bedrag > 0 ? euroFormatter.format(bedrag) : "—"}
-</span>
+            <div class="bewerk-paneel kalender-bewerk-paneel">
 
-<button
-    type="button"
-    class="kalender-verwijder-knop"
-    onclick="verwijderLesUitKalender(${lesIndex})"
-    aria-label="Les verwijderen">
-    ×
-</button>
+                <label>Type registratie</label>
+                <select id="kalender-edit-type-${lesIndex}"
+                    onchange="updateKalenderEditTarief(${lesIndex})">
+
+                    <option value="prive" ${les.type === "prive" ? "selected" : ""}>🎾 Privéles</option>
+                    <option value="groep" ${les.type === "groep" ? "selected" : ""}>👥 Groepsles</option>
+                    <option value="weersomstandigheden" ${les.type === "weersomstandigheden" ? "selected" : ""}>🌧️ Weersomstandigheden</option>
+                    <option value="vakantie" ${les.type === "vakantie" ? "selected" : ""}>🏖️ Vakantie</option>
+                    <option value="afwezig" ${les.type === "afwezig" ? "selected" : ""}>🤒 Leerling afwezig</option>
+                    <option value="trainer_afwezig" ${les.type === "trainer_afwezig" ? "selected" : ""}>🚫 Trainer afwezig</option>
+
+                </select>
+
+                <label>Tarief (€)</label>
+                <input type="number"
+                    id="kalender-edit-tarief-${lesIndex}"
+                    min="0"
+                    step="0.01"
+                    value="${bedrag}">
+
+                <button class="opslaan-button"
+                    onclick="opslaanKalenderLes(${lesIndex})">
+                    💾 Wijzigingen opslaan
+                </button>
+
             </div>
         `;
-    });
+    }
+});
 
     // Activiteiten weergeven
     dagActiviteiten.forEach(activiteit => {
@@ -2003,10 +2095,6 @@ if (
 
     <option value="uitgevallen" ${les.type === "uitgevallen" ? "selected" : ""}>
         ❌ Uitgevallen
-    </option>
-
-    <option value="uitval" ${les.type === "uitval" ? "selected" : ""}>
-        ❌ Uitval
     </option>
 
 </select>
