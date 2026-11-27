@@ -618,6 +618,7 @@ hr {
     transform: rotate(45deg);
 }
 
+
 #fabMenu {
     position: fixed;
     z-index: 9998;
@@ -635,7 +636,7 @@ hr {
     width: 180px;
     height: 56px;
     padding: 0 16px;
-    border: none;
+    border: 1px solid rgba(168, 240, 68, .35);
     border-radius: 22px;
     background: #24335F;
     color: white;
@@ -654,11 +655,15 @@ hr {
 }
 
 #fabMenu .fab-tarieven {
-    bottom: 176px;
+    bottom: 168px;
 }
 
 #fabMenu .fab-blok {
-    bottom: 252px;
+    bottom: 236px;
+}
+
+#fabMenu .fab-activiteit {
+    bottom: 304px;
 }
 
 #fabMenu.open .fab-item {
