@@ -1603,3 +1603,15 @@ hr {
 .vandaag-card {
     display: none;
 }
+
+.alle-lessen-card .kalender-kop {
+    margin-bottom: 0;
+}
+
+.alle-lessen-card #alleLessenInhoud {
+    margin-top: 15px;
+}
+
+.alle-lessen-card .kalender-toggle {
+    flex-shrink: 0;
+}
