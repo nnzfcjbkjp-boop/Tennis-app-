@@ -1598,3 +1598,8 @@ hr {
 .kalender-activiteit-regel .kalender-verwijder-knop {
     flex-shrink: 0;
 }
+
+/* Vandaag geregistreerd verbergen */
+.vandaag-card {
+    display: none;
+}
