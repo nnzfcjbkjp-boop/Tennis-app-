@@ -1487,26 +1487,29 @@ function tekenKalenderDagoverzicht() {
             ? `${activiteit.starttijd} - ${activiteit.eindtijd}`
             : activiteit.starttijd;
 
-        html += `
-            <div class="kalender-activiteit-regel">
-                <div class="kalender-activiteit-info">
-                    <span class="kalender-activiteit-tijd">
-                        ${tijdTekst || ""}
-                    </span>
-                    <span class="kalender-activiteit-omschrijving">
-    ${activiteit.omschrijving}
-</span>
+       html += `
+    <div class="kalender-activiteit-regel">
 
-<button
-    type="button"
-    class="kalender-verwijder-knop"
-    onclick="verwijderActiviteitUitKalender(${activiteitIndex})"
-    aria-label="Activiteit verwijderen">
-    ×
-</button>
-                </div>
-            </div>
-        `;
+        <div class="kalender-activiteit-info">
+            <span class="kalender-activiteit-tijd">
+                ${tijdTekst || ""}
+            </span>
+
+            <span class="kalender-activiteit-omschrijving">
+                ${activiteit.omschrijving}
+            </span>
+        </div>
+
+        <button
+            type="button"
+            class="kalender-verwijder-knop"
+            onclick="verwijderActiviteitUitKalender(${activiteitIndex})"
+            aria-label="Activiteit verwijderen">
+            ×
+        </button>
+
+    </div>
+`;
     });
 
     // Dagomzet uitsluitend van lessen
