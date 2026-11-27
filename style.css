@@ -2008,12 +2008,3 @@ hr {
     overflow-wrap: break-word;
 }
 
-@media (display-mode: standalone) {
-    body {
-        outline: 5px solid red !important;
-    }
-}
-
-html.standalone-mode body {
-    outline: 5px solid red !important;
-}
