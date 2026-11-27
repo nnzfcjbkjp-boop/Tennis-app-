@@ -1455,6 +1455,8 @@ function tekenKalenderDagoverzicht() {
     }
 
 function toggleKalenderBewerken(index) {
+    console.log("Bewerkknop aangeklikt:", index);
+
     openKalenderBewerkLes =
         openKalenderBewerkLes === index ? null : index;
 
@@ -1527,11 +1529,12 @@ dagLessen.forEach(les => {
                 ${bedrag > 0 ? euroFormatter.format(bedrag) : "—"}
             </span>
 
-            <button type="button"
-                class="kalender-bewerk-knop"
-                onclick="toggleKalenderBewerken(${lesIndex})">
-                ✏️
-            </button>
+<button
+    type="button"
+    class="kalender-bewerk-knop"
+    onclick="toggleKalenderBewerken(${lesIndex})">
+    ✏️
+</button>
 
             <button type="button"
                 class="kalender-verwijder-knop"
