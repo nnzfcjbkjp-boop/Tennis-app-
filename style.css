@@ -1629,3 +1629,125 @@ hr {
 #fabSubMenu .actie-toevoegen-button:hover {
     background: #91D52B !important;
 }
+
+
+/* =========================================
+   NIEUW DASHBOARD – MAANDOVERZICHT
+========================================= */
+
+.dashboard-maand {
+    margin-top: 20px;
+}
+
+.dashboard-maand-kop {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.dashboard-maand-kop h2 {
+    margin: 0;
+    font-size: 18px;
+    color: var(--text);
+}
+
+.dashboard-maand-navigatie {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+}
+
+.dashboard-maand-navigatie button {
+    width: 36px;
+    height: 38px;
+    border: none;
+    border-radius: 11px;
+    background: #26365F;
+    color: var(--lime);
+    font-size: 24px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.dashboard-maand-navigatie select {
+    width: auto;
+    max-width: 155px;
+    height: 38px;
+    padding: 0 8px;
+    border: 1px solid #34446B;
+    border-radius: 11px;
+    background: #24335F;
+    color: white;
+    font-size: 13px;
+}
+
+.dashboard-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 10px;
+}
+
+.dashboard-stat {
+    min-width: 0;
+    min-height: 100px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 6px;
+    border: 1px solid rgba(255,255,255,.04);
+    border-radius: 19px;
+    background: #22325d;
+    text-align: center;
+}
+
+.dashboard-stat-getal {
+    color: var(--lime);
+    font-size: 30px;
+    line-height: 1.15;
+    font-weight: 800;
+    overflow-wrap: anywhere;
+}
+
+.dashboard-stat-label {
+    margin-top: 5px;
+    color: white;
+    font-size: 12px;
+    line-height: 1.3;
+    font-weight: 600;
+}
+
+.dashboard-stat-getal.dashboard-bedrag {
+    font-size: 19px;
+    letter-spacing: -.5px;
+}
+
+@media screen and (max-width: 380px) {
+
+    .dashboard-maand-kop {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .dashboard-stat {
+        min-height: 94px;
+        padding: 10px 4px;
+    }
+
+    .dashboard-stat-getal {
+        font-size: 27px;
+    }
+
+    .dashboard-stat-getal.dashboard-bedrag {
+        font-size: 16px;
+    }
+
+    .dashboard-stat-label {
+        font-size: 11px;
+    }
+}
+
