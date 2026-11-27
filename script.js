@@ -1998,9 +1998,29 @@ const naam =
 
        alleLessenHtml += `
 
-alleLessenHtml += `
-
 <div class="les-item-compact">
+
+    <span class="les-tijdstip">
+        ${les.tijdstip}
+    </span>
+
+    <div class="les-info">
+
+        <span class="les-naam">
+            ${naam}
+        </span>
+
+        <span class="les-bedrag">
+            ${les.tarief > 0
+                ? `€${les.tarief}`
+                : ""}
+        </span>
+
+    </div>
+
+</div>
+
+`;
 
     <span class="les-tijdstip">
         ${les.tijdstip}
