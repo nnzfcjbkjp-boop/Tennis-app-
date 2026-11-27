@@ -290,31 +290,39 @@
 
         </div>
 
-        <!-- Alle lessen -->
 
-      <div class="card">
+<!-- Alle lessen -->
 
-    <div class="uitklap-kop">
+<div class="card alle-lessen-card">
 
+    <div class="kalender-kop">
         <h2 id="alleLessenTitel">
-
             📚 Alle lessen (0)
-
         </h2>
+
+        <button
+            type="button"
+            id="alleLessenToggle"
+            class="kalender-toggle"
+            onclick="toggleAlleLessen()">
+            ▼
+        </button>
+    </div>
+
+    <div id="alleLessenInhoud" style="display:none;">
+
+        <div id="alleLessenLijst"></div>
+
+        <button
+            class="alles-reset-button"
+            onclick="resetAlleLessen()">
+            🗑️ Wis alle lessen
+        </button>
 
     </div>
 
-    <div id="alleLessenLijst"></div>
-
-    <button
-        class="alles-reset-button"
-        onclick="resetAlleLessen()">
-
-        🗑️ Wis alle lessen
-
-    </button>
-
 </div>
+
 
         <!-- Omzetverdeling -->
 
