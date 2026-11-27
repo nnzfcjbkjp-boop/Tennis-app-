@@ -1,4 +1,4 @@
-/* =========================================================
+(/* =========================================================
    TENNISADMINISTRATIE – OPGESCHOONDE STYLESHEET
    ========================================================= */
 
@@ -1908,6 +1908,27 @@ hr {
 
 .dashboard-btw-stat .dashboard-financieel-bedrag {
     font-size: 21px;
+}
+
+
+/* Maandkeuze dashboard beter passend maken */
+
+.dashboard-maand-navigatie {
+    display: grid;
+    grid-template-columns: 48px minmax(0, 1fr) 48px;
+    gap: 10px;
+    width: 100%;
+}
+
+.dashboard-maand-navigatie select {
+    width: 100%;
+    min-width: 0;
+    height: 46px;
+    padding: 0 8px;
+    box-sizing: border-box;
+    font-size: 15px;
+    text-align: center;
+    text-overflow: clip;
 }
 
 
