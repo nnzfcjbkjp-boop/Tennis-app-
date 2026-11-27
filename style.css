@@ -1751,3 +1751,163 @@ hr {
     }
 }
 
+/* =========================================
+   DASHBOARD MAANDOVERZICHT
+========================================= */
+
+.dashboard-maand {
+    margin-top: 20px;
+}
+
+.dashboard-maand-kop {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-bottom: 20px;
+}
+
+.dashboard-maand-kop h2 {
+    margin: 0;
+    font-size: 22px;
+    font-weight: 800;
+    color: var(--text);
+}
+
+.dashboard-maand-navigatie {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.dashboard-maand-navigatie button {
+    width: 48px;
+    height: 46px;
+    flex-shrink: 0;
+    border: none;
+    border-radius: 14px;
+    background: #26365F;
+    color: var(--lime);
+    font-size: 28px;
+    font-weight: 700;
+}
+
+.dashboard-maand-navigatie select {
+    flex: 1;
+    height: 46px;
+    min-width: 0;
+    background: #26365F;
+    color: white;
+    border: 1px solid #34446B;
+    border-radius: 14px;
+    font-size: 16px;
+    font-weight: 600;
+    text-align: center;
+}
+
+/* Aantallen */
+
+.dashboard-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 10px;
+}
+
+.dashboard-stat {
+    min-width: 0;
+    min-height: 112px;
+    padding: 14px 7px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: #26365F;
+    border: 1px solid rgba(255,255,255,.04);
+    border-radius: 20px;
+}
+
+.dashboard-stat-getal {
+    color: var(--lime);
+    font-size: 38px;
+    line-height: 1.1;
+    font-weight: 800;
+    font-variant-numeric: tabular-nums;
+}
+
+.dashboard-stat-label {
+    margin-top: 9px;
+    color: white;
+    font-size: 13px;
+    line-height: 1.3;
+    font-weight: 650;
+}
+
+/* Financieel gedeelte */
+
+.dashboard-financieel {
+    margin-top: 22px;
+    padding-top: 18px;
+    border-top: 1px solid rgba(255,255,255,.10);
+}
+
+.dashboard-financieel-kop {
+    margin-bottom: 12px;
+    color: white;
+    font-size: 16px;
+    font-weight: 750;
+}
+
+.dashboard-financieel-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+}
+
+.dashboard-financieel-stat {
+    min-width: 0;
+    min-height: 92px;
+    padding: 14px 10px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 9px;
+    background: #26365F;
+    border-radius: 18px;
+}
+
+.dashboard-financieel-label {
+    color: var(--text-secondary);
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.dashboard-financieel-bedrag {
+    color: var(--lime);
+    font-size: clamp(16px, 4.4vw, 22px);
+    line-height: 1.2;
+    font-weight: 800;
+    letter-spacing: -.5px;
+    white-space: nowrap;
+    font-variant-numeric: tabular-nums;
+}
+
+.dashboard-btw-stat {
+    grid-column: 1 / -1;
+    min-height: 76px;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 16px;
+}
+
+.dashboard-btw-stat .dashboard-financieel-label {
+    font-size: 14px;
+}
+
+.dashboard-btw-stat .dashboard-financieel-bedrag {
+    font-size: 21px;
+}
+
+
