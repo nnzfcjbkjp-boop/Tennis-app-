@@ -239,6 +239,46 @@
 </div>
             
 </div>
+
+<!-- Maandkalender -->
+<div class="card kalender-card">
+    <div class="kalender-kop">
+        <h2>📅 Kalender</h2>
+        <button type="button" id="kalenderToggle"
+                class="kalender-toggle"
+                onclick="toggleKalender()">▲</button>
+    </div>
+
+    <div id="kalenderInhoud">
+        <div class="kalender-navigatie">
+            <button type="button" onclick="veranderKalenderMaand(-1)">‹</button>
+
+            <div class="kalender-keuze">
+                <select id="kalenderMaandKeuze"
+                        onchange="kiesKalenderMaand()"></select>
+                <select id="kalenderJaarKeuze"
+                        onchange="kiesKalenderMaand()"></select>
+            </div>
+
+            <button type="button" onclick="veranderKalenderMaand(1)">›</button>
+        </div>
+
+        <div class="kalender-weekdagen">
+            <span>Ma</span><span>Di</span><span>Wo</span>
+            <span>Do</span><span>Vr</span><span>Za</span><span>Zo</span>
+        </div>
+
+        <div id="kalenderGrid" class="kalender-grid"></div>
+
+        <div class="kalender-legenda">
+            <span><i class="kalender-dot kalender-dot-les"></i>Lessen</span>
+            <span><i class="kalender-dot kalender-dot-afwezig"></i>Afwezigheid / uitval</span>
+        </div>
+
+        <div id="kalenderDagoverzicht" class="kalender-dagoverzicht"></div>
+    </div>
+</div>
+
         <!-- Vandaag geregistreerd -->
 
        <div class="card vandaag-card">
