@@ -2008,3 +2008,10 @@ hr {
     overflow-wrap: break-word;
 }
 
+/* Alleen de versie die vanaf het beginscherm wordt geopend */
+@media (display-mode: standalone) {
+    html {
+        zoom: 0.85;
+    }
+}
+
