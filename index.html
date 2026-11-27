@@ -24,31 +24,63 @@
 
     </div>
 
-    <div class="stats">
+   
+<div class="dashboard-maand">
 
-        <div>
+    <div class="dashboard-maand-kop">
+        <h2>📅 Maandoverzicht</h2>
 
-            <div id="priveAantal" class="stat-getal">
-                0
-            </div>
+        <div class="dashboard-maand-navigatie">
+            <button type="button"
+                onclick="veranderDashboardMaand(-1)">‹</button>
 
-            <div>Privélessen vandaag</div>
+            <select id="dashboardMaandKeuze"
+                onchange="kiesDashboardMaand()">
+            </select>
 
+            <button type="button"
+                onclick="veranderDashboardMaand(1)">›</button>
+        </div>
+    </div>
+
+    <div class="dashboard-stats-grid">
+
+        <div class="dashboard-stat">
+            <div class="dashboard-stat-getal" id="priveAantal">0</div>
+            <div class="dashboard-stat-label">Privélessen vandaag</div>
         </div>
 
-        <div>
+        <div class="dashboard-stat">
+            <div class="dashboard-stat-getal" id="groepAantal">0</div>
+            <div class="dashboard-stat-label">Groepslessen vandaag</div>
+        </div>
 
-            <div id="groepAantal" class="stat-getal">
-                0
-            </div>
+        <div class="dashboard-stat">
+            <div class="dashboard-stat-getal" id="dashboardLessen">0</div>
+            <div class="dashboard-stat-label">Lessen deze maand</div>
+        </div>
 
-            <div>Groepslessen vandaag</div>
+        <div class="dashboard-stat">
+            <div class="dashboard-stat-getal dashboard-bedrag"
+                id="dashboardOmzetIncl">€ 0,00</div>
+            <div class="dashboard-stat-label">Omzet incl. btw</div>
+        </div>
 
+        <div class="dashboard-stat">
+            <div class="dashboard-stat-getal dashboard-bedrag"
+                id="dashboardBtw">€ 0,00</div>
+            <div class="dashboard-stat-label">BTW</div>
+        </div>
+
+        <div class="dashboard-stat">
+            <div class="dashboard-stat-getal dashboard-bedrag"
+                id="dashboardOmzetExcl">€ 0,00</div>
+            <div class="dashboard-stat-label">Omzet excl. btw</div>
         </div>
 
     </div>
-
 </div>
+
 
         <div id="beheerContainer">
             
