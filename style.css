@@ -1256,3 +1256,231 @@ hr {
     font-size: 16px;
     line-height: 1;
 }
+
+/* =========================
+   MAANDKALENDER
+========================= */
+
+.kalender-card {
+    margin-top: 20px;
+}
+
+.kalender-kop {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.kalender-kop h2 {
+    margin: 0;
+}
+
+.kalender-toggle,
+.kalender-navigatie button {
+    background: #26365F;
+    color: var(--lime);
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 22px;
+    min-width: 38px;
+    min-height: 38px;
+}
+
+.kalender-navigatie {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 18px;
+}
+
+.kalender-keuze {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    flex: 1;
+}
+
+.kalender-keuze select {
+    background: #26365F;
+    color: white;
+    border: 1px solid #34446B;
+    border-radius: 9px;
+    padding: 9px 10px;
+    font-size: 14px;
+    min-width: 0;
+}
+
+.kalender-weekdagen,
+.kalender-grid {
+    display: grid;
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+    gap: 5px;
+}
+
+.kalender-weekdagen {
+    margin-bottom: 8px;
+}
+
+.kalender-weekdagen span {
+    color: var(--text-secondary);
+    text-align: center;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.kalender-dag {
+    background: #26365F;
+    border: 1px solid transparent;
+    border-radius: 9px;
+    min-width: 0;
+    min-height: 43px;
+    padding: 5px 2px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    cursor: pointer;
+    font: inherit;
+}
+
+.kalender-dag:hover {
+    border-color: var(--lime);
+}
+
+.kalender-dag.buiten-maand {
+    opacity: 0.35;
+}
+
+.kalender-dag.vandaag {
+    border-color: var(--lime);
+}
+
+.kalender-dag.geselecteerd {
+    background: var(--lime);
+    color: #19264A;
+    font-weight: 700;
+}
+
+.kalender-dagnummer {
+    font-size: 13px;
+    line-height: 1;
+}
+
+.kalender-indicatoren {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+    min-height: 6px;
+}
+
+.kalender-dot {
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.kalender-dot-les {
+    background: var(--lime);
+}
+
+.kalender-dot-afwezig {
+    background: var(--blue);
+}
+
+.kalender-dag.geselecteerd .kalender-dot-les {
+    background: #19264A;
+}
+
+.kalender-dag.geselecteerd .kalender-dot-afwezig {
+    background: #2877B5;
+}
+
+.kalender-legenda {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 16px;
+    color: var(--text-secondary);
+    font-size: 12px;
+}
+
+.kalender-legenda span {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.kalender-dagoverzicht {
+    border-top: 1px solid #34446B;
+    margin-top: 16px;
+    padding-top: 15px;
+}
+
+.kalender-dag-kop {
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+.kalender-leeg {
+    color: var(--text-secondary);
+    font-size: 13px;
+}
+
+.kalender-les-regel {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 9px 0;
+    border-bottom: 1px solid #34446B;
+    font-size: 13px;
+}
+
+.kalender-les-info {
+    min-width: 0;
+}
+
+.kalender-les-tijd {
+    color: var(--text-secondary);
+    margin-right: 8px;
+}
+
+.kalender-les-bedrag {
+    white-space: nowrap;
+    font-weight: 600;
+}
+
+.kalender-dag-totaal {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 14px;
+    font-weight: 700;
+}
+
+.kalender-dag-totaal span:last-child {
+    color: var(--lime);
+}
+
+@media (max-width: 480px) {
+    .kalender-grid {
+        gap: 4px;
+    }
+
+    .kalender-dag {
+        min-height: 39px;
+        border-radius: 7px;
+    }
+
+    .kalender-keuze select {
+        padding: 8px 5px;
+        font-size: 13px;
+    }
+}
