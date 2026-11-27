@@ -14,6 +14,9 @@ let btwPercentage =
 let lessen =
     JSON.parse(localStorage.getItem("lessen")) || [];
     
+    let activiteiten =
+    JSON.parse(localStorage.getItem("activiteiten")) || [];
+    
     // Kalender
 const kalenderNu = new Date();
 
@@ -516,6 +519,46 @@ else if (type === "blok") {
             </div>
 
         </div>
+    `;
+}
+
+// 4. ACTIVITEIT TOEVOEGEN
+else if (type === "activiteit") {
+
+    popup.innerHTML = `
+        <div class="popup-title">📌 Activiteit toevoegen</div>
+
+        <label>Omschrijving</label>
+        <input
+            type="text"
+            id="activiteitOmschrijving"
+            placeholder="Bijvoorbeeld: racket bespannen">
+
+        <label>Datum</label>
+        <input
+            type="date"
+            id="activiteitDatum"
+            value="${vandaag()}">
+
+        <label>Starttijd</label>
+        <input
+            type="time"
+            id="activiteitStarttijd"
+            value="${huidigeTijd()}">
+
+        <label>Eindtijd (optioneel)</label>
+        <input
+            type="time"
+            id="activiteitEindtijd">
+
+        <button class="registreren-button"
+            onclick="registreerActiviteit()">
+            📌 Activiteit opslaan
+        </button>
+
+        <button class="popup-close" onclick="closePopup()">
+            Sluiten
+        </button>
     `;
 }
 
@@ -1283,6 +1326,9 @@ function tekenKalender() {
                 "uitval"
             ].includes(les.type)
         );
+const heeftActiviteiten = activiteiten.some(
+    activiteit => activiteit.datum === datumString
+);
 
         const classes = [
             "kalender-dag",
@@ -1298,9 +1344,10 @@ function tekenKalender() {
                 aria-label="${datumString}">
                 <span class="kalender-dagnummer">${datum.getDate()}</span>
                 <span class="kalender-indicatoren">
-                    ${heeftLessen ? '<i class="kalender-dot kalender-dot-les"></i>' : ""}
-                    ${heeftAfwezigheid ? '<i class="kalender-dot kalender-dot-afwezig"></i>' : ""}
-                </span>
+    ${heeftLessen ? '<i class="kalender-dot kalender-dot-les"></i>' : ""}
+    ${heeftAfwezigheid ? '<i class="kalender-dot kalender-dot-afwezig"></i>' : ""}
+    ${heeftActiviteiten ? '<i class="kalender-dot kalender-dot-activiteit"></i>' : ""}
+</span>
             </button>
         `;
     }
@@ -1916,6 +1963,14 @@ function opslaan() {
     );
 }
 
+function opslaanActiviteiten() {
+
+    localStorage.setItem(
+        "activiteiten",
+        JSON.stringify(activiteiten)
+    );
+}
+
 function vandaag() {
     return datumNaarString(new Date());
 }
@@ -2068,6 +2123,45 @@ updatePopupTarief();
             ? "✅ Les toegevoegd"
             : "✅ Afwezigheid geregistreerd"
     );
+}
+
+function registreerActiviteit() {
+
+    const omschrijving =
+        document.getElementById("activiteitOmschrijving").value.trim();
+
+    const datum =
+        document.getElementById("activiteitDatum").value;
+
+    const starttijd =
+        document.getElementById("activiteitStarttijd").value;
+
+    const eindtijd =
+        document.getElementById("activiteitEindtijd").value;
+
+    if (!omschrijving || !datum || !starttijd) {
+        toonMelding("⚠️ Vul omschrijving, datum en starttijd in");
+        return;
+    }
+
+    if (eindtijd && eindtijd <= starttijd) {
+        toonMelding("⚠️ De eindtijd moet na de starttijd liggen");
+        return;
+    }
+
+    activiteiten.push({
+        id: Date.now().toString(),
+        omschrijving: omschrijving,
+        datum: datum,
+        starttijd: starttijd,
+        eindtijd: eindtijd
+    });
+
+    opslaanActiviteiten();
+    updateDashboard();
+    closePopup();
+
+    toonMelding("✅ Activiteit toegevoegd");
 }
 
 function updatePopupTarief() {
