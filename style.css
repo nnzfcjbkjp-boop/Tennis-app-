@@ -2013,3 +2013,18 @@ html.standalone-mode {
     zoom: 0.85;
 }
 
+.kalender-bewerk-knop {
+    flex-shrink: 0;
+    width: 28px;
+    height: 28px;
+    border: none;
+    border-radius: 8px;
+    background: rgba(168, 240, 68, 0.12);
+    color: var(--lime);
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.kalender-bewerk-paneel {
+    margin: 8px 0 14px;
+}
