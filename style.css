@@ -1536,3 +1536,24 @@ hr {
     background: #A78BFA;
     flex-shrink: 0;
 }
+
+.kalender-verwijder-knop {
+    flex-shrink: 0;
+    width: 28px;
+    height: 28px;
+    border: none;
+    border-radius: 8px;
+    background: rgba(239, 83, 80, 0.15);
+    color: #EF5350;
+    font-size: 21px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.kalender-les-regel,
+.kalender-activiteit-regel {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+}
