@@ -1357,6 +1357,7 @@ const heeftActiviteiten = activiteiten.some(
     tekenKalenderDagoverzicht();
 }
 
+
 function tekenKalenderDagoverzicht() {
     const overzicht = document.getElementById("kalenderDagoverzicht");
 
@@ -1375,6 +1376,12 @@ function tekenKalenderDagoverzicht() {
         .filter(les => les.datum === geselecteerdeKalenderDatum)
         .sort((a, b) =>
             String(a.tijdstip || "").localeCompare(String(b.tijdstip || ""))
+        );
+
+    const dagActiviteiten = activiteiten
+        .filter(activiteit => activiteit.datum === geselecteerdeKalenderDatum)
+        .sort((a, b) =>
+            String(a.starttijd || "").localeCompare(String(b.starttijd || ""))
         );
 
     const typeNamen = {
@@ -1399,12 +1406,13 @@ function tekenKalenderDagoverzicht() {
         </div>
     `;
 
-    if (dagLessen.length === 0) {
+    if (dagLessen.length === 0 && dagActiviteiten.length === 0) {
         html += `<div class="kalender-leeg">Geen registraties op deze dag.</div>`;
         overzicht.innerHTML = html;
         return;
     }
 
+    // Lessen weergeven
     let dagTotaal = 0;
 
     dagLessen.forEach(les => {
@@ -1426,12 +1434,36 @@ function tekenKalenderDagoverzicht() {
         `;
     });
 
-    html += `
-        <div class="kalender-dag-totaal">
-            <span>Dagomzet</span>
-            <span>${euroFormatter.format(dagTotaal)}</span>
-        </div>
-    `;
+    // Activiteiten weergeven
+    dagActiviteiten.forEach(activiteit => {
+        const tijdTekst = activiteit.eindtijd
+            ? `${activiteit.starttijd} - ${activiteit.eindtijd}`
+            : activiteit.starttijd;
+
+        html += `
+            <div class="kalender-activiteit-regel">
+                <div class="kalender-activiteit-info">
+                    <span class="kalender-activiteit-tijd">
+                        ${tijdTekst || ""}
+                    </span>
+                    <span class="kalender-activiteit-omschrijving">
+                        <i class="kalender-dot kalender-dot-activiteit"></i>
+                        ${activiteit.omschrijving}
+                    </span>
+                </div>
+            </div>
+        `;
+    });
+
+    // Dagomzet uitsluitend van lessen
+    if (dagLessen.length > 0) {
+        html += `
+            <div class="kalender-dag-totaal">
+                <span>Dagomzet</span>
+                <span>${euroFormatter.format(dagTotaal)}</span>
+            </div>
+        `;
+    }
 
     overzicht.innerHTML = html;
 }
