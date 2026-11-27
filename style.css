@@ -2008,3 +2008,8 @@ hr {
     overflow-wrap: break-word;
 }
 
+/* Compacte weergave uitsluitend voor de beginschermapp */
+html.standalone-mode {
+    zoom: 0.85;
+}
+
