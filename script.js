@@ -1,11 +1,3 @@
-const isBeginschermApp =
-    window.navigator.standalone === true ||
-    window.matchMedia('(display-mode: standalone)').matches;
-
-if (isBeginschermApp) {
-    document.documentElement.classList.add('standalone-mode');
-}
-
 // =========================
 // Instellingen
 // =========================
