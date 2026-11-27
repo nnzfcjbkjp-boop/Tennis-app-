@@ -1918,10 +1918,15 @@ if (
 
 });
      
-document.getElementById(
-    "alleLessenLijst"
-).innerHTML =
+document.getElementById("alleLessenLijst").innerHTML =
     alleLessenHtml;
+
+// Uitklapbare weergave Alle lessen
+document.getElementById("alleLessenInhoud").style.display =
+    alleLessenOpen ? "block" : "none";
+
+document.getElementById("alleLessenToggle").textContent =
+    alleLessenOpen ? "▲" : "▼";
 
     
 // Seizoensmonitor
