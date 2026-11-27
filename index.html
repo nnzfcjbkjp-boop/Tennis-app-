@@ -280,123 +280,7 @@
     </div>
 </div>
 
-        <!-- Vandaag geregistreerd -->
-
-       <div class="card vandaag-card">
-
-            <h2>🕒 Vandaag geregistreerd</h2>
-
-            <div id="lessenLijst"></div>
-
-        </div>
-
-
-<!-- Alle lessen -->
-
-<div class="card alle-lessen-card">
-
-    <div class="kalender-kop">
-        <h2 id="alleLessenTitel">
-            📚 Alle lessen (0)
-        </h2>
-
-        <button
-            type="button"
-            id="alleLessenToggle"
-            class="kalender-toggle"
-            onclick="toggleAlleLessen()">
-            ▼
-        </button>
-    </div>
-
-    <div id="alleLessenInhoud" style="display:none;">
-
-        <div id="alleLessenLijst"></div>
-
-        <button
-            class="alles-reset-button"
-            onclick="resetAlleLessen()">
-            🗑️ Wis alle lessen
-        </button>
-
-    </div>
-
-</div>
-
-
-        <!-- Omzetverdeling -->
-
-       <div class="card">
-
-    <h2>📊 Omzetverdeling</h2>
-
-    <div class="regel">
-
-        <span>Omzet excl. btw</span>
-
-        <strong id="kaartExcl">
-            € 0,00
-        </strong>
-
-    </div>
-
-    <div class="regel">
-
-        <span>BTW vandaag</span>
-
-        <strong id="kaartBTW">
-            € 0,00
-        </strong>
-
-    </div>
-
-    <hr>
-
-    <div class="totaal-regel">
-
-        <span>Totaal incl. btw vandaag</span>
-
-        <strong id="kaartIncl">
-            € 0,00
-        </strong>
-
-    </div>
-
-    <hr>
-
-    <div class="totaal-regel">
-
-        <span>Totale omzet alle lessen</span>
-
-        <strong id="kaartTotaalOmzet">
-            € 0,00
-        </strong>
-
-    </div>
-
-    <div class="totaal-regel">
-
-        <span>Totale BTW alle lessen</span>
-
-        <strong id="kaartTotaalBTW">
-            € 0,00
-        </strong>
-
-    </div>
-
-    <div class="totaal-regel">
-
-        <span>Totaal aantal lessen</span>
-
-        <strong id="kaartTotaalLessen">
-            0
-        </strong>
-
-    </div>
-
-</div>
-
- <!-- Seizoensmonitor -->
+<!-- Seizoensmonitor -->
 
         
 <div id="toastMelding" class="toast">
@@ -537,6 +421,122 @@
 </div>
 
 <div id="overlay" onclick="closePopup()"></div>
-        
+
+
+        <!-- Vandaag geregistreerd -->
+
+       <div class="card vandaag-card">
+
+            <h2>🕒 Vandaag geregistreerd</h2>
+
+            <div id="lessenLijst"></div>
+
+        </div>
+
+
+        <!-- Omzetverdeling -->
+
+       <div class="card">
+
+    <h2>📊 Omzetverdeling</h2>
+
+    <div class="regel">
+
+        <span>Omzet excl. btw</span>
+
+        <strong id="kaartExcl">
+            € 0,00
+        </strong>
+
+    </div>
+
+    <div class="regel">
+
+        <span>BTW vandaag</span>
+
+        <strong id="kaartBTW">
+            € 0,00
+        </strong>
+
+    </div>
+
+    <hr>
+
+    <div class="totaal-regel">
+
+        <span>Totaal incl. btw vandaag</span>
+
+        <strong id="kaartIncl">
+            € 0,00
+        </strong>
+
+    </div>
+
+    <hr>
+
+    <div class="totaal-regel">
+
+        <span>Totale omzet alle lessen</span>
+
+        <strong id="kaartTotaalOmzet">
+            € 0,00
+        </strong>
+
+    </div>
+
+    <div class="totaal-regel">
+
+        <span>Totale BTW alle lessen</span>
+
+        <strong id="kaartTotaalBTW">
+            € 0,00
+        </strong>
+
+    </div>
+
+    <div class="totaal-regel">
+
+        <span>Totaal aantal lessen</span>
+
+        <strong id="kaartTotaalLessen">
+            0
+        </strong>
+
+    </div>
+
+</div>
+ 
+<!-- Alle lessen -->
+
+<div class="card alle-lessen-card">
+
+    <div class="kalender-kop">
+        <h2 id="alleLessenTitel">
+            📚 Alle lessen (0)
+        </h2>
+
+        <button
+            type="button"
+            id="alleLessenToggle"
+            class="kalender-toggle"
+            onclick="toggleAlleLessen()">
+            ▼
+        </button>
+    </div>
+
+    <div id="alleLessenInhoud" style="display:none;">
+
+        <div id="alleLessenLijst"></div>
+
+        <button
+            class="alles-reset-button"
+            onclick="resetAlleLessen()">
+            🗑️ Wis alle lessen
+        </button>
+
+    </div>
+
+</div>
+
 </body>
 </html>
