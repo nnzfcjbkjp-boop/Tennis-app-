@@ -25,6 +25,12 @@ let kalenderMaand = kalenderNu.getMonth();
 let geselecteerdeKalenderDatum = datumNaarString(kalenderNu);
 let kalenderOpen = true;
 
+// Dashboard maandselectie
+const dashboardNu = new Date();
+
+let dashboardJaar = dashboardNu.getFullYear();
+let dashboardMaand = dashboardNu.getMonth();
+
 const seizoenTotaal = 16;
 
 let alleLessenOpen = false;
@@ -1524,6 +1530,92 @@ function tekenKalenderDagoverzicht() {
     overzicht.innerHTML = html;
 }
 
+
+// =========================
+// DASHBOARD MAANDSELECTIE
+// =========================
+
+function vulDashboardMaandKeuze() {
+
+    const keuze = document.getElementById("dashboardMaandKeuze");
+
+    if (!keuze) return;
+
+    const huidigeDatum = new Date();
+
+    const lesJaren = lessen
+        .map(les => Number(String(les.datum).slice(0, 4)))
+        .filter(jaar => Number.isFinite(jaar));
+
+    const eersteJaar = Math.min(
+        huidigeDatum.getFullYear() - 5,
+        ...lesJaren
+    );
+
+    const laatsteJaar = Math.max(
+        huidigeDatum.getFullYear() + 5,
+        ...lesJaren
+    );
+
+    let opties = "";
+
+    for (let jaar = eersteJaar; jaar <= laatsteJaar; jaar++) {
+
+        for (let maand = 0; maand < 12; maand++) {
+
+            const waarde =
+                `${jaar}-${String(maand + 1).padStart(2, "0")}`;
+
+            const tekst = new Date(jaar, maand, 1)
+                .toLocaleDateString("nl-NL", {
+                    month: "long",
+                    year: "numeric"
+                });
+
+            opties += `
+                <option value="${waarde}">
+                    ${tekst.charAt(0).toUpperCase() + tekst.slice(1)}
+                </option>
+            `;
+        }
+    }
+
+    keuze.innerHTML = opties;
+
+    keuze.value =
+        `${dashboardJaar}-${String(dashboardMaand + 1).padStart(2, "0")}`;
+}
+
+
+function kiesDashboardMaand() {
+
+    const waarde =
+        document.getElementById("dashboardMaandKeuze").value;
+
+    const [jaar, maand] = waarde.split("-").map(Number);
+
+    dashboardJaar = jaar;
+    dashboardMaand = maand - 1;
+
+    updateDashboard();
+}
+
+
+function veranderDashboardMaand(richting) {
+
+    const nieuweDatum = new Date(
+        dashboardJaar,
+        dashboardMaand + richting,
+        1
+    );
+
+    dashboardJaar = nieuweDatum.getFullYear();
+    dashboardMaand = nieuweDatum.getMonth();
+
+    updateDashboard();
+}
+
+
 // =========================
 // Dashboard
 // =========================
@@ -1640,6 +1732,42 @@ document.getElementById("lessenLijst").innerHTML = vandaagHtml;
 
     document.getElementById("groepAantal").innerText =
     groepAantal;
+    
+    // Maandstatistieken dashboard
+
+vulDashboardMaandKeuze();
+
+const maandSleutel =
+    `${dashboardJaar}-${String(dashboardMaand + 1).padStart(2, "0")}`;
+
+const lessenDezeMaand = lessen.filter(les =>
+    les.datum &&
+    les.datum.startsWith(maandSleutel) &&
+    ["prive", "groep"].includes(les.type)
+);
+
+const maandOmzetIncl = lessenDezeMaand.reduce(
+    (totaal, les) => totaal + (Number(les.tarief) || 0),
+    0
+);
+
+const maandOmzetExcl =
+    maandOmzetIncl / (1 + btwPercentage / 100);
+
+const maandBtw =
+    maandOmzetIncl - maandOmzetExcl;
+
+document.getElementById("dashboardLessen").innerText =
+    lessenDezeMaand.length;
+
+document.getElementById("dashboardOmzetIncl").innerText =
+    euro(maandOmzetIncl);
+
+document.getElementById("dashboardBtw").innerText =
+    euro(maandBtw);
+
+document.getElementById("dashboardOmzetExcl").innerText =
+    euro(maandOmzetExcl);
     
     document.getElementById("kaartExcl").innerText =
         euro(omzetExcl);
