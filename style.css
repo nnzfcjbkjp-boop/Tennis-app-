@@ -1395,6 +1395,10 @@ hr {
     background: var(--blue);
 }
 
+.kalender-dot-activiteit {
+    background: #A78BFA;
+}
+
 .kalender-dag.geselecteerd .kalender-dot-les {
     background: #19264A;
 }
