@@ -3,7 +3,7 @@ const isBeginschermApp =
     window.matchMedia('(display-mode: standalone)').matches;
 
 if (isBeginschermApp) {
-    document.documentElement.classList.add('standalone-mode');
+    document.body.style.backgroundColor = 'red';
 }
 
 // =========================
