@@ -1,3 +1,5 @@
+alert("TEST: script.js wordt geladen");
+
 const isBeginschermApp =
     window.navigator.standalone === true ||
     window.matchMedia('(display-mode: standalone)').matches;
