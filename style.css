@@ -1494,3 +1494,34 @@ hr {
         font-size: 13px;
     }
 }
+
+.kalender-activiteit-regel {
+    padding: 10px 0;
+    border-bottom: 1px solid #34446B;
+    font-size: 13px;
+}
+
+.kalender-activiteit-info {
+    display: grid;
+    grid-template-columns: 120px minmax(0, 1fr);
+    align-items: center;
+    gap: 10px;
+}
+
+.kalender-activiteit-tijd {
+    color: var(--text-secondary);
+    font-variant-numeric: tabular-nums;
+}
+
+.kalender-activiteit-omschrijving {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    min-width: 0;
+    overflow-wrap: anywhere;
+}
+
+.kalender-dot-activiteit {
+    background: #A78BFA;
+    flex-shrink: 0;
+}
